@@ -1,0 +1,61 @@
+.divCardMed{
+    background-color: rgba(59, 228, 149, 0.363);
+    width:60%;
+    height: 50%;
+    margin: auto;
+    margin-bottom: 2%;
+    border-radius: 5%;
+}
+.divImagine{   
+     margin-top: 4%;
+    width: 20%;
+    height: 50%;
+    margin-left: 2%;
+    float: left;
+    align-items: flex-end;
+
+
+}
+.imgStyle{
+    width: 100%;
+    height:100%;
+    margin-top: 20%;
+}
+.divDate{
+    float: left;
+    margin-left: 10%;
+    margin-top: 2.5%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: aliceblue;
+}
+.buttonProfil {
+    background-color: rgba(76, 175, 79, 0);
+    border: none;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: aliceblue;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 4%;
+    margin-left: 23%;
+    cursor: pointer;
+    align-self: flex-end;
+   
+}
+.buttonPreturiServ{
+    background-color: rgba(76, 175, 79, 0);
+    border: none;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: aliceblue;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 4%;
+    margin-left: 23%;
+    cursor: pointer;
+    align-self: flex-start;
+}

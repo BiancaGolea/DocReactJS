@@ -1,0 +1,16 @@
+
+.divSignUp{
+    background-image: url("../../assets/fundal.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+
+.pageSignUpTitle{
+    color:darkcyan;
+    margin: auto;
+    padding-top: 4%;
+    margin-left: 50%;
+    margin-bottom: 5px; 
+}

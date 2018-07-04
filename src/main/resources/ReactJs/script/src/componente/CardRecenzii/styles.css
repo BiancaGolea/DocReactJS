@@ -1,0 +1,25 @@
+.divCartonasRecenzie{
+    background-color: rgba(145, 79, 184, 0.596);
+    width:60%;
+    height: 35%;
+    margin: auto;
+    margin-bottom: 2%;
+    border-radius: 4%;
+      
+}
+
+.infoRecenzie{
+    font-size: 120%;
+    font-weight: bold;
+    margin-left: 5%;
+    display: inline-block;
+    margin-top: 4%;
+}
+.descriereRecenzie{
+    background-color: rgba(134, 70, 126, 0.747);
+    width: 60%;
+    height: 60%;
+    border-radius: 5%;
+    margin-left:10%; 
+    display: inline-block;
+}

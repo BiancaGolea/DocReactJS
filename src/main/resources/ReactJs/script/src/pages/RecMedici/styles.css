@@ -1,0 +1,19 @@
+
+.divRecMedici{
+    background-image: url("../../assets/fundal.jpg");
+    overflow: scroll;
+    overflow-x: hidden;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+
+.pageRecMediciTitle{
+    color:black;
+    margin: auto;
+    padding-top: 5%;
+    margin-left: 23%;
+    margin-bottom: 5px; 
+    font-family: serif;
+}

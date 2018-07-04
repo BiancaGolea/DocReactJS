@@ -1,0 +1,10 @@
+.divListaMedici{
+    width: 90%;
+    height: 100vh;
+    margin: auto;
+   margin-top: 6%;
+}
+.divMedici{
+    background-color: rgb(165, 42, 79);
+    overflow:hidden;
+}

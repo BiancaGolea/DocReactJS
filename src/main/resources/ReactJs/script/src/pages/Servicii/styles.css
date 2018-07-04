@@ -1,0 +1,16 @@
+.divFundalServ{
+    background-image: url("../../assets/fundal.jpg");
+    width: 100%;
+    height: 100vh;
+    background-size: 100%;
+    overflow-x: hidden;
+    
+}
+.divHeaderServ{
+    position: fixed;
+    width: 100%;
+    
+}
+.divListaServ{
+   margin-top: 10%; 
+}

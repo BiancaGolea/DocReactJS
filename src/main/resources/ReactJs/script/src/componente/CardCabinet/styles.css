@@ -1,0 +1,49 @@
+.divCard{
+    background-color: rgba(110, 155, 80, 0.753);
+    width:60%;
+    height: 35%;
+    margin: auto;
+    margin-bottom: 2%;
+    padding-left: 0.01%;
+    border-radius: 7%;
+}
+.divImgCabinet{
+    width: 15%;
+    height: 50%;
+    margin-left: 2%;
+    float: left;
+    margin-top: 4%;
+}
+.imgStyle{
+    width: 100%;
+    height:100%;
+    margin-top: 12%;
+}
+.rating{
+    margin-top: 3%;
+    margin-left: 3%;
+
+}
+.divDate{
+    float: left;
+    margin-left: 10%;
+    margin-top: 2.5%;
+    padding-top: 5%;
+    font-family: Georgia;
+    font-size: 110%;
+}
+.buttonDetalii{
+    background-color: rgba(76, 175, 79, 0);
+    border: none;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: aliceblue;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20%;
+    margin-left: 23%;
+    cursor: pointer;
+    align-self: flex-end;
+}

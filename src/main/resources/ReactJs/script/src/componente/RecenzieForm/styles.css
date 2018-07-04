@@ -1,0 +1,37 @@
+.divPrincipal{
+    margin-left: 15%;
+    background-color: azure;
+    height: 70vh;
+    margin-right: 15%;
+    border-radius: 5%;
+    padding: 2%;
+    margin-top: 8%;
+}
+.divTextComentariu{
+    width: 100%;
+    padding: 3%;
+    margin-left: 15%;
+
+}
+.divNote{
+width: 20%;
+
+}
+.pTitluNote{
+    font-weight: bold;
+}
+.stilChenarComentarii{
+    width: 60%;
+    margin-right: 20%;
+}
+.divStilButton{
+        margin-left: 40%;
+    width: 12%;
+    height: 8%;
+    margin-top: 5%;
+}
+.styleIcon{
+    width: 50%;
+    height: 50%;
+    margin-left: 4%;
+}

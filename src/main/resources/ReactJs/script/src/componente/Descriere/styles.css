@@ -1,0 +1,17 @@
+.divPText{
+    width: 80%;
+    height: 100%;
+    margin-top: 20%;
+    margin-left: 12%;
+}
+.testDescriere{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+    color: blanchedalmond;
+}
+.testDescriereTitle{
+    
+    font-size: large;
+    color: blanchedalmond;
+    font: bold;
+}

@@ -1,0 +1,87 @@
+
+.div{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.divCartonas{
+    width: 80%;
+    height: 60%;
+    border-radius: 4%;
+    background-color: rgba(71, 30, 95, 0.377);
+    margin-left: 10%;
+    margin-top: 1%;
+    margin-right: 10%;
+}
+.p{
+    text-align: center;
+    color:white;
+    size: 50%;
+    margin-top: 4%;
+    font-family:italic, bold;
+    font-size: 130%;
+
+}
+.imgMica{
+    width: 80%;
+    height:40%;
+}
+.stilChenar{
+    float: left;
+    margin-left: 5%;
+    margin-top: 2.5%;
+    width: 60%;
+    background-color: rgba(27, 3, 41, 0.575);
+    size: 5%;
+    color:white;
+    padding: 3%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.styleRating{
+    float: left;
+    width: 20%;
+    height:90%;
+    margin-top: 2.5%;
+    margin-left: 3%;
+}
+.ratingParagraf{
+    padding-top: 5%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    size: 10px;
+    color: white;
+}
+.butonRezervare{
+    background-color: rgba(39, 95, 40, 0.363);
+     border: none;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: aliceblue;
+    font-size: 20px;
+    cursor: pointer;
+    float: left;
+    margin-left: 40%;
+    margin-top: 2%;
+    
+}
+.butonRecenzie{
+    background-color: rgba(39, 95, 40, 0.363);
+     border: none;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: aliceblue;
+    font-size: 20px;
+    cursor: pointer;
+    float: left;
+   margin-top: 2%;
+   margin-left: 2%;
+}
+.divBtn{
+    align-items: center;
+}
+
+.divProfilMedic{
+    background-image: url("../../assets/fundal.jpg");
+    background-size: 100%;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+}

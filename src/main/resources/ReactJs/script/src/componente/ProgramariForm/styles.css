@@ -1,0 +1,121 @@
+
+.divContent{
+    background-color: rgba(27, 182, 110, 0.281);
+    width:70%;
+    height: 75%;
+    border-radius: 5%;
+    padding-top: 2%;
+}
+
+.btnStyle{
+    width: 15%;
+    height: 2%;
+    margin-left: 40%;
+    margin-top: 4%;
+  background-color: rgba(50, 94, 42, 0.658);
+  size: 4%;
+  color: rgb(252, 170, 8);
+
+}
+
+.labelStyles{
+    padding-top: 2%;
+    margin-left: 15%;
+    align-self: center;
+    color: rgb(52, 55, 58);
+}
+
+
+.formStyle{
+   padding: 3%;
+}
+.specializariStyle{
+    width: 80%;
+    height: 20%;
+}
+.inputError{
+    border-style: solid;
+    border-color: rgb(180, 15, 15);
+    border-radius: 8%;
+}
+.stilEroare{
+    color: rgb(180, 15, 15);
+    size: 20%;
+    align-self: center;
+    margin-left: 25%;
+}
+.stilSucces1{
+    color: rgba(44, 39, 44, 0.781);
+    font-size: 200%;
+    float: left;
+    margin-left: 40%;
+    margin-top: 2.5%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   
+}
+.stilSucces2{
+    color: rgba(32, 29, 32, 0.781);
+    font-size: 200%;
+    float: left;
+    margin-left: 20%;
+    margin-top: 2.5%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   
+}
+.stilSucces3{
+    color: rgba(27, 24, 27, 0.781);
+    font-size: 200%;
+    float: left;
+    margin-left: 38%;
+    margin-top: 2.5%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   
+}
+.divSuccess{
+    background-color: rgba(27, 182, 110, 0.281);
+    width:50%;
+    height: 35%;
+    border-radius: 5%;
+    margin-left: 25%;
+}
+.calendar{
+    margin-top: 5%;
+    margin-left: 35%;
+}
+.h{
+    font-size: 110%;
+     color: rgb(52, 55, 58);
+     font-style: normal;
+     font-weight: bold;
+     padding-top: 2%;
+}
+.divH{
+    width: 20%;
+    height: 5%;
+    margin-left: 40%;
+    padding-top: 2%;
+}
+.divSelect{
+    width: 20%;
+    height: 5%;
+    margin-left: 44%;
+    padding-top: 2%;
+    align-content: center;
+
+}
+.select{
+    overflow:scroll;
+    height: 3%;
+    width: 100%;
+    background-color: brown;
+}
+.divImg{
+    width: 100%;
+    height: 100%;
+    margin-left: 10%;
+}
+.pErrorProgramariForm{
+    color: crimson;
+    font-weight: bold;
+    margin-left: 40%;
+}
