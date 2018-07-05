@@ -37,6 +37,7 @@ case Constants.GET_OFFICES_FAILURE:
 break;
 
 }
+default: break;
 }
 return state;
 }

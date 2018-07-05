@@ -131,9 +131,9 @@ class DoctorProfile extends Component {
                   }{" "}
                 </p>
                 <p> Cabinet: {this.props.profilMedic.dateMedic.adresaCab} </p>
-                <p>Orar: {this.renderOrar()} </p>
+                <div>Orar: {this.renderOrar()} </div>
                 <p> Email: {this.props.profilMedic.dateMedic.email} </p>
-                <p> Telefon: {this.renderNrTel()}</p>
+                <div> Telefon: {this.renderNrTel()}</div>
                 <p> Facebook: {this.props.profilMedic.dateMedic.facebook} </p>
               </div>
             </div>
@@ -161,7 +161,7 @@ class DoctorProfile extends Component {
   renderNrTel() {
     let list = [];
     for (let i = 0; i < this.props.profilMedic.dateMedic.nrTel.length; i++) {
-      list.push(<p> {this.props.profilMedic.dateMedic.nrTel[i]}</p>);
+      list.push(<p key={i}> {this.props.profilMedic.dateMedic.nrTel[i]}</p>);
     }
     return list;
   }
@@ -171,7 +171,7 @@ class DoctorProfile extends Component {
       let data=this.props.profilMedic.dateMedic.program[i];
       data=data.split(" ");
       let dataOrar=data[0]+"-"+data[2].slice(0, 5)+"--"+data[4].slice(0, 5);
-      orar.push(<p>{dataOrar}</p>)
+      orar.push(<p key={i*i+1}>{dataOrar}</p>)
     }
     return orar;
   }
@@ -196,6 +196,7 @@ class DoctorProfile extends Component {
     for (let i = 0;i <this.props.recenzieMedic.listaRecenziiMedici.length; i++) {
       listaRec.push(
       <ReviewCard
+      key={i*i+1}
        recenzieModel={this.props.recenzieMedic.listaRecenziiMedici[i]} />);
     }
     return listaRec;

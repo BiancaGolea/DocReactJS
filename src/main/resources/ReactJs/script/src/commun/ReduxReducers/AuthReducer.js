@@ -61,7 +61,9 @@ export default function loginReducer(state = initialState, action) {
                    ...state,
                    idDoctor:action.payload,
                }
+               break;
            }
+           default: break;
     }
     return state;
 }

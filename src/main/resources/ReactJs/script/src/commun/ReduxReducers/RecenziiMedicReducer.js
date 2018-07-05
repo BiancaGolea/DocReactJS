@@ -34,6 +34,7 @@ export const initialState = {
            };
            break;
        }
+       default: break;
     }
     return state;
   

@@ -34,6 +34,7 @@ export default function profilMedic(state = initialState, action) {
       };
       break;
     }
+    default: break;
   }
   return state;
 }

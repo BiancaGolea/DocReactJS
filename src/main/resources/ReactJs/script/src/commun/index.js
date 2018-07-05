@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import authReducer from "./ReduxReducers/AuthReducer";
 import specializariReducer from "./ReduxReducers/SpecializariReducer";
-import listaMediciBySpecializare from "./ReduxReducers/ListaMediciBySpecializareReducer";
+import listOfDoctorsBySpecialization from "./ReduxReducers/ListOfDoctorsBySpecializationReducer";
 import ProfilMedic from "./ReduxReducers/ProfilMedicReducers";
 import Servicii from "./ReduxReducers/ServiciiReducer";
 import RecenziiMedic from "./ReduxReducers/RecenziiMedicReducer";
@@ -12,7 +12,7 @@ import Programari from "./ReduxReducers/ProgramariReducer";
 export default combineReducers({
     authReducer:authReducer,
     specializareReducer:specializariReducer,
-    listaMediciBySpecializare:listaMediciBySpecializare,
+    listOfDoctorsBySpecialization:listOfDoctorsBySpecialization,
     profilMedic:ProfilMedic,
     serviciiMedic:Servicii,
     recenziiMedicReducer:RecenziiMedic,

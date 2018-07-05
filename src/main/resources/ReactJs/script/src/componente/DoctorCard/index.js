@@ -40,8 +40,8 @@ class DoctorCard extends Component {
         <div className="divInformations">
           <p>Nume: {this.props.numeMedic} </p>
           <p>Prenume: {this.props.prenumeMedic} </p>
-          <p>Adresa: {this.renderAdrese()} </p>
-          <p>Nr. Telefon:{this.renderNrTel()} </p>
+          <div>Adresa: {this.renderAdrese()} </div>
+          <div>Nr. Telefon:{this.renderNrTel()} </div>
         </div>
         <button onClick={()=>this.onClick2(this.props.idDoctor)} className="buttonPriceServices">
           Vezi preturi
@@ -71,7 +71,7 @@ renderNrTel(){
   let listaNr=[];
   let numere=this.props.nrTel.length;
   for(let i=0;i<numere;i++){
-  listaNr.push(<p>{this.props.nrTel[i]}</p>)
+  listaNr.push(<p key={i*i+1}>{this.props.nrTel[i]}</p>)
   }
   return listaNr;
 }
@@ -79,7 +79,7 @@ renderNrTel(){
 renderAdrese(){
   let listaAdrese=[];
   for(let i=0;i<this.props.adreseMedic.length;i++){
-      listaAdrese.push(<p>{this.props.adreseMedic[i]}</p>)
+      listaAdrese.push(<p key={i}>{this.props.adreseMedic[i]}</p>)
   }
   return listaAdrese;
 }

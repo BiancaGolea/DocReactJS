@@ -1,32 +1,32 @@
-import getMediciConst from "../Constants";
+import Constants from "../Constants";
 
 export const initialState = {
   inPrgress: false,
   error: null,
-  listaMedici: null
+  listOfDoctors: null
 };
 
-export default function getMediciBySpecializare(state = initialState, action) {
+export default function doctorsBySpecializationReducer(state = initialState, action) {
   switch (action.type) {
-    case getMediciConst.GET_MEDICI_IN_PROGRESS:
+    case Constants.GET_DOCTORS_IN_PROGRESS:
       {
         state = {
           ...state,
           inPrgress: true,
           error: null,
-          listaMedici: null
+          listOfDoctors: null
         };
          break;
       }
-     case getMediciConst.GET_MEDICI_SUCCESS:{
+     case Constants.GET_DOCTORS_SUCCESS:{
          state={
              ...state,
              inPrgress:false,
-            listaMedici:action.payload
+            listOfDoctors:action.payload
          };
          break;
      }
-     case getMediciConst.GET_MEDICI_FAILURE:{
+     case Constants.GET_DOCTORS_FAILURE:{
          state={
              ...state,
              inPrgress:false,
@@ -34,6 +34,7 @@ export default function getMediciBySpecializare(state = initialState, action) {
          };
          break;
      }
+     default: break;
   }
   return state;
 

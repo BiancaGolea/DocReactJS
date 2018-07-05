@@ -35,6 +35,7 @@ export default function getProgramari(state = initialState, action) {
       };
       break;
     }
+    default: break;
   }
   return state;
 }

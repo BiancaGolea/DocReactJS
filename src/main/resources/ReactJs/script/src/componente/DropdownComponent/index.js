@@ -28,7 +28,7 @@ class Dropdown extends Component {
     for (let i = 0; i < nrSpec; i++) {
       let specializare=this.props.specializareRedux.specializareList[i].denumireSpecializare;
       listaSpec.push(
-        <div>
+        <div key={i}>
               <p onClick={()=>this.onClick(this.props.specializareRedux.specializareList[i].denumireSpecializare)}>{specializare.charAt(0).toUpperCase()+specializare.slice(1)}</p>
         </div>
       );

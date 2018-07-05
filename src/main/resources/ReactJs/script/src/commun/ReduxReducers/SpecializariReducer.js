@@ -42,6 +42,7 @@ export default function specializariReducer(state=initialState,action){
             };
             break;
         }
+        default: break;
     }
     return state;
 }

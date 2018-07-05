@@ -6,7 +6,7 @@ import DoctorCard from "../../componente/DoctorCard/index";
 import "./styles.css";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import mediciAction from "../../commun/ReduxActions/MediciBySpecializareAction";
+import doctorsBySpecializationAction from "../../commun/ReduxActions/DoctorsBySpecializationAction";
 import Progress from "../../componente/Progress";
 
 class Doctors extends Component {
@@ -19,7 +19,7 @@ class Doctors extends Component {
   }
 
   render() {
-    if (this.props.listaMedici.listaMedici !== null) {
+    if (this.props.listOfDoctors.listOfDoctors !== null) {
       return (
         <div className="divMainDoctors">
           <Header />
@@ -39,19 +39,20 @@ class Doctors extends Component {
 
   renderListaMedici() {
     let listaCard = [];
-    for (let i = 0; i < this.props.listaMedici.listaMedici.length; i++) {
+    for (let i = 0; i < this.props.listOfDoctors.listOfDoctors.length; i++) {
       listaCard.push(
         <DoctorCard
+        key={i}
           rating={
-            isNaN(this.props.listaMedici.listaMedici[i].medieRecenzie)
+            isNaN(this.props.listOfDoctors.listOfDoctors[i].medieRecenzie)
               ? 3
-              :(this.props.listaMedici.listaMedici[i].medieRecenzie/2)
+              :(this.props.listOfDoctors.listOfDoctors[i].medieRecenzie/2)
           }
-          numeMedic={this.props.listaMedici.listaMedici[i].nume}
-          prenumeMedic={this.props.listaMedici.listaMedici[i].prenume}
-          nrTel={this.props.listaMedici.listaMedici[i].numereTel}
-          adreseMedic={this.props.listaMedici.listaMedici[i].adrese}
-          idDoctor={this.props.listaMedici.listaMedici[i].id}
+          numeMedic={this.props.listOfDoctors.listOfDoctors[i].nume}
+          prenumeMedic={this.props.listOfDoctors.listOfDoctors[i].prenume}
+          nrTel={this.props.listOfDoctors.listOfDoctors[i].numereTel}
+          adreseMedic={this.props.listOfDoctors.listOfDoctors[i].adrese}
+          idDoctor={this.props.listOfDoctors.listOfDoctors[i].id}
         />
       );
     }
@@ -59,7 +60,7 @@ class Doctors extends Component {
   }
 
   async loadData() {
-    await this.props.mediciAction(
+    await this.props.doctorsBySpecializationAction(
       this.props.authInfo.token,
       this.props.specializareReducer.specializareSelectata
     );
@@ -70,14 +71,14 @@ function mapStateToProps(state) {
   return {
     authInfo: state.authReducer,
     specializareReducer: state.specializareReducer,
-    listaMedici: state.listaMediciBySpecializare
+    listOfDoctors: state.listOfDoctorsBySpecialization,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      mediciAction: (token, specializare) => mediciAction(token, specializare)
+      doctorsBySpecializationAction: (token, specializare) => doctorsBySpecializationAction(token, specializare)
     },
     dispatch
   );

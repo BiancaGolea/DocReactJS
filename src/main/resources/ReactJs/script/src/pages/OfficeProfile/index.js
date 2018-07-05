@@ -100,8 +100,8 @@ class OfficeProfile extends Component {
 }
 renderListaMedici(){
   let listaMed=[];
-  for(let i=0; i<this.props.profilCabinet.dateCabinet.listaMedici.length; i++){
-    listaMed.push(<p>{this.props.profilCabinet.dateCabinet.listaMedici[i]}</p>)
+  for(let i=0; i<this.props.profilCabinet.dateCabinet.listOfDoctors.length; i++){
+    listaMed.push(<p>{this.props.profilCabinet.dateCabinet.listOfDoctors[i]}</p>)
   }
   return listaMed;
 }

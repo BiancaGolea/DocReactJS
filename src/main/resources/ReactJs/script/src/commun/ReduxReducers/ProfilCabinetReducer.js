@@ -38,6 +38,7 @@ export default function profilCabinet(state = initialState, action){
             };
             break;
         }
+        default: break;
 }
 return state;
 }

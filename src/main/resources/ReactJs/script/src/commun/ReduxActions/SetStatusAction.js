@@ -17,7 +17,7 @@ export default function setStatus(token,username) {
       const json=await resp.json();
 
       if(resp.status==302){
-        dispatch({ type: appConstants.SET_ID_MED, payload:json })
+        dispatch({ type: appConstants.SET_ID_DOCTOR, payload:json })
         dispatch({ type: appConstants.SET_STATUS });
 
       }
