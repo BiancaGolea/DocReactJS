@@ -5,7 +5,7 @@ import listaMediciBySpecializare from "./ReduxReducers/ListaMediciBySpecializare
 import ProfilMedic from "./ReduxReducers/ProfilMedicReducers";
 import Servicii from "./ReduxReducers/ServiciiReducer";
 import RecenziiMedic from "./ReduxReducers/RecenziiMedicReducer";
-import Cabinete from "./ReduxReducers/CabineteReducer";
+import Offices from "./ReduxReducers/OfficesReducer";
 import ProfilCabinet from "./ReduxReducers/ProfilCabinetReducer";
 import Programari from "./ReduxReducers/ProgramariReducer";
 
@@ -16,7 +16,7 @@ export default combineReducers({
     profilMedic:ProfilMedic,
     serviciiMedic:Servicii,
     recenziiMedicReducer:RecenziiMedic,
-    listaCabinete:Cabinete,
+    officesList:Offices,
     profilCabinet:ProfilCabinet,
     programari:Programari,
     });

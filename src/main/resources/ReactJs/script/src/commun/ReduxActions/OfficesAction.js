@@ -1,11 +1,11 @@
-import getCabineteConst from "../Constants";
+import Constants from "../Constants";
 import Api from "../../Api/Api";
 
-export default function cabineteAction(token){
+export default function officeAction(token){
     return async function(dispach){
-        dispach({type:getCabineteConst.GET_CABINETE_IN_PROGRESS});
+        dispach({type:Constants.GET_OFFICES_IN_PROGRESS});
         try{
-            const resp=await fetch(Api.getCabineteUrl,{
+            const resp=await fetch(Api.getOfficesUrl,{
                 method:"GET",
                 headers: {
                     "Authorization":token,
@@ -16,9 +16,9 @@ export default function cabineteAction(token){
         if(json==null || resp.status!==200){
             throw new Error(json);
         }
-        dispach({type:getCabineteConst.GET_CABINETE_SUCCESS, payload:json});
+        dispach({type:Constants.GET_OFFICES_SUCCESS, payload:json});
     }catch(error){
-        dispach({type:getCabineteConst.GET_CABINETE_FAILURE, payload:error});
+        dispach({type:Constants.GET_OFFICES_FAILURE, payload:error});
     }
 
 }

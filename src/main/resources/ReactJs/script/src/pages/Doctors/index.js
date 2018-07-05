@@ -51,7 +51,7 @@ class Doctors extends Component {
           prenumeMedic={this.props.listaMedici.listaMedici[i].prenume}
           nrTel={this.props.listaMedici.listaMedici[i].numereTel}
           adreseMedic={this.props.listaMedici.listaMedici[i].adrese}
-          idMedic={this.props.listaMedici.listaMedici[i].id}
+          idDoctor={this.props.listaMedici.listaMedici[i].id}
         />
       );
     }

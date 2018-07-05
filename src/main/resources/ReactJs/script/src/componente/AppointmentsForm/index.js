@@ -360,7 +360,7 @@ class AppointmentsForm extends Component {
           email: this.state.email,
           nrtel: this.state.telefon,
           medic: {
-            idMed: this.props.idMedic
+            idMed: this.props.idDoctor
             
           }
           

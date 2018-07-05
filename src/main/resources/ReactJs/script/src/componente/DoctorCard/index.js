@@ -43,10 +43,10 @@ class DoctorCard extends Component {
           <p>Adresa: {this.renderAdrese()} </p>
           <p>Nr. Telefon:{this.renderNrTel()} </p>
         </div>
-        <button onClick={()=>this.onClick2(this.props.idMedic)} className="buttonPriceServices">
+        <button onClick={()=>this.onClick2(this.props.idDoctor)} className="buttonPriceServices">
           Vezi preturi
           </button>
-        <button onClick={()=>this.onClick(this.props.idMedic)} className="buttonProfile">
+        <button onClick={()=>this.onClick(this.props.idDoctor)} className="buttonProfile">
           Vezi detalii
           </button>
       </div>

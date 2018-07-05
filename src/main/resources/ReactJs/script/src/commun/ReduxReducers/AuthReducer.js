@@ -1,29 +1,29 @@
-import loginConstants from "../Constants"; 
+import Constants from "../Constants"; 
 
 export const initialState = {
    inProgress:false,
    token:null,
    error:null,
    username:null,
-   isMedic:false,
-   idMedic:null,
+   isDoctor:false,
+   idDoctor:null,
 };
  
 export default function loginReducer(state = initialState, action) {
     switch(action.type){
-        case loginConstants.LOGIN_IN_PROGRESS:{ 
+        case Constants.LOGIN_IN_PROGRESS:{ 
             state={
                 ...state,
                 inProgress:true,
                 token:null,
                 error:null,
-                isMedic:false,
-                idMedic:null
+                isDoctor:false,
+                idDoctor:null
 
             };
             break;
         }
-        case loginConstants.LOGIN_SUCCES:{
+        case Constants.LOGIN_SUCCES:{
             state={
                 ...state,
                 inProgress:false,
@@ -32,7 +32,7 @@ export default function loginReducer(state = initialState, action) {
             };
             break;
            } 
-           case loginConstants.LOGIN_FAILURE:{
+           case Constants.LOGIN_FAILURE:{
             state={
                 ...state,
                 inProgress:false,
@@ -40,7 +40,7 @@ export default function loginReducer(state = initialState, action) {
             };
             break;
            }
-           case loginConstants.ADD_USERNAME:{
+           case Constants.ADD_USERNAME:{
 
                state={
                    ...state,
@@ -48,18 +48,18 @@ export default function loginReducer(state = initialState, action) {
                };
                break;
            }
-           case loginConstants.SET_STATUS:{
+           case Constants.SET_STATUS:{
                    state={
                    ...state,
-                   isMedic:true,
+                   isDoctor:true,
                }
                break;
            }
 
-           case loginConstants.SET_ID_MED:{
+           case Constants.SET_ID_DOCTOR:{
                state={
                    ...state,
-                   idMedic:action.payload,
+                   idDoctor:action.payload,
                }
            }
     }

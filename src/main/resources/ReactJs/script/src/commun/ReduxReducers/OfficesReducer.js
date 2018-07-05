@@ -1,33 +1,33 @@
-import getCabineteConst from "../Constants";
+import Constants from "../Constants";
 
 export const initialState={
     inProgress: false,
     error: null,
-    listaCabinete: null,
+    officesList: null,
 }
 
 export default function getCabinete(state = initialState, action){
     switch (action.type){
-        case getCabineteConst.GET_CABINETE_IN_PROGRESS:
+        case Constants.GET_OFFICES_IN_PROGRESS:
         {
             state = {
                 ...state,
                 inPrgress: true,
                 error: null,
-                listaCabinete: null
+                officesList: null
         };
         break;
     }
-    case getCabineteConst.GET_CABINETE_SUCCESS:
+    case Constants.GET_OFFICES_SUCCESS:
     {
         state = {
             ...state,
             inPrgress: false,
-            listaCabinete: action.payload,
+            officesList: action.payload,
     };
     break;
 }
-case getCabineteConst.GET_CABINETE_FAILURE:
+case Constants.GET_OFFICES_FAILURE:
 {
     state = {
         ...state,

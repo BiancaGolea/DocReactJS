@@ -22,7 +22,7 @@ class Welcome extends Component {
       <div className="divContainerWelcomePage">
         <div className="hederWelcomePage">
           <Header
-          isMedic={this.props.authInfo.isMedic}
+          isDoctor={this.props.authInfo.isDoctor}
             isWelcomePage={this.props.authInfo.token == null ? true : false}
           />
         </div>

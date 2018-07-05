@@ -16,7 +16,7 @@ class Header extends Component {
   }
 
   render() {
-    console.log(this.props.isMedic + " is Medic");
+    console.log(this.props.isDoctor + " is Medic");
     return (
       <div className="headerContainerDiv">
         <nav class="navbar navbar-inverse">
@@ -33,7 +33,7 @@ class Header extends Component {
                 <Link to={"/"}>Welcome Page</Link>
               </li>
                   
-                 { this.props.isMedic && !this.props.isWelcomePage &&
+                 { this.props.isDoctor && !this.props.isWelcomePage &&
                 !this.props.isLoginPage &&
                 !this.props.isSignUp && 
                 (
@@ -43,7 +43,7 @@ class Header extends Component {
                   </li>
                 )}
 
-                 { !this.props.isMedic &&
+                 { !this.props.isDoctor &&
                 !this.props.isWelcomePage &&
                 !this.props.isLoginPage &&
                 !this.props.isSignUp && (

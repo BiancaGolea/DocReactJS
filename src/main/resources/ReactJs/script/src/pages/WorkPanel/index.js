@@ -12,7 +12,7 @@ class WorkPanel extends Component {
    async componentDidMount(){
    await this.props.programariAction(
       this.props.authInfo.token,
-      this.props.authInfo.idMedic
+      this.props.authInfo.idDoctor
     );
    
   }
@@ -76,7 +76,7 @@ class WorkPanel extends Component {
   async loadLista() {
     await this.props.programariAction(
       this.props.authInfo.token,
-      this.props.authInfo.idMedic
+      this.props.authInfo.idDoctor
     );
   }
 }

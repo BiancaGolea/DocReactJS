@@ -6,7 +6,7 @@ import OfficeCard from '../../componente/OfficeCard/index';
 import './styles.css';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import cabineteAction from "../../commun/ReduxActions/CabineteAction";
+import officeAction from "../../commun/ReduxActions/OfficesAction";
 import Progress from "../../componente/Progress";
 
 class Offices extends Component {
@@ -16,12 +16,12 @@ class Offices extends Component {
     
       async componentWillMount() {
           console.log("#########")
-          console.log(JSON.stringify(this.props.listaCabinete))
+          console.log(JSON.stringify(this.props.officesList))
         await this.loadData();
       }
     
       render() {
-        if (this.props.listaCabinete.listaCabinete !== null) {
+        if (this.props.officesList.officesList !== null) {
         return (
             <div className="divMainOffices">
                  <Header/> 
@@ -42,18 +42,18 @@ class Offices extends Component {
 
       renderCabinete(){
           let listaCard=[];
-          for(let i=0; i<this.props.listaCabinete.listaCabinete.length;i++){
+          for(let i=0; i<this.props.officesList.officesList.length;i++){
               listaCard.push(
               <OfficeCard
-              idCabinet={this.props.listaCabinete.listaCabinete[i].idCab}
+              idCabinet={this.props.officesList.officesList[i].idCab}
               rating={
-                isNaN(this.props.listaCabinete.listaCabinete[i].medieRecenzie)
+                isNaN(this.props.officesList.officesList[i].medieRecenzie)
                   ? 3
-                  :(this.props.listaCabinete.listaCabinete[i].medieRecenzie/2)
+                  :(this.props.officesList.officesList[i].medieRecenzie/2)
               }
-              denumireCabinet={this.props.listaCabinete.listaCabinete[i].denumire}
-              adresaCabinet={this.props.listaCabinete.listaCabinete[i].cabAdress}
-              tipCabinet={this.props.listaCabinete.listaCabinete[i].tip}
+              denumireCabinet={this.props.officesList.officesList[i].denumire}
+              adresaCabinet={this.props.officesList.officesList[i].cabAdress}
+              tipCabinet={this.props.officesList.officesList[i].tip}
               />
             );
           }
@@ -61,7 +61,7 @@ class Offices extends Component {
       } 
 
       async loadData() {
-        await this.props.cabineteAction(
+        await this.props.officeAction(
           this.props.authInfo.token
         );
       }
@@ -70,14 +70,14 @@ class Offices extends Component {
     function mapStateToProps(state) {
         return {
           authInfo: state.authReducer,
-          listaCabinete: state.listaCabinete
+          officesList: state.officesList
         };
       }
       
       function mapDispatchToProps(dispatch) {
         return bindActionCreators(
           {
-            cabineteAction: (token) => cabineteAction(token)
+            officeAction: (token) => officeAction(token)
           },
           dispatch
         );
