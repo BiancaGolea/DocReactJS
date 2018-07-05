@@ -24,13 +24,13 @@ class CardWorkPanel extends Component {
 
     return (
   
-      <div className="divCartonasWorkPanel">
-        <div className="divCartonasWorkPanel2">
-          <p className="styleDatePacient">Data: {this.renderOra()}</p>
-          <p className="styleDatePacient">Nume: {this.props.firstname}</p>
-          <p className="styleDatePacient">Prenume: {this.props.lastname}</p>
-          <p className="styleDatePacient">E-mail: {this.props.mail}</p>
-          <p className="styleDatePacient">Numar telefon: {this.props.tel}</p>
+      <div className="divCardWorkPanel">
+        <div className="divCardWorkPanel2">
+          <p className="stylePatientInfo">Data: {this.renderOra()}</p>
+          <p className="stylePatientInfo">Nume: {this.props.firstname}</p>
+          <p className="stylePatientInfo">Prenume: {this.props.lastname}</p>
+          <p className="stylePatientInfo">E-mail: {this.props.mail}</p>
+          <p className="stylePatientInfo">Numar telefon: {this.props.tel}</p>
         </div>
       </div>
     );}

@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
 import Button from "material-ui/Button";
 import "./styles.css";
-import MesajValidare from "../MesajValidare/index";
+import ValidationMessage from "../ValidationMessage/index";
 import { connect } from 'react-redux'
 import loginUser from "../../commun/ReduxActions/LoginReduxAction";
 import {bindActionCreators} from 'redux'; 
@@ -42,7 +42,7 @@ class TextFieldGroup extends Component {
           <div className="form-group">
             <div className="textWarningDiv">
               <label> Username  </label>
-              {this.state.isUsernameError && <MesajValidare mesaj={"Username invalid"}/>}
+              {this.state.isUsernameError && <ValidationMessage mesaj={"Username invalid"}/>}
             </div>
             <input
               type="username"
@@ -58,7 +58,7 @@ class TextFieldGroup extends Component {
           <div className="form-group">
           <div className="textWarningDiv">
             <label>Password</label>
-            {this.state.isPassError && <MesajValidare mesaj={"Password invalid"}/>}
+            {this.state.isPassError && <ValidationMessage mesaj={"Password invalid"}/>}
             </div>
             <input
               type="password"

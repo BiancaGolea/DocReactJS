@@ -1,4 +1,4 @@
-.divCardMed{
+.divCardDoctor{
     background-color: rgba(59, 228, 149, 0.363);
     width:60%;
     height: 50%;
@@ -6,7 +6,7 @@
     margin-bottom: 2%;
     border-radius: 5%;
 }
-.divImagine{   
+.divImageDoctorCard{   
      margin-top: 4%;
     width: 20%;
     height: 50%;
@@ -21,14 +21,14 @@
     height:100%;
     margin-top: 20%;
 }
-.divDate{
+.divInformations{
     float: left;
     margin-left: 10%;
     margin-top: 2.5%;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: aliceblue;
 }
-.buttonProfil {
+.buttonProfile {
     background-color: rgba(76, 175, 79, 0);
     border: none;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -44,7 +44,7 @@
     align-self: flex-end;
    
 }
-.buttonPreturiServ{
+.buttonPriceServices{
     background-color: rgba(76, 175, 79, 0);
     border: none;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

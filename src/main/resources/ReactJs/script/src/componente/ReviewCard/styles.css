@@ -1,4 +1,4 @@
-.divCartonasRecenzie{
+.divCardReview{
     background-color: rgba(145, 79, 184, 0.596);
     width:60%;
     height: 35%;
@@ -8,14 +8,14 @@
       
 }
 
-.infoRecenzie{
+.infoReviewCard{
     font-size: 120%;
     font-weight: bold;
     margin-left: 5%;
     display: inline-block;
     margin-top: 4%;
 }
-.descriereRecenzie{
+.descriptionReview{
     background-color: rgba(134, 70, 126, 0.747);
     width: 60%;
     height: 60%;

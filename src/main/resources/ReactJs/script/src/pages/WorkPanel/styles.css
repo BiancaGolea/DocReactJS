@@ -6,19 +6,19 @@
     position: fixed;
     overflow-y: scroll;
 }
-.divCartonasWorkPannel{
+.divCardWorkPannel{
     width: 40%;
     height: 40%;
     margin-left: 10%;
     margin-top: 1%;
     padding-top: 0.1%;
 }
-.titluListaProgramari{
+.TitleListAppointments{
     font-family: fantasy;
     margin-top: 5%;
     margin-left: 15%;
 }
-.stilH5{
+.styleTitleWorkPannel{
     font-family: fantasy;
     margin-top: 4%;
     margin-left: 35%;
@@ -31,12 +31,12 @@
     padding-top: 0.1%;
     margin-bottom: 20%;
 }
-.textDescriereWorkPanel{
+.textDescriptionWorkPanel{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: large;
     color: blanchedalmond;
 }
-.alertp{
+.alertParagraphWorkPannel{
     color: crimson;
     font-family: italic, bold;
     margin-left: 40%;

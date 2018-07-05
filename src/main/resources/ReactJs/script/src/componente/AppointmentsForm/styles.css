@@ -29,48 +29,12 @@
 .formStyle{
    padding: 3%;
 }
-.specializariStyle{
-    width: 80%;
-    height: 20%;
-}
 .inputError{
     border-style: solid;
     border-color: rgb(180, 15, 15);
     border-radius: 8%;
 }
-.stilEroare{
-    color: rgb(180, 15, 15);
-    size: 20%;
-    align-self: center;
-    margin-left: 25%;
-}
-.stilSucces1{
-    color: rgba(44, 39, 44, 0.781);
-    font-size: 200%;
-    float: left;
-    margin-left: 40%;
-    margin-top: 2.5%;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-   
-}
-.stilSucces2{
-    color: rgba(32, 29, 32, 0.781);
-    font-size: 200%;
-    float: left;
-    margin-left: 20%;
-    margin-top: 2.5%;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-   
-}
-.stilSucces3{
-    color: rgba(27, 24, 27, 0.781);
-    font-size: 200%;
-    float: left;
-    margin-left: 38%;
-    margin-top: 2.5%;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-   
-}
+
 .divSuccess{
     background-color: rgba(27, 182, 110, 0.281);
     width:50%;
@@ -82,14 +46,14 @@
     margin-top: 5%;
     margin-left: 35%;
 }
-.h{
+.hourAppointment{
     font-size: 110%;
      color: rgb(52, 55, 58);
      font-style: normal;
      font-weight: bold;
      padding-top: 2%;
 }
-.divH{
+.divHour{
     width: 20%;
     height: 5%;
     margin-left: 40%;
@@ -109,13 +73,9 @@
     width: 100%;
     background-color: brown;
 }
-.divImg{
+.divImgAppointments{
     width: 100%;
     height: 100%;
     margin-left: 10%;
 }
-.pErrorProgramariForm{
-    color: crimson;
-    font-weight: bold;
-    margin-left: 40%;
-}
+ 

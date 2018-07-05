@@ -12,7 +12,7 @@ class Review extends Component {
      render() {
       console.log(this.props.location.state.idRecenzie)
         return (
-            <div className="divRecenzie">
+            <div className="divReview">
                 <Header />
                
                <ReviewForm token={this.props.authInfo.token} username={this.props.authInfo.username} idMed={this.props.location.state.idRecenzie}/>

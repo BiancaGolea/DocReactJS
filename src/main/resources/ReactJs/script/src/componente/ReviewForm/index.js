@@ -38,7 +38,7 @@ class ReviewForm extends Component {
     console.log(this.state.recenzieSuccess)
     return (
       
-      <div className="divPrincipal">
+      <div className="divMainReviewForm">
       {this.state.recenzieSuccess && (
         <Dialog
         open={this.state.recenzieSuccess}
@@ -83,10 +83,10 @@ class ReviewForm extends Component {
         </DialogActions>
       </Dialog>
       )}
-        <label className="divTextComentariu">
+        <label className="divTextComment">
           Lasa un comentariu:
           <div >
-            <TextareaAutosize className="stilChenarComentarii"  rows={5}  placeholder="Lasa un comentariu"
+            <TextareaAutosize className="styleDivComments"  rows={5}  placeholder="Lasa un comentariu"
             onChange={(text)=>this.setState({
               descriere: text.target.value,
             })
@@ -94,9 +94,9 @@ class ReviewForm extends Component {
              />
           </div>
         </label>
-        <p className="pTitluNote">Note pentru:</p>
+        <p className="pTitleGradeRating">Note pentru:</p>
 
-        <label className="divNote">
+        <label className="divGradeRating">
           Servicii medicale:
           <div >
             <NumericInput className=" " min={1} max={10} value={this.state.notaServmed} size={1}
@@ -108,7 +108,7 @@ class ReviewForm extends Component {
             />
           </div>
         </label>
-        <label className="divNote">
+        <label className="divGradeRating">
           Aparatura:
           <div >
             <NumericInput className=" " min={1} max={10} value={this.state.notaAparatura} size={1} 
@@ -120,7 +120,7 @@ class ReviewForm extends Component {
           </div>
         </label>
 
-        <label className="divNote">
+        <label className="divGradeRating">
           Pret servicii:
           <div >
             <NumericInput className=" " min={1} max={10} value={this.state.notaPret}  size={1} 
@@ -132,7 +132,7 @@ class ReviewForm extends Component {
           </div>
         </label>
 
-         <label className="divNote">
+         <label className="divGradeRating">
           Aspectul cabinetului:
           <div >
             <NumericInput className=" " min={1} max={10} value={this.state.notaAspectcab}  size={1} 
@@ -144,7 +144,7 @@ class ReviewForm extends Component {
           </div>
         </label>
 
-         <label className="divNote">
+         <label className="divGradeRating">
           Locatia cabinetului:
           <div >
             <NumericInput className=" " min={1} max={10} value={this.state.notaLocatie}  size={1} 
@@ -155,7 +155,7 @@ class ReviewForm extends Component {
             />
           </div>
         </label>
-        <div className="divStilButton">
+        <div className="divStyleButton">
         <Button
             style={{fontSize:15 }}
             size="large"

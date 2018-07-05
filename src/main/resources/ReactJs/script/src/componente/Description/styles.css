@@ -1,15 +1,15 @@
-.divPText{
+.divMainText{
     width: 80%;
     height: 100%;
     margin-top: 20%;
     margin-left: 12%;
 }
-.testDescriere{
+.textDescription{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: large;
     color: blanchedalmond;
 }
-.testDescriereTitle{
+.textTitleDescription{
     
     font-size: large;
     color: blanchedalmond;

@@ -24,20 +24,20 @@ class WorkPanel extends Component {
     if (
       this.props.programari.inProgress ||  !this.props.programari.listaProgramari) {
       return <div className="divBackgroundWorkPanel">
-      <p className="alertp"> It working ...</p></div>;
+      <p className="alertParagraphWorkPannel"> It working ...</p></div>;
     }
 
     return (
       <div className="divBackgroundWorkPanel">
         <Header isLoginPage={true} />
-        <h2 className="stilH5">Bun venit pe profilul tau!</h2>
-        <h3 className="titluListaProgramari">  Programările dumneavoastră</h3>
-        <div className="divCartonasWorkPannel">
+        <h2 className="styleTitleWorkPannel">Bun venit pe profilul tau!</h2>
+        <h3 className="TitleListAppointments">  Programările dumneavoastră</h3>
+        <div className="divCardWorkPannel">
           {this.renderlistaProgramari()}
           
         </div>
         <div className="divContentText">
-          <p className="textDescriereWorkPanel"> "Puterea de organizare infinită se referă la 
+          <p className="textDescriptionWorkPanel"> "Puterea de organizare infinită se referă la 
           puterea de a organiza o infinitate de evenimente spaţio-temporale,
            toate în acelaşi timp."
            <br /> 

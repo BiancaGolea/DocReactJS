@@ -27,13 +27,13 @@ class OfficeProfile extends Component {
     }
     else{
     return (
-      <div className="bigDiv">
+      <div className="MainDivOfficeProfile">
         <div>
           <Header isWelcomePage={true} />
         </div>
         <div className="bigDiv">
-          <p className="titlu"> Policlinica </p>
-          <div className="divCartoon">
+          <p className="titleOfficeProfile"> Policlinica </p>
+          <div className="divCardOfficeProfile">
             <div className="ratingStyles">
               <img
                 src={require("../../assets/avatar.png")}
@@ -86,7 +86,7 @@ class OfficeProfile extends Component {
                 readonly={true}
               />
             </div>
-            <div className="infoDiv">
+            <div className="infoOfficeProfileDiv">
                 <p>Denumire: {this.props.profilCabinet.dateCabinet.denumire} </p>
                 <p>Adresa: {this.props.profilCabinet.dateCabinet.adresa} </p>
                 <p>Tip:{this.props.profilCabinet.dateCabinet.tip} </p>

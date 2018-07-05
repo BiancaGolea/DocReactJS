@@ -1,10 +1,10 @@
 
-.div{
+.divMainDoctorProfile{
     width: 100%;
     height: 100vh;
     overflow: hidden;
 }
-.divCartonas{
+.divCardDoctorProfile{
     width: 80%;
     height: 60%;
     border-radius: 4%;
@@ -13,7 +13,7 @@
     margin-top: 1%;
     margin-right: 10%;
 }
-.p{
+.pDoctorName{
     text-align: center;
     color:white;
     size: 50%;
@@ -22,11 +22,11 @@
     font-size: 130%;
 
 }
-.imgMica{
+.imageSmall{
     width: 80%;
     height:40%;
 }
-.stilChenar{
+.styleBorderDiv{
     float: left;
     margin-left: 5%;
     margin-top: 2.5%;
@@ -44,13 +44,13 @@
     margin-top: 2.5%;
     margin-left: 3%;
 }
-.ratingParagraf{
+.ratingParagraph{
     padding-top: 5%;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     size: 10px;
     color: white;
 }
-.butonRezervare{
+.buttonBooking{
     background-color: rgba(39, 95, 40, 0.363);
      border: none;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -62,7 +62,7 @@
     margin-top: 2%;
     
 }
-.butonRecenzie{
+.buttonReviewDocProfile{
     background-color: rgba(39, 95, 40, 0.363);
      border: none;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -77,7 +77,7 @@
     align-items: center;
 }
 
-.divProfilMedic{
+.divDoctorProfile{
     background-image: url("../../assets/fundal.jpg");
     background-size: 100%;
     position: fixed;

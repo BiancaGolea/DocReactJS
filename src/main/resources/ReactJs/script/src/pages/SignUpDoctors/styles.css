@@ -1,5 +1,5 @@
 
-.divRecMedici{
+.divSignUpDoctors{
     background-image: url("../../assets/fundal.jpg");
     overflow: scroll;
     overflow-x: hidden;
@@ -9,7 +9,7 @@
     height: 100vh;
 }
 
-.pageRecMediciTitle{
+.pageSignUpDoctorsTitle{
     color:black;
     margin: auto;
     padding-top: 5%;

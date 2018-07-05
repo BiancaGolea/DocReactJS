@@ -26,12 +26,6 @@ class AppointmentsForm extends Component {
     super(props);
 
     this.state = {
-      // isNumeClientError: false,
-      // isPrenumeClientError: false,
-      // isEmailError: false,
-      // isTelefonError: false,
-      // isDataError: false,
-      // isOraError: false,
       nume: null,
       prenume: null,
       email: "",
@@ -238,8 +232,8 @@ class AppointmentsForm extends Component {
             </div>
           </label>{" "}
           <div className={this.state.isOraError ? "inputError" : ""}>
-            <div className="divH">
-              <h className={"h"}> Ora programarii</h>
+            <div className="divHour">
+              <h className={"hourAppointment"}> Ora programarii</h>
             </div>
             <div className="divSelect">
               <div>
@@ -253,7 +247,7 @@ class AppointmentsForm extends Component {
                     {!this.state.ora && (
                       <img
                         src={require("../../assets/click.png")}
-                        className="divImg"
+                        className="divImgAppointments"
                         alt="logo"
                       />
                     )}
@@ -304,7 +298,7 @@ class AppointmentsForm extends Component {
               <Icon>
                 <img
                   src={require("../../assets/signup.png")}
-                  className="divImg"
+                  className="divImgAppointments"
                   alt="load"
                 />
               </Icon>

@@ -9,7 +9,7 @@ class OfficeCard extends Component {
   render() {
     return (
       <div className="divCard">
-        <div className="divImgCabinet">
+        <div className="divImgOffice">
           <img src={require("../../assets/avatar.png")} className="imgStyle" />
 
           <Rating
@@ -35,14 +35,14 @@ class OfficeCard extends Component {
             readonly={true}
           />
         </div>
-        <div className="divDate">
+        <div className="divInfoOfficeCard">
           <p>Denumire: {this.props.denumireCabinet}</p>
           <p>Adresa: {this.props.adresaCabinet} </p>
           <p>Tip cabinet: {this.props.tipCabinet}</p>
         </div>
         <button
           onClick={() => this.onClick(this.props.idCabinet)}
-          className="buttonDetalii"
+          className="buttonDetails"
         >
           Vezi detalii
         </button>

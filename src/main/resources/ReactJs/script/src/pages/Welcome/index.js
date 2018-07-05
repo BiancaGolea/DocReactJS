@@ -8,7 +8,7 @@ import specializareList from "../../commun/ReduxActions/SpecializariAction";
 import setStatus from "../../commun/ReduxActions/SetStatusAction";
 import { bindActionCreators } from "redux";
 import Coverflow from "react-coverflow";
-import Descriere from "../../componente/Descriere";
+import Description from "../../componente/Description";
 
 
 class Welcome extends Component {
@@ -26,7 +26,7 @@ class Welcome extends Component {
             isWelcomePage={this.props.authInfo.token == null ? true : false}
           />
         </div>
-        <div className="divImagini">
+        <div className="divImages">
           <Coverflow
             width={1000}
             height={400}
@@ -120,7 +120,7 @@ class Welcome extends Component {
               data-action="http://andyyou.github.io/react-coverflow/"
             />
           </Coverflow>
-          <Descriere/>
+          <Description/>
         </div>
        
         <div className="divWelcomePage" />

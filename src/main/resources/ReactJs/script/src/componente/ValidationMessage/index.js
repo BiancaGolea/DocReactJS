@@ -7,8 +7,8 @@ class ValidationMessage extends Component {
     
       render() {
         return (
-            <div className="divContainer">
-                <p className="text"> {this.props.mesaj}  </p> 
+            <div className="divContainerValidationMessage">
+                <p className="textValidationMessage"> {this.props.mesaj}  </p> 
             </div>
 
         );

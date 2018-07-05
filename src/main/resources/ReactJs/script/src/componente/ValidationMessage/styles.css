@@ -1,9 +1,9 @@
 
-.text{
+.textValidationMessage{
     color: rgb(189, 19, 19);
     float: right;
     font-style: italic;
 }
-.divContainer{
+.divContainerValidationMessage{
     display: inline;  
 }

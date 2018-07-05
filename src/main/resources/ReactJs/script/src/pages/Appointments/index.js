@@ -11,9 +11,9 @@ class Appointments extends Component {
 
      render() {
         return (
-            <div className="divProgramari">
+            <div className="divAppointments">
                 <Header />
-                <h1 className="pageProgramariTitle"> Programări</h1>
+                <h1 className="pageAppointmentsTitle"> Programări</h1>
                 <AppointmentsForm token={this.props.authInfo.token} idMedic={this.props.location.state.idRezervare}/>
             </div>
 

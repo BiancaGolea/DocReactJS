@@ -121,7 +121,7 @@ class FormDoctorInfo extends Component {
           <label className="labelStyles">
             Specializare:
             <select
-              className="specializariStyle"
+              className="specializationsStyle"
               onChange={text =>
                 this.setState({
                   specializare: text.target.value,

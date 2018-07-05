@@ -14,13 +14,13 @@ class ReviewCard extends Component{
             let data=new Date(this.props.recenzieModel.dataRecenzie);
             let formatedDate=data.getDate() +"-"+data.getMonth()+ "-"+data.getFullYear();
         return(
-            <div className="divCartonasRecenzie">
-                <div className="infoRecenzie">
+            <div className="divCardReview">
+                <div className="infoReviewCard">
                         <p>{this.props.recenzieModel.username}</p>
                         <p>{formatedDate}</p>
                     </div>
 
-                    <div className="descriereRecenzie">
+                    <div className="descriptionReview">
                         <p>{this.props.recenzieModel.descriere}</p>
                         </div>
                         

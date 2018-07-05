@@ -1,5 +1,5 @@
 
-.divProgramari{
+.divAppointments{
     background-image: url("../../assets/fundal.jpg");
     /* overflow: scroll; */
     background-size: 100%;
@@ -8,7 +8,7 @@
     height: 100vh;
 }
 
-.pageProgramariTitle{
+.pageAppointmentsTitle{
     color:rgb(145, 153, 153);
     margin: auto;
     padding-top: 4%;

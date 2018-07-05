@@ -21,9 +21,9 @@ class Doctors extends Component {
   render() {
     if (this.props.listaMedici.listaMedici !== null) {
       return (
-        <div className="divMedici">
+        <div className="divMainDoctors">
           <Header />
-          <div className="divListaMedici">{this.renderListaMedici()}</div>
+          <div className="divListDoctors">{this.renderListaMedici()}</div>
         </div>
       );
     } else {

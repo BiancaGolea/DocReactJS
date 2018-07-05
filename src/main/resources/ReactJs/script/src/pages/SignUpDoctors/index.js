@@ -14,9 +14,9 @@ class SignUpDoctors extends Component {
   render() {
  
     return (
-      <div className="divRecMedici">
+      <div className="divSignUpDoctors">
         <Header isLoginPage={true} />
-        <h1 className="pageRecMediciTitle">
+        <h1 className="pageSignUpDoctorsTitle">
           {" "}
           Înregistrează-te ca medic pe platforma noastra!
         </h1>

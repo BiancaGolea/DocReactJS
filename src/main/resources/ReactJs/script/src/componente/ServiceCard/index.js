@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
 class ServiceCard extends Component{
     render(){
         return(
-            <div className="divMareServicii"> 
-            <div className="divInformatiiServicii">
+            <div className="divMainServices"> 
+            <div className="divInfoServices">
                         <p>{this.props.serviciuMedical.denumire}</p>
                         <p>{this.props.serviciuMedical.pret}</p>
                     </div>

@@ -1,10 +1,10 @@
-.divListaMedici{
+.divListDoctors{
     width: 90%;
     height: 100vh; 
      margin: auto;
    margin-top: 6%; 
 }
-.divMedici{
+.divMainDoctors{
     background-image:url("../../assets/fundal.jpg");
     background-size: 100%;
     background-repeat: no-repeat;

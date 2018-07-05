@@ -23,9 +23,9 @@ class Offices extends Component {
       render() {
         if (this.props.listaCabinete.listaCabinete !== null) {
         return (
-            <div className="divMedici">
+            <div className="divMainOffices">
                  <Header/> 
-                 <div className="divListaMedici">
+                 <div className="divListOffices">
                  {this.renderCabinete()}
                 </div>
             </div>

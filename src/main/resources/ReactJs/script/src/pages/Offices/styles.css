@@ -1,10 +1,13 @@
-.divListaMedici{
+.divListOffices{
     width: 90%;
     height: 100vh;
     margin: auto;
    margin-top: 6%;
 }
-.divMedici{
-    background-color: rgb(165, 42, 79);
-    overflow:hidden;
+.divMainOffices{
+    background-image:  url("../../assets/fundal.jpg");
+    background-size: 100%;
+    width: 100%;
+    height: 100vh;
+    overflow:scroll;
 }

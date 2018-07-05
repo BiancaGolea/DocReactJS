@@ -1,4 +1,4 @@
-.divPrincipal{
+.divMainReviewForm{
     margin-left: 15%;
     background-color: azure;
     height: 70vh;
@@ -7,24 +7,24 @@
     padding: 2%;
     margin-top: 8%;
 }
-.divTextComentariu{
+.divTextComment{
     width: 100%;
     padding: 3%;
     margin-left: 15%;
 
 }
-.divNote{
+.divGradeRating{
 width: 20%;
 
 }
-.pTitluNote{
+.pTitleGradeRating{
     font-weight: bold;
 }
-.stilChenarComentarii{
+.styleDivComments{
     width: 60%;
     margin-right: 20%;
 }
-.divStilButton{
+.divStyleButton{
         margin-left: 40%;
     width: 12%;
     height: 8%;

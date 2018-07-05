@@ -30,23 +30,23 @@ class DoctorProfile extends Component {
     } else {
      
       return (
-        <div className="divProfilMedic">
+        <div className="divDoctorProfile">
           <div>
             <Header isWelcomePage={true} />
           </div>
-          <div className="div">
-            <p className="p">
+          <div className="divMainDoctorProfile">
+            <p className="pDoctorName">
               Doctor {this.props.profilMedic.dateMedic.nume}{" "}
               {this.props.profilMedic.dateMedic.prenume}{" "}
             </p>
-            <div className="divCartonas">
+            <div className="divCardDoctorProfile">
               <div className="styleRating">
                 <img
                   src={require("../../assets/avatar.png")}
-                  className="imgMica"
+                  className="imageSmall"
                 />
 
-                <p className="ratingParagraf">Rating pret:</p>
+                <p className="ratingParagraph">Rating pret:</p>
                 <Rating
                   placeholderRating={
                     this.props.profilMedic.dateMedic.mediePret / 2
@@ -71,7 +71,7 @@ class DoctorProfile extends Component {
                   }
                   readonly={true}
                 />
-                <p className="ratingParagraf">Rating servicii medicale:</p>
+                <p className="ratingParagraph">Rating servicii medicale:</p>
                 <Rating
                   placeholderRating={
                     this.props.profilMedic.dateMedic.medieServMedicale / 2
@@ -96,7 +96,7 @@ class DoctorProfile extends Component {
                   }
                   readonly={true}
                 />
-                <p className="ratingParagraf">Rating aparatura:</p>
+                <p className="ratingParagraph">Rating aparatura:</p>
                 <Rating
                   placeholderRating={
                     this.props.profilMedic.dateMedic.medieAparatura / 2
@@ -123,7 +123,7 @@ class DoctorProfile extends Component {
                 />
               </div>
 
-              <div className="stilChenar">
+              <div className="styleBorderDiv">
                 <p>
                   {" "}
                   Specializare: {
@@ -140,14 +140,14 @@ class DoctorProfile extends Component {
             <div className="divBtn">
               <button
                 onClick={() => this.onClick(this.props.location.state.detail)}
-                className="butonRezervare"
+                className="buttonBooking"
               >
                 Rezervare
               </button>
 
               <button
                 onClick={() => this.onClick2(this.props.location.state.detail)}
-                className="butonRecenzie"
+                className="buttonReviewDocProfile"
               >
                 Adauga recenzie
               </button>

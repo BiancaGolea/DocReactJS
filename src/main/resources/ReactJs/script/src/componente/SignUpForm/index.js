@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
 import "./styles.css";
-import MesajValidare from "../../componente/MesajValidare/index";
+import ValidationMessage from "../../componente/ValidationMessage/index";
 import signUpUrl from "../../Api/Api";
 import { CircularProgress } from "material-ui/Progress";
 import red from "material-ui/colors/red";
@@ -83,7 +83,7 @@ class SignUpForm extends Component {
             <div className="textWarningDiv">
               <label> Username </label>
               {this.state.isUsernameError && (
-                <MesajValidare mesaj={this.state.userErrMsg} />
+                <ValidationMessage mesaj={this.state.userErrMsg} />
               )}
             </div>
             <input
@@ -103,7 +103,7 @@ class SignUpForm extends Component {
             <div className="textWarningDiv">
               <label> E-mail</label>
               {this.state.isEmailError && (
-                <MesajValidare mesaj={this.state.emailErrMsg} />
+                <ValidationMessage mesaj={this.state.emailErrMsg} />
               )}
             </div>
             <input
@@ -123,7 +123,7 @@ class SignUpForm extends Component {
             <div className="textWarningDiv">
               <label> Parola </label>
               {this.state.isPassError && (
-                <MesajValidare mesaj={this.state.passErrorMsg} />
+                <ValidationMessage mesaj={this.state.passErrorMsg} />
               )}
             </div>
             <input
@@ -143,7 +143,7 @@ class SignUpForm extends Component {
             <div className="textWarningDiv">
               <label> Confirmare parola </label>
               {this.state.isConfirmPassError && (
-                <MesajValidare mesaj={this.state.confpassErrMsg} />
+                <ValidationMessage mesaj={this.state.confpassErrMsg} />
               )}
             </div>
             <input
@@ -175,7 +175,7 @@ class SignUpForm extends Component {
           )}
           {this.state.inProgress && (
             <div>
-               <img src={require("../../assets/gif.gif")} className="stilProgress" alt="load"/>
+               <img src={require("../../assets/gif.gif")} className="styleProgressSignUpForm" alt="load"/>
             </div>
           )}
         </form>

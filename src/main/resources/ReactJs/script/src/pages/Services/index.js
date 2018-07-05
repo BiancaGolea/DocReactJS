@@ -20,11 +20,11 @@ class Services extends Component{
           return <Progress/>
               }
         return(
-            <div className="divFundalServ">
-            <div className="divHeaderServ">
+            <div className="divBackgroundServices">
+            <div className="divHeaderServices">
               <Header/>
               </div>
-            <div className="divListaServ">
+            <div className="divListServices">
                 {this.renderlistaServiciiMedicale()}
             </div>
             </div>

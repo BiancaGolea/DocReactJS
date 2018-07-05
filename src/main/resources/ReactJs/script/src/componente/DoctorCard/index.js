@@ -9,8 +9,8 @@ class DoctorCard extends Component {
 
   render() {
     return (
-      <div className="divCardMed">
-        <div className="divImagine">
+      <div className="divCardDoctor">
+        <div className="divImageDoctorCard">
           <img src={require("../../assets/avatar.png")} className="imgStyle" />
 
           <Rating 
@@ -37,16 +37,16 @@ class DoctorCard extends Component {
           />
         </div>
 
-        <div className="divDate">
+        <div className="divInformations">
           <p>Nume: {this.props.numeMedic} </p>
           <p>Prenume: {this.props.prenumeMedic} </p>
           <p>Adresa: {this.renderAdrese()} </p>
           <p>Nr. Telefon:{this.renderNrTel()} </p>
         </div>
-        <button onClick={()=>this.onClick2(this.props.idMedic)} className="buttonPreturiServ">
+        <button onClick={()=>this.onClick2(this.props.idMedic)} className="buttonPriceServices">
           Vezi preturi
           </button>
-        <button onClick={()=>this.onClick(this.props.idMedic)} className="buttonProfil">
+        <button onClick={()=>this.onClick(this.props.idMedic)} className="buttonProfile">
           Vezi detalii
           </button>
       </div>
