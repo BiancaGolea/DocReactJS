@@ -39,7 +39,7 @@ class Header extends Component {
                 (
                   <li>
                     
-                    <Link to={"/workpanel"}>Profilul meu</Link>
+                    <Link to={"/workpanel"}>My profile</Link>
                   </li>
                 )}
 
@@ -48,7 +48,7 @@ class Header extends Component {
                 !this.props.isLoginPage &&
                 !this.props.isSignUp && (
                   <li>
-                    <Link to={"/recmedici"}>Înregistrare ca medic</Link>
+                    <Link to={"/recmedici"}>Registration as doctor</Link>
                   </li>
                 )}
 
@@ -57,7 +57,7 @@ class Header extends Component {
                 !this.props.isSignUp && (
                   <li>
                     <Link to={""}>
-                      <p onClick={() => this.changeDropState()}> Medici</p>
+                      <p onClick={() => this.changeDropState()}> Doctors</p>
                       {this.state.drop && <Dropdown />}
                     </Link>
                   </li>
@@ -66,7 +66,7 @@ class Header extends Component {
                 !this.props.isLoginPage &&
                 !this.props.isSignUp && (
                   <li>
-                    <Link to={"/cabinete"}>Cabinete</Link>
+                    <Link to={"/cabinete"}>Offices</Link>
                   </li>
                 )}
               {!this.props.isSignUp &&

@@ -1,32 +1,32 @@
-import getProfilMedic from "../Constants";
+import Constants from "../Constants";
 
 export const initialState = {
   inPrgress: false,
   error: null,
-  dateMedic: null
+  doctorInfo: null
 };
 
-export default function profilMedic(state = initialState, action) {
+export default function doctorProfileReducer(state = initialState, action) {
   switch (action.type) {
-    case getProfilMedic.GET_PROFILMEDIC_IN_PROGRESS: {
+    case Constants.GET_DOCTORPROFILE_IN_PROGRESS: {
       state = {
         ...state,
         inPrgress: true,
         error: null,
-        dateMedic: null
+        doctorInfo: null
       };
       break;
     }
-    case getProfilMedic.GET_PROFILMEDIC_SUCCESS: {
+    case Constants.GET_DOCTORPROFILE_SUCCESS: {
       state = {
         ...state,
         inPrgress: false,
-        dateMedic: action.payload
+        doctorInfo: action.payload
       };
       break;
     }
 
-    case getProfilMedic.GET_PROFILMEDIC_FAILURE: {
+    case Constants.GET_DOCTORPROFILE_FAILURE: {
       state = {
         ...state,
         inPrgress: false,

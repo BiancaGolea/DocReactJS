@@ -1,11 +1,11 @@
-import getProfilCabinet from "../Constants";
+import Constants from "../Constants";
 import Api from "../../Api/Api";
 
-export default function cabinetAction(id, token) {
+export default function officeProfileAction(id, token) {
   return async function(dispach) {
-    dispach({ type: getProfilCabinet.GET_PROFILCABINET_IN_PROGRESS });
+    dispach({ type: Constants.GET_OFFICEPROFILE_IN_PROGRESS });
     try {
-      const resp = await fetch(Api.getProfilCabinet + id, {
+      const resp = await fetch(Api.getOfficeProfile + id, {
         method: "GET",
         headers: {
           Authorization: token,
@@ -18,12 +18,12 @@ export default function cabinetAction(id, token) {
       }
 
       dispach({
-        type: getProfilCabinet.GET_PROFILCABINET_SUCCESS,
+        type: Constants.GET_OFFICEPROFILE_SUCCESS,
         payload: json
       });
     } catch (error) {
       dispach({
-        type: getProfilCabinet.GET_PROFILCABINET_FAILURE,
+        type: Constants.GET_OFFICEPROFILE_FAILURE,
         payload: error
       });
     }

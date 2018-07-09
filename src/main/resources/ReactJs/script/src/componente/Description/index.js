@@ -8,20 +8,23 @@ class Description extends Component {
     return (
       <div className="divMainText">
         <p className="textTitleDescription">
-          Știm că sănătatea, la fel ca timpul, sunt foarte importante pentru
-          duneavoastră!
+        We know that health, like time, is very important for
+           you!
         </p>
         <p className="textDescription">
-          {" "}
-                  Noi îți oferim ocazia de a te programa la medicul tau favorit direct
-          de la tine de acasa. Nu e nevoie să pierdeți minute în șir la telefon
-          sau în sala de așteptare pentru a vă programa pentru o consultație.
-          MedicaClinick vă sta la dispoziție 24/24 pentru a vă programa oricând
-          aveți nevoie.
+          {" "} 
+          We offer you the opportunity to schedule your favorite doctor directly
+           from you home. You do not need to miss out on the phone for a few minutes
+           or in the waiting room to booking for a consultation.
+           MedicaClinick is available 24/24 to booking you anytime
+           you need it.
+              
+                  
         </p>
         <p className="textTitleDescription">
           {" "}
-          MedicaClinick vă ajută să fiți siguri că luați cea mai bună decizie!{" "}
+          MedicaClinick helped to be sure you do the best decision!
+         {" "}
         </p>
         <p className="textDescription">
                 Pentru ca dorim ca utilizatorii să aibă parte de cea mai bună
@@ -29,6 +32,11 @@ class Description extends Component {
           de care au beneficiat, precum și despre prețurile și aparatura
           medicilor, astfel încât utilizatorii noștri să aibă toate sursele
           necesare pentru a face alegerea potrivită.
+          Because we want users to get the best
+           experience, we give them the opportunity to express their opinion about the services
+           of which they have benefited, as well as prices and equipment
+           doctors, so that our users have all the sources
+           needed to make the right choice!
         </p>
       </div>
     );

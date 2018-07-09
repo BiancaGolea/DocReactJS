@@ -6,23 +6,22 @@ import "./styles.css";
 import Rating from "react-rating";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import cabinetProfil from "../../commun/ReduxActions/ProfilCabinetAction";
+import officeProfileAction from "../../commun/ReduxActions/OfficeProfileAction";
 import Progress from "../../componente/Progress/index";
+import doctorsBySpecializationAction from "../../commun/ReduxActions/DoctorsBySpecializationAction";
 
 class OfficeProfile extends Component {
 
   async componentWillMount() {
-    await this.props.cabinetProfil(
+    await this.props.officeProfileAction(
       this.props.location.state.detail,
       this.props.authInfo.token
     );
-    console.log(JSON.stringify(this.props.profilCabinet ));
-    console.log(JSON.stringify(this.props.location))
-    console.log(this.props.location.state.detail)
+  
   }
   
   render() {
-    if(this.props.profilCabinet.dateCabinet === null ){
+    if(this.props.officeProfileReducer.officeInfo === null ){
       return <Progress/>;
     }
     else{
@@ -32,53 +31,60 @@ class OfficeProfile extends Component {
           <Header isWelcomePage={true} />
         </div>
         <div className="bigDiv">
-          <p className="titleOfficeProfile"> Policlinica </p>
+          <p className="titleOfficeProfile"> </p>
           <div className="divCardOfficeProfile">
             <div className="ratingStyles">
               <img
+              alt="img"
                 src={require("../../assets/avatar.png")}
                 className="smallImg"
               />
-              <p className="paragrphRating"> Rating locatie cabinet</p>
+              <p className="paragrphRating"> Rating office location</p>
               <Rating
                 placeholderRating={3.88}
                 emptySymbol={
                   <img
+                  alt="img"
                     src={require("../../assets/star-grey.png")}
                     className="icon"
                   />
                 }
                 placeholderSymbol={
                   <img
+                  alt="img"
                     src={require("../../assets/star-red.png")}
                     className="icon"
                   />
                 }
                 fullSymbol={
                   <img
+                  alt="img"
                     src={require("../../assets/star-yellow.png")}
                     className="icon"
                   />
                 }
                 readonly={true}
               />
-              <p className="paragrphRating"> Rating aspect cabinet</p>
+              <p className="paragrphRating"> Rating look office</p>
               <Rating
                 placeholderRating={3.0}
                 emptySymbol={
                   <img
+                  alt="img"
                     src={require("../../assets/star-grey.png")}
                     className="icon"
                   />
                 }
                 placeholderSymbol={
                   <img
+                  alt="img"
                     src={require("../../assets/star-red.png")}
                     className="icon"
                   />
                 }
                 fullSymbol={
                   <img
+                  alt="img"
                     src={require("../../assets/star-yellow.png")}
                     className="icon"
                   />
@@ -87,10 +93,10 @@ class OfficeProfile extends Component {
               />
             </div>
             <div className="infoOfficeProfileDiv">
-                <p>Denumire: {this.props.profilCabinet.dateCabinet.denumire} </p>
-                <p>Adresa: {this.props.profilCabinet.dateCabinet.adresa} </p>
-                <p>Tip:{this.props.profilCabinet.dateCabinet.tip} </p>
-                <p>Medici: {this.renderListaMedici()} </p>
+                <p>Name: {this.props.officeProfileReducer.officeInfo.denumire} </p>
+                <p>Address: {this.props.officeProfileReducer.officeInfo.adresa} </p>
+                <p>Type:{this.props.officeProfileReducer.officeInfo.tip} </p>
+                <div>Doctors: {this.renderListaMedici()} </div>
               </div>
           </div>
         </div>
@@ -100,24 +106,26 @@ class OfficeProfile extends Component {
 }
 renderListaMedici(){
   let listaMed=[];
-  for(let i=0; i<this.props.profilCabinet.dateCabinet.listOfDoctors.length; i++){
-    listaMed.push(<p>{this.props.profilCabinet.dateCabinet.listOfDoctors[i]}</p>)
+  for(let i=0; i<this.props.officeProfileReducer.officeInfo.listaMedici.length; i++){
+    listaMed.push(<p key={i}>{this.props.officeProfileReducer.officeInfo.listaMedici[i]}</p>)
   }
+
   return listaMed;
+  
 }
 }
 
 function mapStateToProps(state) {
   return {
     authInfo: state.authReducer,
-    profilCabinet: state.profilCabinet,
+    officeProfileReducer: state.officeProfileReducer,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      cabinetProfil: (id, token) => cabinetProfil(id, token)},
+      officeProfileAction: (id, token) => officeProfileAction(id, token)},
     dispatch
   );
 }

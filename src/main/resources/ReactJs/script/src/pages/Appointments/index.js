@@ -13,7 +13,7 @@ class Appointments extends Component {
         return (
             <div className="divAppointments">
                 <Header />
-                <h1 className="pageAppointmentsTitle"> Programări</h1>
+                <h1 className="pageAppointmentsTitle"> Appointments</h1>
                 <AppointmentsForm token={this.props.authInfo.token} idDoctor={this.props.location.state.idRezervare}/>
             </div>
 

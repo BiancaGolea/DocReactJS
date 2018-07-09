@@ -1,11 +1,11 @@
-import getProgramariConst from "../Constants";
+import Constants from "../Constants";
 import Api from "../../Api/Api";
 
-export default function programariAction(token, id) {
+export default function appointmentsiAction(token, id) {
   return async function(dispach) {
-    dispach({ type: getProgramariConst.GET_PROGRAMARI_IN_PROGRESS });
+    dispach({ type: Constants.GET_APPOINTMENTS_IN_PROGRESS });
     try {
-      const resp = await fetch(Api.getProgramariUrl + id, {
+      const resp = await fetch(Api.getAppointmentsUrl + id, {
         method: "GET",
         headers: {
           Authorization: token,
@@ -18,13 +18,13 @@ export default function programariAction(token, id) {
         throw new Error(json);
       }
        dispach({
-        type: getProgramariConst.GET_PROGRAMARI_SUCCESS,
+        type: Constants.GET_APPOINTMENTS_SUCCESS,
         payload: json
       });
 
     } catch (error) {
       dispach({
-        type: getProgramariConst.GET_PROGRAMARI_FAILURE,
+        type: Constants.GET_APPOINTMENTS_FAILURE,
         payload: error
       });
     }

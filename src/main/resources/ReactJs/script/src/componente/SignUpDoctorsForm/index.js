@@ -23,8 +23,8 @@ class SignUpDoctorsForm extends Component {
       showFormCabinet: false,
       Success: false,
       isError: false,
-      dateMedic: null,
-      dateCabinet: null
+      doctorInfo: null,
+      officeInfo: null
     };
   }
   handleClose = () => {
@@ -50,12 +50,12 @@ class SignUpDoctorsForm extends Component {
             </DialogTitle>
             <DialogContent>
               <DialogContentText id="alert-dialog-slide-description">
-                Datele dumneavoastra s-au inregistrat! Va multumesc!
+                Your information has been registration! Thank you!
               </DialogContentText>
             </DialogContent>
             <DialogActions>
               <Button onClick={this.handleClose} color="primary">
-                Continua
+                Continue
               </Button>
             </DialogActions>
           </Dialog>
@@ -65,7 +65,7 @@ class SignUpDoctorsForm extends Component {
     return (
       <div className="divContent">
         {this.state.isError && (
-          <p> Va rugam sa verificati din nou datele introduse! </p>
+          <p> Please verify your personal dates again! </p>
         )}
         {this.state.showDateMedic && (
           <FormDoctorInfo date={this._getDateMedic.bind(this)} />
@@ -77,23 +77,23 @@ class SignUpDoctorsForm extends Component {
     );
   }
 
-  _getDateCabinet = dateCabinet => {
-    console.log(this._validation2(dateCabinet)+" validare medic 2")
-    let valid = this._validation2(dateCabinet);
+  _getDateCabinet = officeInfo => {
+    console.log(this._validation2(officeInfo)+" validare medic 2")
+    let valid = this._validation2(officeInfo);
     if (valid) {
-      this.setState({ dateCabinet: dateCabinet });
+      this.setState({ officeInfo: officeInfo });
     } else {
       this.setState({ isError: true });
     }
-    this._onPress(dateCabinet);
+    this._onPress(officeInfo);
   };
 
-  _getDateMedic = dateMedic => {
-    console.log(this._validation(dateMedic)+" validare medic")
-    let valid = this._validation(dateMedic);
+  _getDateMedic = doctorInfo => {
+    console.log(this._validation(doctorInfo)+" validare medic")
+    let valid = this._validation(doctorInfo);
     if (valid) {
       this.setState({
-        dateMedic: dateMedic,
+        doctorInfo: doctorInfo,
         showDateMedic: false,
         showFormCabinet: true,
         isError: false
@@ -137,10 +137,10 @@ class SignUpDoctorsForm extends Component {
   async _onPress(date) {
     try {
       let listaNR = [];
-      listaNR.push(this.state.dateMedic.numarTelefon);
+      listaNR.push(this.state.doctorInfo.numarTelefon);
 
       let listaSpec = [];
-      listaSpec.push(this.state.dateMedic.specializare);
+      listaSpec.push(this.state.doctorInfo.specializare);
 
       let listaCabinet = [];
       let response = await fetch("http://localhost:8080/medic/add", {
@@ -150,11 +150,11 @@ class SignUpDoctorsForm extends Component {
           Authorization: this.props.token
         },
         body: JSON.stringify({
-          nume: this.state.dateMedic.nume,
-          prenume: this.state.dateMedic.prenume,
+          nume: this.state.doctorInfo.nume,
+          prenume: this.state.doctorInfo.prenume,
           numereTel: listaNR,
-          email: this.state.dateMedic.email,
-          facebook: this.state.dateMedic.facebook,
+          email: this.state.doctorInfo.email,
+          facebook: this.state.doctorInfo.facebook,
           specializare: listaSpec,
           applicationUser:this.props.username,
           cabinete: [
@@ -167,7 +167,7 @@ class SignUpDoctorsForm extends Component {
         })
       });
 
-      if (response.status != 201) {
+      if (response.status !== 201) {
         throw new Error("Error");
       } else {
         this.setState({ Success: true });

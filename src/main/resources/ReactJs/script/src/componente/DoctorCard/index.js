@@ -38,16 +38,16 @@ class DoctorCard extends Component {
         </div>
 
         <div className="divInformations">
-          <p>Nume: {this.props.numeMedic} </p>
-          <p>Prenume: {this.props.prenumeMedic} </p>
-          <div>Adresa: {this.renderAdrese()} </div>
-          <div>Nr. Telefon:{this.renderNrTel()} </div>
+          <p>Name: {this.props.numeMedic} </p>
+          <p>LastName: {this.props.prenumeMedic} </p>
+          <div>Address: {this.renderAdrese()} </div>
+          <div>Number phone:{this.renderNrTel()} </div>
         </div>
         <button onClick={()=>this.onClick2(this.props.idDoctor)} className="buttonPriceServices">
-          Vezi preturi
+         See prices
           </button>
         <button onClick={()=>this.onClick(this.props.idDoctor)} className="buttonProfile">
-          Vezi detalii
+          More details
           </button>
       </div>
     );

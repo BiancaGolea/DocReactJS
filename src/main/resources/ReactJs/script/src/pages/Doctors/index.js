@@ -62,7 +62,7 @@ class Doctors extends Component {
   async loadData() {
     await this.props.doctorsBySpecializationAction(
       this.props.authInfo.token,
-      this.props.specializareReducer.specializareSelectata
+      this.props.specializationsReducer.selectedSpecialization
     );
   }
 }
@@ -70,7 +70,7 @@ class Doctors extends Component {
 function mapStateToProps(state) {
   return {
     authInfo: state.authReducer,
-    specializareReducer: state.specializareReducer,
+    specializationsReducer: state.specializationsReducer,
     listOfDoctors: state.listOfDoctorsBySpecialization,
   };
 }

@@ -58,14 +58,14 @@ class SignUpForm extends Component {
             aria-describedby="alert-dialog-slide-description"
           >
             <DialogTitle className="divDialog" id="alert-dialog-slide-title">
-              {"Felicitari!"}
+              {"Congratulations!"}
             </DialogTitle>
             <DialogTitle className="divDialog" id="alert-dialog-slide-title">
-              {"Te-ai inregistrat ca utilizator. Iti multumim!!"}
+              {"You are registration as a user. Thank you!!"}
             </DialogTitle>
             <DialogActions>
               <Button  className="divDialog" onClick={this.handleClose} color="primary">
-                Continua
+                Continue
               </Button>
             </DialogActions>
           </Dialog>
@@ -76,7 +76,7 @@ class SignUpForm extends Component {
       <div className="formSignupContainerDiv">
         <h className="titleStyles"> Sign Up</h>
         {this.state.signUpError && (
-          <p className="stilEroare">Inregistrarea nu s-a efectuat</p>
+          <p className="stilEroare">Registration did not execut.</p>
         )}
         <form>
           <div className="form-group">
@@ -121,7 +121,7 @@ class SignUpForm extends Component {
 
           <div className="form-group">
             <div className="textWarningDiv">
-              <label> Parola </label>
+              <label> Password </label>
               {this.state.isPassError && (
                 <ValidationMessage mesaj={this.state.passErrorMsg} />
               )}
@@ -141,7 +141,7 @@ class SignUpForm extends Component {
 
           <div className="form-group">
             <div className="textWarningDiv">
-              <label> Confirmare parola </label>
+              <label> Confirm password </label>
               {this.state.isConfirmPassError && (
                 <ValidationMessage mesaj={this.state.confpassErrMsg} />
               )}

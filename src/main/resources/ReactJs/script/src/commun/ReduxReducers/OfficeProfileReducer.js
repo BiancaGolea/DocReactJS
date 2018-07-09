@@ -1,36 +1,35 @@
-import getProfilCabinet from "../Constants";
+import Constants from "../Constants";
 
 export const initialState={
     inProgress: false,
     error:null,
-    dateCabinet:null,
+    officeInfo:null,
 };
 
-export default function profilCabinet(state = initialState, action){
+export default function officeProfileReducer(state = initialState, action){
     switch(action.type){
-        case getProfilCabinet.GET_PROFILCABINET_IN_PROGRESS:
-        {console.log("progress")
+        case Constants.GET_OFFICEPROFILE_IN_PROGRESS:
+        {
         state={
             ...state,
             inProgress:true,
             error:null,
-            dateCabinet:null,
+            officeInfo:null,
         };
         break;
     }
-        case getProfilCabinet.GET_PROFILCABINET_SUCCESS:
+        case Constants.GET_OFFICEPROFILE_SUCCESS:
         {
-            console.log("succes")
             state={
                 ...state,
                 inProgress:false,
-                dateCabinet:action.payload
+                officeInfo:action.payload
             };
            
             break;
         }
-        case getProfilCabinet.GET_PROFILCABINET_FAILURE:
-        {console.log("error")
+        case Constants.GET_OFFICEPROFILE_FAILURE:
+        {
             state={
                 ...state,
                 inProgress:null,

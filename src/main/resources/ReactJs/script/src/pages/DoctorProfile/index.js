@@ -6,26 +6,26 @@ import "./styles.css";
 import Rating from "react-rating";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import medicProfil from "../../commun/ReduxActions/ProfilMedicAction";
+import doctorProfileAction from "../../commun/ReduxActions/DoctorProfileAction";
 import ReviewCard from "../../componente/ReviewCard/index";
 import ServiceCard from "../../componente/ServiceCard/index";
-import recenziiMediciAction from "../../commun/ReduxActions/RecenziiMedicAction";
+import doctorReviewAction from "../../commun/ReduxActions/DoctorReviewAction";
 import Progress from "../../componente/Progress/index";
 
 class DoctorProfile extends Component {
   async componentWillMount() {
-    await this.props.medicProfil(
+    await this.props.doctorProfileAction(
       this.props.authInfo.token,
       this.props.location.state.detail,
     );
-    await this.props.recenziiMediciAction(
+    await this.props.doctorReviewAction(
       this.props.authInfo.token,
       this.props.location.state.detail
     );
   }
 
   render() {
-    if (this.props.profilMedic.dateMedic === null || this.props.recenzieMedic.listaRecenziiMedici===null) {
+    if (this.props.doctorProfileReducer.doctorInfo === null || this.props.doctorReview.doctorReviewList===null) {
       return <Progress/>;
     } else {
      
@@ -36,12 +36,13 @@ class DoctorProfile extends Component {
           </div>
           <div className="divMainDoctorProfile">
             <p className="pDoctorName">
-              Doctor {this.props.profilMedic.dateMedic.nume}{" "}
-              {this.props.profilMedic.dateMedic.prenume}{" "}
+              Doctor {this.props.doctorProfileReducer.doctorInfo.nume}{" "}
+              {this.props.doctorProfileReducer.doctorInfo.prenume}{" "}
             </p>
             <div className="divCardDoctorProfile">
               <div className="styleRating">
                 <img
+                alt="img"
                   src={require("../../assets/avatar.png")}
                   className="imageSmall"
                 />
@@ -49,72 +50,81 @@ class DoctorProfile extends Component {
                 <p className="ratingParagraph">Rating pret:</p>
                 <Rating
                   placeholderRating={
-                    this.props.profilMedic.dateMedic.mediePret / 2
+                    this.props.doctorProfileReducer.doctorInfo.mediePret / 2
                   }
                   emptySymbol={
                     <img
+                    alt="img"
                       src={require("../../assets/star-grey.png")}
                       className="icon"
                     />
                   }
                   placeholderSymbol={
                     <img
+                    alt="img"
                       src={require("../../assets/star-red.png")}
                       className="icon"
                     />
                   }
                   fullSymbol={
                     <img
+                    alt="img"
                       src={require("../../assets/star-yellow.png")}
                       className="icon"
                     />
                   }
                   readonly={true}
                 />
-                <p className="ratingParagraph">Rating servicii medicale:</p>
+                <p className="ratingParagraph">Rating medical services:</p>
                 <Rating
                   placeholderRating={
-                    this.props.profilMedic.dateMedic.medieServMedicale / 2
+                    this.props.doctorProfileReducer.doctorInfo.medieServMedicale / 2
                   }
                   emptySymbol={
                     <img
+                    alt="img"
                       src={require("../../assets/star-grey.png")}
                       className="icon"
                     />
                   }
                   placeholderSymbol={
                     <img
+                    alt="img"
                       src={require("../../assets/star-red.png")}
                       className="icon"
                     />
                   }
                   fullSymbol={
                     <img
+                    alt="img"
                       src={require("../../assets/star-yellow.png")}
                       className="icon"
                     />
                   }
                   readonly={true}
                 />
-                <p className="ratingParagraph">Rating aparatura:</p>
+                <p className="ratingParagraph">Rating equipment:</p>
                 <Rating
                   placeholderRating={
-                    this.props.profilMedic.dateMedic.medieAparatura / 2
+                    this.props.doctorProfileReducer.doctorInfo.medieAparatura / 2
                   }
                   emptySymbol={
                     <img
+                    alt="img"
                       src={require("../../assets/star-grey.png")}
                       className="icon"
                     />
                   }
                   placeholderSymbol={
                     <img
+                    alt="img"
                       src={require("../../assets/star-red.png")}
                       className="icon"
                     />
                   }
                   fullSymbol={
                     <img
+                    alt="img"
                       src={require("../../assets/star-yellow.png")}
                       className="icon"
                     />
@@ -126,15 +136,15 @@ class DoctorProfile extends Component {
               <div className="styleBorderDiv">
                 <p>
                   {" "}
-                  Specializare: {
-                    this.props.profilMedic.dateMedic.specializare
+                  Specialization: {
+                    this.props.doctorProfileReducer.doctorInfo.specializare
                   }{" "}
                 </p>
-                <p> Cabinet: {this.props.profilMedic.dateMedic.adresaCab} </p>
-                <div>Orar: {this.renderOrar()} </div>
-                <p> Email: {this.props.profilMedic.dateMedic.email} </p>
-                <div> Telefon: {this.renderNrTel()}</div>
-                <p> Facebook: {this.props.profilMedic.dateMedic.facebook} </p>
+                <p> Office: {this.props.doctorProfileReducer.doctorInfo.adresaCab} </p>
+                <div>Schedule: {this.renderOrar()} </div>
+                <p> Email: {this.props.doctorProfileReducer.doctorInfo.email} </p>
+                <div> Number phone: {this.renderNrTel()}</div>
+                <p> Facebook: {this.props.doctorProfileReducer.doctorInfo.facebook} </p>
               </div>
             </div>
             <div className="divBtn">
@@ -149,7 +159,7 @@ class DoctorProfile extends Component {
                 onClick={() => this.onClick2(this.props.location.state.detail)}
                 className="buttonReviewDocProfile"
               >
-                Adauga recenzie
+               Add Review
               </button>
             </div>
           </div>
@@ -160,15 +170,15 @@ class DoctorProfile extends Component {
   }
   renderNrTel() {
     let list = [];
-    for (let i = 0; i < this.props.profilMedic.dateMedic.nrTel.length; i++) {
-      list.push(<p key={i}> {this.props.profilMedic.dateMedic.nrTel[i]}</p>);
+    for (let i = 0; i < this.props.doctorProfileReducer.doctorInfo.nrTel.length; i++) {
+      list.push(<p key={i}> {this.props.doctorProfileReducer.doctorInfo.nrTel[i]}</p>);
     }
     return list;
   }
   renderOrar(){
     let orar=[];
-    for(let i=0;i<this.props.profilMedic.dateMedic.program.length;i++){
-      let data=this.props.profilMedic.dateMedic.program[i];
+    for(let i=0;i<this.props.doctorProfileReducer.doctorInfo.program.length;i++){
+      let data=this.props.doctorProfileReducer.doctorInfo.program[i];
       data=data.split(" ");
       let dataOrar=data[0]+"-"+data[2].slice(0, 5)+"--"+data[4].slice(0, 5);
       orar.push(<p key={i*i+1}>{dataOrar}</p>)
@@ -193,11 +203,11 @@ class DoctorProfile extends Component {
   }
   renderlistaRecenzii() {
     let listaRec = [];
-    for (let i = 0;i <this.props.recenzieMedic.listaRecenziiMedici.length; i++) {
+    for (let i = 0;i <this.props.doctorReview.doctorReviewList.length; i++) {
       listaRec.push(
       <ReviewCard
       key={i*i+1}
-       recenzieModel={this.props.recenzieMedic.listaRecenziiMedici[i]} />);
+       recenzieModel={this.props.doctorReview.doctorReviewList[i]} />);
     }
     return listaRec;
   }
@@ -207,16 +217,16 @@ class DoctorProfile extends Component {
 function mapStateToProps(state) {
   return {
     authInfo: state.authReducer,
-    profilMedic: state.profilMedic,
-    recenzieMedic:state.recenziiMedicReducer,
+    doctorProfileReducer: state.doctorProfileReducer,
+    doctorReview:state.doctorReview,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      medicProfil: (token, id) => medicProfil(token, id),
-      recenziiMediciAction: (token,id)=>  recenziiMediciAction(token,id)},
+      doctorProfileAction: (token, id) => doctorProfileAction(token, id),
+      doctorReviewAction: (token,id)=>  doctorReviewAction(token,id)},
     dispatch
   );
 }

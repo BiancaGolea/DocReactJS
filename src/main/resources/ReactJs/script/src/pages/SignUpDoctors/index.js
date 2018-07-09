@@ -18,7 +18,7 @@ class SignUpDoctors extends Component {
         <Header isLoginPage={true} />
         <h1 className="pageSignUpDoctorsTitle">
           {" "}
-          Înregistrează-te ca medic pe platforma noastra!
+          Inregistration as a doctor on our platform!
         </h1>
         <SignUpDoctorsForm token={this.props.authInfo.token} username={this.props.authInfo.username}/>
       </div>

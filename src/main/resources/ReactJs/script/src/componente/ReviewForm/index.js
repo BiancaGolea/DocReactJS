@@ -49,10 +49,10 @@ class ReviewForm extends Component {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle className="divDialog" id="alert-dialog-slide-title">
-          {"Multumim!"}
+          {"Thank you!"}
         </DialogTitle>
         <DialogTitle className="divDialog" id="alert-dialog-slide-title">
-          {"Recenzia dumneavoastra s-a inregistrat !"}
+          {"Your review has been registered!"}
         </DialogTitle>
         <DialogActions>
           <Button  className="divDialog" onClick={this.handleClose} color="primary">
@@ -71,10 +71,10 @@ class ReviewForm extends Component {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle className="divDialog" id="alert-dialog-slide-title">
-          {"Ne pare rau!"}
+          {"Sorry!"}
         </DialogTitle>
         <DialogTitle className="divDialog" id="alert-dialog-slide-title">
-          {"Recenzia dumneavoastra nu s-a inregistrat. Incercati din nou!"}
+          {"Your review has not been registered. Try again!"}
         </DialogTitle>
         <DialogActions>
           <Button  className="divDialog" onClick={this.handleClose} color="primary">
@@ -97,7 +97,7 @@ class ReviewForm extends Component {
         <p className="pTitleGradeRating">Note pentru:</p>
 
         <label className="divGradeRating">
-          Servicii medicale:
+          Medical services:
           <div >
             <NumericInput className=" " min={1} max={10} value={this.state.notaServmed} size={1}
              onChange={(text)=>this.setState({
@@ -109,7 +109,7 @@ class ReviewForm extends Component {
           </div>
         </label>
         <label className="divGradeRating">
-          Aparatura:
+          Equipment:
           <div >
             <NumericInput className=" " min={1} max={10} value={this.state.notaAparatura} size={1} 
            onChange={(text)=>this.setState({
@@ -121,7 +121,7 @@ class ReviewForm extends Component {
         </label>
 
         <label className="divGradeRating">
-          Pret servicii:
+         Services prices:
           <div >
             <NumericInput className=" " min={1} max={10} value={this.state.notaPret}  size={1} 
           onChange={(text)=>this.setState({
@@ -133,7 +133,7 @@ class ReviewForm extends Component {
         </label>
 
          <label className="divGradeRating">
-          Aspectul cabinetului:
+          Office look:
           <div >
             <NumericInput className=" " min={1} max={10} value={this.state.notaAspectcab}  size={1} 
          onChange={(text)=>this.setState({
@@ -145,7 +145,7 @@ class ReviewForm extends Component {
         </label>
 
          <label className="divGradeRating">
-          Locatia cabinetului:
+          Office location:
           <div >
             <NumericInput className=" " min={1} max={10} value={this.state.notaLocatie}  size={1} 
           onChange={(text)=>this.setState({
@@ -164,7 +164,7 @@ class ReviewForm extends Component {
             color="primary"
             onClick={() => this._onCliclBtn()}
             >
-              Trimite
+              Sent
               <Icon><img src={require("../../assets/click.png")} className="styleIcon" alt="load"/></Icon>
             </Button>
             </div>

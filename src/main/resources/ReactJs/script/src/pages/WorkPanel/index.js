@@ -6,11 +6,11 @@ import "./styles.css";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import CardWorkPanel from "../../componente/CardWorkPanel/index";
-import programariAction from "../../commun/ReduxActions/ProgramariAction";
+import appointmentsiAction from "../../commun/ReduxActions/AppointmentsAction";
 
 class WorkPanel extends Component {
    async componentDidMount(){
-   await this.props.programariAction(
+   await this.props.appointmentsiAction(
       this.props.authInfo.token,
       this.props.authInfo.idDoctor
     );
@@ -18,11 +18,11 @@ class WorkPanel extends Component {
   }
 
   render() {
-  console.log("------------",this.props.programari);
+  console.log("------------",this.props.appointments);
 
 
     if (
-      this.props.programari.inProgress ||  !this.props.programari.listaProgramari) {
+      this.props.appointments.inProgress ||  !this.props.appointments.appointmentsList) {
       return <div className="divBackgroundWorkPanel">
       <p className="alertParagraphWorkPannel"> It working ...</p></div>;
     }
@@ -30,24 +30,24 @@ class WorkPanel extends Component {
     return (
       <div className="divBackgroundWorkPanel">
         <Header isLoginPage={true} />
-        <h2 className="styleTitleWorkPannel">Bun venit pe profilul tau!</h2>
-        <h3 className="TitleListAppointments">  Programările dumneavoastră</h3>
+        <h2 className="styleTitleWorkPannel">Welcome on your profile!</h2>
+        <h3 className="TitleListAppointments">  Your appointments</h3>
         <div className="divCardWorkPannel">
           {this.renderlistaProgramari()}
           
         </div>
         <div className="divContentText">
-          <p className="textDescriptionWorkPanel"> "Puterea de organizare infinită se referă la 
-          puterea de a organiza o infinitate de evenimente spaţio-temporale,
-           toate în acelaşi timp."
+          <p className="textDescriptionWorkPanel"> "The power of infinite organization refers to
+           the power to organize an infinity of space-time events,
+            all at the same time."
            <br /> 
            Deepak Chopra
            <br/>
            <br/>
            
-           Prin intermediul acestei aplicații puteți monitoriza și gestiona eficient fiecare 
-           programare, astfel că vă veți ști de fiecare dată pe cine așteptați la cabinetul dumneavoastră, 
-           la ce dată și ora, având de asemena datele de contact ale pacientului.
+           With this app, you can effectively monitor and manage each one
+            programming, so you'll know every time you wait for your office,
+            at what date and time, also having the contact details of the patient.
            </p>
           </div>
       </div>
@@ -55,15 +55,15 @@ class WorkPanel extends Component {
   }
    renderlistaProgramari() {
     let listaProgramare = [];
-    for (let i = 0; i < this.props.programari.listaProgramari.length; i++) {
+    for (let i = 0; i < this.props.appointments.appointmentsList.length; i++) {
       listaProgramare.push(
         <CardWorkPanel
-          idProgramare={this.props.programari.listaProgramari[i].id_programare}
-          dataProgramare={this.props.programari.listaProgramari[i].data}
-          firstname={this.props.programari.listaProgramari[i].nume}
-          lastname={this.props.programari.listaProgramari[i].prenume}
-          mail={this.props.programari.listaProgramari[i].email}
-          tel={this.props.programari.listaProgramari[i].nrtel}
+          idProgramare={this.props.appointments.appointmentsList[i].id_programare}
+          dataProgramare={this.props.appointments.appointmentsList[i].data}
+          firstname={this.props.appointments.appointmentsList[i].nume}
+          lastname={this.props.appointments.appointmentsList[i].prenume}
+          mail={this.props.appointments.appointmentsList[i].email}
+          tel={this.props.appointments.appointmentsList[i].nrtel}
         />
       );
     
@@ -74,7 +74,7 @@ class WorkPanel extends Component {
 
 
   async loadLista() {
-    await this.props.programariAction(
+    await this.props.appointmentsiAction(
       this.props.authInfo.token,
       this.props.authInfo.idDoctor
     );
@@ -84,14 +84,14 @@ class WorkPanel extends Component {
 function mapStateToProps(state) {
   return {
     authInfo: state.authReducer,
-    programari: state.programari
+    appointments: state.appointments
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      programariAction: (token, id) => programariAction(token, id)
+      appointmentsiAction: (token, id) => appointmentsiAction(token, id)
     },
     dispatch
   );

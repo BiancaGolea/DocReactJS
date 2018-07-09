@@ -1,32 +1,32 @@
-import getRecenziiMediciConst from "../Constants";
+import Constants from "../Constants";
 
 export const initialState = {
     inPrgress: false,
     error: null,
-    listaRecenziiMedici: null
+    doctorReviewList: null
   };
 
-  export default function getRecenziiMedici(state = initialState, action) {
+  export default function doctorReviewReducer(state = initialState, action) {
     switch (action.type) {
-      case getRecenziiMediciConst.GET_RECENZIIMEDICI_IN_PROGRESS:
+      case Constants.GET_DOCREVIEW_IN_PROGRESS:
         {
           state = {
             ...state,
             inPrgress: true,
             error: null,
-            listaRecenziiMedici: null
+            doctorReviewList: null
           };
            break;
         }
-       case getRecenziiMediciConst.GET_RECENZIIMEDIC_SUCCESS:{
+       case Constants.GET_DOCREVIEW_SUCCESS:{
            state={
                ...state,
                inPrgress:false,
-              listaRecenziiMedici:action.payload
+              doctorReviewList:action.payload
            };
            break;
        }
-       case getRecenziiMediciConst.GET_RECENZIIMEDICI_FAILURE:{
+       case Constants.GET_DOCREVIEW_FAILURE:{
            state={
                ...state,
                inPrgress:false,

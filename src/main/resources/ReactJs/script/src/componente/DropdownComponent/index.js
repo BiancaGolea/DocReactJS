@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap-theme.css";
 import "./styles.css";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import setSpecializare from "../../commun/ReduxActions/SetSpecializareAction";
+import setSpecialization from "../../commun/ReduxActions/SetSpecializationAction";
 import {bindActionCreators} from 'redux'; 
 
 class Dropdown extends Component {
@@ -15,21 +15,21 @@ class Dropdown extends Component {
   }
 
  async onClick(specializare) {
-    await this.props.setSpecializare(specializare);
+    await this.props.setSpecialization(specializare);
     
-    if(this.props.specializareRedux.specializareSelectata!==null){
+    if(this.props.specializationRedux.selectedSpecialization!==null){
       this.props.history.push('/medici');
     }
   }
 
   dropDown() {
     let listaSpec = [];
-    let nrSpec = this.props.specializareRedux.specializareList.length;
+    let nrSpec = this.props.specializationRedux.specializationList.length;
     for (let i = 0; i < nrSpec; i++) {
-      let specializare=this.props.specializareRedux.specializareList[i].denumireSpecializare;
+      let specializare=this.props.specializationRedux.specializationList[i].denumireSpecializare;
       listaSpec.push(
         <div key={i}>
-              <p onClick={()=>this.onClick(this.props.specializareRedux.specializareList[i].denumireSpecializare)}>{specializare.charAt(0).toUpperCase()+specializare.slice(1)}</p>
+              <p onClick={()=>this.onClick(this.props.specializationRedux.specializationList[i].denumireSpecializare)}>{specializare.charAt(0).toUpperCase()+specializare.slice(1)}</p>
         </div>
       );
     }
@@ -38,12 +38,12 @@ class Dropdown extends Component {
 }
 function mapStateToProps(state) {
   return {
-    specializareRedux: state.specializareReducer
+    specializationRedux: state.specializationsReducer
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ setSpecializare:(specializare)=>setSpecializare(specializare)},dispatch);
+  return bindActionCreators({ setSpecialization:(specializare)=>setSpecialization(specializare)},dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Dropdown));

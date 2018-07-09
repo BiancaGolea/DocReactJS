@@ -15,8 +15,6 @@ class Offices extends Component {
       }
     
       async componentWillMount() {
-          console.log("#########")
-          console.log(JSON.stringify(this.props.officesList))
         await this.loadData();
       }
     
@@ -45,6 +43,7 @@ class Offices extends Component {
           for(let i=0; i<this.props.officesList.officesList.length;i++){
               listaCard.push(
               <OfficeCard
+              key={i}
               idCabinet={this.props.officesList.officesList[i].idCab}
               rating={
                 isNaN(this.props.officesList.officesList[i].medieRecenzie)

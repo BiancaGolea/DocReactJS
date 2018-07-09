@@ -1,37 +1,37 @@
-import getProgramariConst from "../Constants";
+import Constants from "../Constants";
 
 export const initialState = {
   inProgress: false,
   error: null,
-  listaProgramari: null
+  appointmentsList: null
 };
 
-export default function getProgramari(state = initialState, action) {
+export default function appointmentsReducer(state = initialState, action) {
   switch (action.type) {
-    case getProgramariConst.GET_PROGRAMARI_IN_PROGRESS: {
+    case Constants.GET_APPOINTMENTS_IN_PROGRESS: {
       state = {
         ...state,
         inProgress: true,
         error: null,
-        listaProgramari: null
+        appointmentsList: null
       };
       break;
     }
-    case getProgramariConst.GET_PROGRAMARI_SUCCESS: {
+    case Constants.GET_APPOINTMENTS_SUCCESS: {
       state = {
         ...state,
         inProgress: false,
         error: null,
-        listaProgramari: action.payload
+        appointmentsList: action.payload
       };
       break;
     }
-    case getProgramariConst.GET_PROGRAMARI_FAILURE: {
+    case Constants.GET_APPOINTMENTS_FAILURE: {
       state = {
         ...state,
         inProgress: false,
         error: action.paylod,
-        listaProgramari: null
+        appointmentsList: null
       };
       break;
     }

@@ -1,32 +1,32 @@
-import getProgramConst from "../Constants";
+import Constants from "../Constants";
 
 export const initialState = {
     inPrgress: false,
     error: null,
-    listaProgram: null
+    scheduleList: null
   };
 
-  export default function getProgram(state = initialState, action){
+  export default function scheduleReducer(state = initialState, action){
     switch (action.type) {
-        case getProgramConst.GET_PROGRAM_IN_PROGRESS:
+        case Constants.GET_SCHEDULE_IN_PROGRESS:
           {
             state = {
               ...state,
               inPrgress: true,
               error: null,
-              listaProgram: null
+              scheduleList: null
             };
              break;
           }
-         case getProgramConst.GET_PROGRAM_SUCCESS:{
+         case Constants.GET_SCHEDULE_SUCCESS:{
              state={
                  ...state,
                  inPrgress:false,
-                listaProgram:action.payload
+                scheduleList:action.payload
              };
              break;
          }
-         case getProgramConst.GET_PROGRAM_FAILURE:{
+         case Constants.GET_SCHEDULE_FAILURE:{
              state={
                  ...state,
                  inPrgress:false,

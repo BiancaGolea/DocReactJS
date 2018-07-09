@@ -26,11 +26,11 @@ class CardWorkPanel extends Component {
   
       <div className="divCardWorkPanel">
         <div className="divCardWorkPanel2">
-          <p className="stylePatientInfo">Data: {this.renderOra()}</p>
-          <p className="stylePatientInfo">Nume: {this.props.firstname}</p>
-          <p className="stylePatientInfo">Prenume: {this.props.lastname}</p>
+          <p className="stylePatientInfo">Date: {this.renderOra()}</p>
+          <p className="stylePatientInfo">Name: {this.props.firstname}</p>
+          <p className="stylePatientInfo">LastName: {this.props.lastname}</p>
           <p className="stylePatientInfo">E-mail: {this.props.mail}</p>
-          <p className="stylePatientInfo">Numar telefon: {this.props.tel}</p>
+          <p className="stylePatientInfo">Number phone: {this.props.tel}</p>
         </div>
       </div>
     );}

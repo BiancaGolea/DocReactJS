@@ -10,24 +10,27 @@ class OfficeCard extends Component {
     return (
       <div className="divCard">
         <div className="divImgOffice">
-          <img src={require("../../assets/avatar.png")} className="imgStyle" />
+          <img alt="img" src={require("../../assets/avatar.png")} className="imgStyle" />
 
           <Rating
             placeholderRating={3.88}
             emptySymbol={
               <img
+              alt="img"
                 src={require("../../assets/star-grey.png")}
                 className="icon"
               />
             }
             placeholderSymbol={
               <img
+              alt="img"
                 src={require("../../assets/star-red.png")}
                 className="icon"
               />
             }
             fullSymbol={
               <img
+              alt="img"
                 src={require("../../assets/star-yellow.png")}
                 className="icon"
               />
@@ -36,15 +39,15 @@ class OfficeCard extends Component {
           />
         </div>
         <div className="divInfoOfficeCard">
-          <p>Denumire: {this.props.denumireCabinet}</p>
-          <p>Adresa: {this.props.adresaCabinet} </p>
-          <p>Tip cabinet: {this.props.tipCabinet}</p>
+          <p>Name: {this.props.denumireCabinet}</p>
+          <p>Address: {this.props.adresaCabinet} </p>
+          <p>Office type: {this.props.tipCabinet}</p>
         </div>
         <button
           onClick={() => this.onClick(this.props.idCabinet)}
           className="buttonDetails"
         >
-          Vezi detalii
+          More details
         </button>
       </div>
     );

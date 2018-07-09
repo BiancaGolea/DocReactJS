@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap-theme.css";
 import Header from "../../componente/Header/index";
 import "./styles.css";
 import { connect } from "react-redux";
-import specializareList from "../../commun/ReduxActions/SpecializariAction";
+import specializationsAction from "../../commun/ReduxActions/SpecializationsAction";
 import setStatus from "../../commun/ReduxActions/SetStatusAction";
 import { bindActionCreators } from "redux";
 import Coverflow from "react-coverflow";
@@ -130,7 +130,7 @@ class Welcome extends Component {
   }
 
   async loadData() {
-    await this.props.specializareList(this.props.authInfo.token);
+    await this.props.specializationsAction(this.props.authInfo.token);
     await this.props.setStatus(this.props.authInfo.token,this.props.authInfo.username);
   }
   
@@ -138,13 +138,13 @@ class Welcome extends Component {
 function mapStateToProps(state) {
   return {
     authInfo: state.authReducer,
-    specializareReducer: state.specializareReducer
+    specializationsReducer: state.specializationsReducer
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { specializareList: token => specializareList(token) ,
+    { specializationsAction: token => specializationsAction(token) ,
       setStatus:(token,username)=>setStatus(token,username)}, 
     dispatch
   );

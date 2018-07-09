@@ -1,32 +1,35 @@
-import appConstants from '../Constants';
+import Constants from '../Constants';
 
 export const initialState={
     inProgress:false,
     error:null,
-    specializareList: null,
-    specializareSelectata:null
+    specializationList: null,
+    selectedSpecialization:null
 }
 
-export default function specializariReducer(state=initialState,action){
+export default function specializationsReducer(state=initialState,action){
     switch (action.type){
-        case appConstants.GET_SPECIALIZARI_IN_PROGRESS:{
+        case Constants.GET_SPECIALIZATIONS_IN_PROGRESS:
+        { 
             state={
                 ...state,
                 inProgress:true,
-                specializareList:null,
+                specializationList:null,
                 error:null
             };
             break;
         }
-        case appConstants.GET_SPECIALIZARI_SUCCESS:{
+        case Constants.GET_SPECIALIZATIONS_SUCCESS:
+        { 
             state={
                 ...state,
                 inProgress:false,
-                specializareList:action.payload,
+                specializationList:action.payload,
             };
             break;
         }
-        case appConstants.GET_SPECIALIZARI_FAILURE:{
+        case Constants.GET_SPECIALIZATIONS_FAILURE:
+        { 
             state={
                 ...state,
                 inProgress:false,
@@ -34,11 +37,12 @@ export default function specializariReducer(state=initialState,action){
             };
             break;
         }
-        case appConstants.SET_SPECIALIZARE:{
+        case Constants.SET_SPECIALIZATION:
+        { 
             state={
                 ...state,
                 inProgress:true,
-                specializareSelectata:action.payload,
+                selectedSpecialization:action.payload,
             };
             break;
         }

@@ -1,11 +1,11 @@
-import getServiciiConst from "../Constants";
+import Constants from "../Constants";
 import Api from "../../Api/Api";
 
-export default function serviciiAction(token,id){
+export default function scheduleAction(token,id){
     return async function(dispach){
-        dispach({type:getServiciiConst.GET_SERVICII_IN_PROGRESS});
+        dispach({type:Constants.GET_SCHEDULE_IN_PROGRESS});
         try {
-            const resp = await fetch(Api.getServiciiUrl+id, {
+            const resp = await fetch(Api.getScheduleUrl+id, {
                 method: "GET",
                 headers: {
                     "Authorization":token,
@@ -16,10 +16,9 @@ export default function serviciiAction(token,id){
         if(json==null || resp.status!==200){
             throw new Error(json);
         }
-        
-        dispach({type:getServiciiConst.GET_SERVICII_SUCCESS,payload:json});
+        dispach({type:Constants.GET_SCHEDULE_SUCCESS,payload:json});
         } catch (error) {
-            dispach({type:getServiciiConst.GET_SERVICII_FAILURE,payload:error});
+            dispach({type:Constants.GET_SCHEDULE_FAILURE,payload:error});
         }
     }
 }

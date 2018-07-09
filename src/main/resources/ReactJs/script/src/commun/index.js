@@ -1,22 +1,22 @@
 import { combineReducers } from "redux";
 import authReducer from "./ReduxReducers/AuthReducer";
-import specializariReducer from "./ReduxReducers/SpecializariReducer";
+import SpecializationsReducer from "./ReduxReducers/SpecializationsReducer";
 import listOfDoctorsBySpecialization from "./ReduxReducers/ListOfDoctorsBySpecializationReducer";
-import ProfilMedic from "./ReduxReducers/ProfilMedicReducers";
-import Servicii from "./ReduxReducers/ServiciiReducer";
-import RecenziiMedic from "./ReduxReducers/RecenziiMedicReducer";
+import DoctorProfile from "./ReduxReducers/DoctorProfileReducer";
+import Services from "./ReduxReducers/ServicesReducer";
+import DoctorReview from "./ReduxReducers/DoctorReviewReducer";
 import Offices from "./ReduxReducers/OfficesReducer";
-import ProfilCabinet from "./ReduxReducers/ProfilCabinetReducer";
-import Programari from "./ReduxReducers/ProgramariReducer";
+import OfficeProfile from "./ReduxReducers/OfficeProfileReducer";
+import Appointments from "./ReduxReducers/AppointmentsReducer";
 
 export default combineReducers({
     authReducer:authReducer,
-    specializareReducer:specializariReducer,
+    specializationsReducer:SpecializationsReducer,
     listOfDoctorsBySpecialization:listOfDoctorsBySpecialization,
-    profilMedic:ProfilMedic,
-    serviciiMedic:Servicii,
-    recenziiMedicReducer:RecenziiMedic,
+    doctorProfileReducer:DoctorProfile,
+    doctorService:Services,
+    doctorReview:DoctorReview,
     officesList:Offices,
-    profilCabinet:ProfilCabinet,
-    programari:Programari,
+    officeProfileReducer:OfficeProfile,
+    appointments:Appointments,
     });

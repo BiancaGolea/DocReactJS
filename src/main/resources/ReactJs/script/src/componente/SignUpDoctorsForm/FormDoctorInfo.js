@@ -29,7 +29,7 @@ class FormDoctorInfo extends Component {
       <div>
         <form className=" formStyle">
           <label className="labelStyles">
-            Nume:
+            Name:
             <div className={this.state.isNumeError ? "inputError" : ""}>
               <input
                 class="form-control"
@@ -47,7 +47,7 @@ class FormDoctorInfo extends Component {
           </label>
 
           <label className="labelStyles">
-            Prenume:
+            LastName:
             <div className={this.state.isPrenumeError ? "inputError" : ""}>
               <input
                 class="form-control"
@@ -84,7 +84,7 @@ class FormDoctorInfo extends Component {
             </div>
           </label>
           <label className="labelStyles">
-            Adresa Facebook:
+           Facebook:
             <div>
               <input
                 class="form-control"
@@ -100,7 +100,7 @@ class FormDoctorInfo extends Component {
             </div>
           </label>
           <label className="labelStyles">
-            Nr. telefon:
+           Number phone:
             <div className={this.state.isNrtelError ? "inputError" : ""}>
               <input
                 class="form-control"
@@ -119,7 +119,7 @@ class FormDoctorInfo extends Component {
 
           <br />
           <label className="labelStyles">
-            Specializare:
+            Specialization:
             <select
               className="specializationsStyle"
               onChange={text =>
@@ -130,45 +130,45 @@ class FormDoctorInfo extends Component {
               }
             >
               <option>-------</option>
-              <option>Alergologie și imunologie clinică</option>
-              <option>Anestezie și terapie intensivă‎ </option>
-              <option>Boli infecțioase</option>
-              <option>Cardiologie‎</option>
-              <option>Chirurgie cardiovasculară‎ </option>
-              <option>Chirurgie generală‎ </option>
-              <option>Chirurgie oro-maxilo-facială‎ </option>
-              <option>Chirurgie pediatrică</option>
-              <option>Chirurgie plastică-microchirurgie reconstructivă‎ </option>
-              <option>Chirurgie toracică‎ </option>
-              <option>Chirurgie vasculară</option>
-              <option>Dermatovenerologie‎</option>
-              <option>Endocrinologie‎ </option>
-              <option>Epidemiologie‎</option>
-              <option>Gastroenterologie‎</option>
+              <option>Clinical Allergology and Immunology</option>
+              <option>Anesthesia and intensive care </option>
+              <option>Infectious diseases</option>
+              <option>Cardiology‎</option>
+              <option>Cardiovascular Surgery </option>
+              <option>General Surgery</option>
+              <option>Oral-maxillo-facial surgery</option>
+              <option>Pediatric Surgery</option>
+              <option>Plastic Surgery Reconstructive Microsurgery</option>
+              <option>Thoracic surgery‎ </option>
+              <option>Vascular surgery</option>
+              <option>Dermatovenereology</option>
+              <option>Endocrinology </option>
+              <option>Epidemiology</option>
+              <option>Gastroenterology‎</option>
 
-                <option>Hematologie </option>
-              <option>Nefrologie‎ </option>
-              <option>Neonatologie‎ </option>
-              <option>Neurochirurgie‎</option>
-              <option>Neurologie‎  </option>
-              <option>Neurologie pediatrică‎</option>
-              <option>Obstetrică - ginecologie‎</option>
-              <option>Oftalmologie‎  </option>
-              <option>Oncologie‎</option>
-              <option>Ortopedie pediatrică‎ </option>
+                <option>Hematology </option>
+              <option>Nefrology‎ </option>
+              <option>Neonatology‎ </option>
+              <option>Neurosurgery</option>
+              <option>Neurology‎  </option>
+              <option>Pediatric neurology‎</option>
+              <option>Obstetrics - Gynecology‎</option>
+              <option>Oftalmology  </option>
+              <option>Oncology</option>
+              <option>Pediatric orthopedics</option>
               
-              <option>Ortopedie și traumatologie‎ </option>
-              <option>Otorinolaringologie‎  </option>
-              <option>Patologie‎ </option>
-              <option>Pediatrie‎ </option>
-              <option>Pneumologie‎   </option>
+              <option>Orthopedics and traumatology‎ </option>
+              <option>Otorinolaringology‎  </option>
+              <option>Patologiy </option>
+              <option>Pediatrics‎ </option>
+              <option>Pneumology‎   </option>
 
               
-              <option>Psihiatrie‎  </option>
-              <option>Psihiatrie pediatrică‎  </option>
-              <option>Reumatologie‎  </option>
-              <option>Stomatologie‎</option>
-              <option>Urologie‎  </option>
+              <option>Psihiatriy  </option>
+              <option>Pediatrics‎ Pneumology‎ </option>
+              <option>Reumatology‎  </option>
+              <option>Stomatology‎</option>
+              <option>Urology  </option>
             </select>
           </label>
         </form>

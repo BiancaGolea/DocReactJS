@@ -26,14 +26,14 @@ class AppointmentsForm extends Component {
     super(props);
 
     this.state = {
-      nume: null,
-      prenume: null,
+      name: null,
+      lastname: null,
       email: "",
-      telefon: null,
-      data: null,
-      ora: null,
-      programareError: false,
-      programareSuccess: false,
+      phone: null,
+      date: null,
+      hour: null,
+      appointmentError: false,
+      appointmentSuccess: false,
       open: false,
       age: "",
       anchorEl: null
@@ -68,11 +68,11 @@ class AppointmentsForm extends Component {
       return <Progress />;
     }
 
-    if (this.state.programareSuccess) {
+    if (this.state.appointmentSuccess) {
       return (
         <div>
           <Dialog
-            open={this.state.programareSuccess}
+            open={this.state.appointmentSuccess}
             transition={Transition}
             keepMounted
             onClose={this.handleClose}
@@ -96,32 +96,32 @@ class AppointmentsForm extends Component {
         </div>
       );
     }
-    if (this.state.data === null) {
+    if (this.state.date === null) {
       return (
         
         <div className="calendar">
           <Calendar
           //  tileDisabled={(date) => date.getDay() === 1}
-            onClickDay={data => {
-              console.log(data.getDate() + "-" + (data.getMonth() + 1));
+            onClickDay={date => {
+              console.log(date.getDate() + "-" + (date.getMonth() + 1));
               this.setState({
-                data: data.getMonth() + 1 + "-" + data.getDate()
+                date: date.getMonth() + 1 + "-" + date.getDate()
               });
             }}
              tileDisabled={date => disableDates(date)}
             onChange={() => console.log("Calendar")}
-            value={this.state.data}
+            value={this.state.date}
           />
         </div>
       );
     }
 
 
-    if(this.state.programareError){
+    if(this.state.appointmentError){
       return(
         <div>
         <Dialog
-        open={this.state.programareError}
+        open={this.state.appointmentError}
         transition={Transition}
         keepMounted
         onClose={this.handleClose}
@@ -153,18 +153,18 @@ class AppointmentsForm extends Component {
         <form className=" formStyle">
           <label className="labelStyles">
             {" "}
-            Nume
-            <div className={this.state.isNumeClientError ? "inputError" : ""}>
+            Name
+            <div className={this.state.isNameUserError ? "inputError" : ""}>
               <input
                 type="username"
                 className="form-control"
                 placeholder={
-                  this.state.isNumeClientError ? "Mesaj de eroare" : ""
+                  this.state.isNameUserError ? "Mesaj de eroare" : ""
                 }
                 onChange={text =>
                   this.setState({
-                    nume: text.target.value,
-                    isNumeClientError: false
+                    name: text.target.value,
+                    isNameUserError: false
                   })
                 }
               />
@@ -172,20 +172,20 @@ class AppointmentsForm extends Component {
           </label>
           <label className="labelStyles">
             {" "}
-            Prenume
+            LastName
             <div
-              className={this.state.isPrenumeClientError ? "inputError" : ""}
+              className={this.state.isLastnameUserError ? "inputError" : ""}
             >
               <input
                 type="name"
                 className="form-control"
                 placeholder={
-                  this.state.isPrenumeClientError ? "Mesaj de eroare" : ""
+                  this.state.isLastnameUserError ? "Mesaj de eroare" : ""
                 }
                 onChange={text =>
                   this.setState({
-                    prenume: text.target.value,
-                    isPrenumeClientError: false
+                    lastname: text.target.value,
+                    isLastnameUserError: false
                   })
                 }
               />
@@ -196,6 +196,7 @@ class AppointmentsForm extends Component {
             E-mail
             <div className={this.state.isEmailError ? "inputError" : ""}>
               <input
+              id="test"
                 type="email"
                 value={this.state.email}
                 className="form-control"
@@ -215,25 +216,25 @@ class AppointmentsForm extends Component {
           </label>
           <label className="labelStyles">
             {" "}
-            Numar telefon
-            <div className={this.state.isTelefonError ? "inputError" : ""}>
+            Phone number
+            <div className={this.state.isPhoneError ? "inputError" : ""}>
               <input
                 type="name"
-                value={this.state.telefon}
+                value={this.state.phone}
                 className="form-control"
-                placeholder={this.state.isTelefonError ? "Mesaj de eroare" : ""}
+                placeholder={this.state.isPhoneError ? "Mesaj de eroare" : ""}
                 onChange={text =>
                   this.setState({
-                    telefon: text.target.value,
-                    isTelefonError: false
+                    phone: text.target.value,
+                    isPhoneError: false
                   })
                 }
               />
             </div>
           </label>{" "}
-          <div className={this.state.isOraError ? "inputError" : ""}>
+          <div className={this.state.isHourError ? "inputError" : ""}>
             <div className="divHour">
-              <h className={"hourAppointment"}> Ora programarii</h>
+              <h className={"hourAppointment"}> Appointment hour</h>
             </div>
             <div className="divSelect">
               <div>
@@ -244,14 +245,14 @@ class AppointmentsForm extends Component {
                   onClick={this.handleClick}
                 >
                   <div>
-                    {!this.state.ora && (
+                    {!this.state.hour && (
                       <img
                         src={require("../../assets/click.png")}
                         className="divImgAppointments"
                         alt="logo"
                       />
                     )}
-                    {this.state.ora && <p> {this.state.ora} </p>}
+                    {this.state.hour && <p> {this.state.hour} </p>}
                   </div>
                 </IconButton>
                 <Menu
@@ -271,9 +272,9 @@ class AppointmentsForm extends Component {
                       key={option}
                       onClick={() =>
                         this.setState({
-                          ora: option,
+                          hour: option,
                           anchorEl: null,
-                          isOraError: false,
+                          isHourError: false,
                           isEmailError: false,
                           isDataError: false
                         })
@@ -313,14 +314,14 @@ class AppointmentsForm extends Component {
    
   
     if (
-    this.state.nume === null || this.state.nume === "" ||
-    this.state.prenume === null || this.state.prenume === "" ||
-    this.state.telefon === null || this.state.telefon === "" ||
-    !this.validareTel(this.state.telefon) ||  
+    this.state.name === null || this.state.name === "" ||
+    this.state.lastname === null || this.state.lastname === "" ||
+    this.state.phone === null || this.state.phone === "" ||
+    !this.validatePhone(this.state.phone) ||  
     this.state.email === null || this.state.email=== "" ||
     !this.validateEmail(this.state.email) ||
-    this.state.ora === null || this.state.ora === "" || 
-    this.state.data === null || this.state.data === ""
+    this.state.hour === null || this.state.hour === "" || 
+    this.state.date === null || this.state.date === ""
     
 
   ) {
@@ -335,8 +336,8 @@ class AppointmentsForm extends Component {
   
     return re.test(String(email).toLowerCase());
   }
-  validareTel(telefon) {
-    if (telefon===null ||telefon.length !== 10 || isNaN(telefon)) {
+  validatePhone(phone) {
+    if (phone===null ||phone.length !== 10 || isNaN(phone)) {
       return false;
     }
   
@@ -349,16 +350,16 @@ class AppointmentsForm extends Component {
       if (this._validation()) {
       
         let conversieData =
-          this.state.data.length == 4 ? "0" + this.state.data : this.state.data;
+          this.state.date.length == 4 ? "0" + this.state.date : this.state.date;
         let dateFormat =
-          "2018-" + conversieData + "T" + this.state.ora + ":00Z";
+          "2018-" + conversieData + "T" + this.state.hour + ":00Z";
         let dataTimestamp = new Date(dateFormat);
         let programare = {
           data: dataTimestamp.getTime(),
-          nume: this.state.nume,
-          prenume: this.state.prenume,
+          nume: this.state.name,
+          prenume: this.state.lastname,
           email: this.state.email,
-          nrtel: this.state.telefon,
+          nrtel: this.state.phone,
           medic: {
             idMed: this.props.idDoctor
             
@@ -394,9 +395,9 @@ class AppointmentsForm extends Component {
       if (resp.status !== 201) {
         throw new Error(JSON.stringify(resp));
       }
-      this.setState({ inProgress: false, programareSuccess:true });
+      this.setState({ inProgress: false, appointmentSuccess:true });
     } catch (error) {
-      this.setState({ programareError: true, inProgress:false});
+      this.setState({ appointmentError: true, inProgress:false});
     }
   }
 }

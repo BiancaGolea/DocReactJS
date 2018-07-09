@@ -144,7 +144,7 @@ async _onLoginPress() {
             {"Opps!"}
           </DialogTitle>
           <DialogTitle className="divDialog" id="alert-dialog-slide-title">
-            {"User sau parola incorecte !"}
+            {"User or password incorrect !"}
           </DialogTitle>
           <DialogActions>
             <Button  className="divDialog" onClick={this.handleClose} color="primary">

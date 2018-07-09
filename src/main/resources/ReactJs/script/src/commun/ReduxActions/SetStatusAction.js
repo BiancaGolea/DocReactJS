@@ -1,9 +1,8 @@
-import appConstants from "../Constants";
+import Constants from "../Constants";
 
 export default function setStatus(token,username) {
   return async function(dispatch) {
     try {
-        console.log(token+" si "+username)
       const url =
         "http://localhost:8080/" + username + "/checkRole";
       const resp = await fetch(url, {
@@ -17,8 +16,8 @@ export default function setStatus(token,username) {
       const json=await resp.json();
 
       if(resp.status==302){
-        dispatch({ type: appConstants.SET_ID_DOCTOR, payload:json })
-        dispatch({ type: appConstants.SET_STATUS });
+        dispatch({ type: Constants.SET_ID_DOCTOR, payload:json })
+        dispatch({ type: Constants.SET_STATUS });
 
       }
     } catch (error) {

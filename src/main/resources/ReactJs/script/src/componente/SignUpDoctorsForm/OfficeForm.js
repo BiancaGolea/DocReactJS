@@ -21,7 +21,7 @@ class OfficeForm extends Component {
       <div>
         <form className=" formStyle">
           <label className="labelStyles">
-            Denumire Cabinet:
+           Office name:
             <div className={this.state.isDenumireError ? "inputError" : ""}>
               <input
                 class="form-control"
@@ -41,7 +41,7 @@ class OfficeForm extends Component {
           </label>
 
           <label className="labelStyles">
-            Adresa cabinet:
+            Office address:
             <div className={this.state.isAdresaError ? "inputError" : ""}>
               <input
                 class="form-control"
@@ -61,7 +61,7 @@ class OfficeForm extends Component {
           <br />
 
           <label className="labelStyles">
-            Tipul cabinetului:
+            Office type:
             <select
               className="specializariStyle"
               onChange={text =>
@@ -71,8 +71,8 @@ class OfficeForm extends Component {
               }
             >
               <option>-------</option>
-              <option>De stat</option>
-              <option>Privat</option>
+              <option>State</option>
+              <option>Private</option>
             </select>
           </label>
         </form>
@@ -87,12 +87,12 @@ class OfficeForm extends Component {
     );
   }
   _onBtnPress() {
-    let dateCabinet = {
+    let officeInfo = {
       denumire: this.state.denumire,
       adresaCab: this.state.adresa,
       tip: this.state.tip
     };
-    this.props.date(dateCabinet);
+    this.props.date(officeInfo);
   }
 }
 export default OfficeForm;

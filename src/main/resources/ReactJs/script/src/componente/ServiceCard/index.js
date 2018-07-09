@@ -10,8 +10,8 @@ class ServiceCard extends Component{
         return(
             <div className="divMainServices"> 
             <div className="divInfoServices">
-                        <p>{this.props.serviciuMedical.denumire}</p>
-                        <p>{this.props.serviciuMedical.pret}</p>
+                        <p>{this.props.doctorService.denumire}</p>
+                        <p>{this.props.doctorService.pret}</p>
                     </div>
                     
                 </div>

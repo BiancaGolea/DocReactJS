@@ -5,7 +5,7 @@ import Header from "../../componente/Header/index";
 import "./styles.css";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import serviciiAction from "../../commun/ReduxActions/ServiciiAction";
+import servicesAction from "../../commun/ReduxActions/ServicesAction";
 import ServiceCard from "../../componente/ServiceCard/index";
 import Progress from "../../componente/Progress/index";
 
@@ -16,7 +16,8 @@ class Services extends Component{
   }
 
     render(){
-      if(this.props.serviciuMedical.inProgress || this.props.serviciuMedical.listaServicii===null){
+      console.log(this.props.doctorService.servicesList, "date services")
+      if(this.props.doctorService.inProgress || this.props.doctorService.servicesList===null){
           return <Progress/>
               }
         return(
@@ -33,10 +34,10 @@ class Services extends Component{
 
 renderlistaServiciiMedicale(){
     let listraSpecializare=[];
-    for(let i=0;i<this.props.serviciuMedical.listaServicii.length;i++){
+    for(let i=0;i<this.props.doctorService.servicesList.length;i++){
       listraSpecializare.push(
       <ServiceCard 
-      serviciuMedical={this.props.serviciuMedical.listaServicii[i]}
+      doctorService={this.props.doctorService.servicesList[i]}
       />
       );
     }
@@ -45,7 +46,7 @@ renderlistaServiciiMedicale(){
   }
 
   async servDate(){
-    await this.props.serviciiAction(
+    await this.props.servicesAction(
       this.props.authInfo.token,
       this.props.location.state.detail
           );
@@ -56,14 +57,14 @@ renderlistaServiciiMedicale(){
 function mapStateToProps(state) {
     return {
       authInfo: state.authReducer,
-      serviciuMedical: state.serviciiMedic
+      doctorService: state.doctorService
     };
   }
   
   function mapDispatchToProps(dispatch) {
     return bindActionCreators(
       {
-        serviciiAction: (token, id) => serviciiAction(token, id)
+        servicesAction: (token, id) => servicesAction(token, id)
       },
       dispatch
     );

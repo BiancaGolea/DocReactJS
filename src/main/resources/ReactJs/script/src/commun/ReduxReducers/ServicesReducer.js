@@ -1,32 +1,34 @@
-import getServiciiConst from "../Constants";
+import Constants from "../Constants";
 
 export const initialState = {
     inPrgress: false,
     error: null,
-    listaServicii: null
+    servicesList: null
   };
 
-  export default function getServicii(state = initialState, action){
+  export default function servicesReducer(state = initialState, action){
     switch (action.type) {
-        case getServiciiConst.GET_SERVICII_IN_PROGRESS:
+        case Constants.GET_SERVICES_IN_PROGRESS:
           {
             state = {
               ...state,
               inPrgress: true,
               error: null,
-              listaServicii: null
+              servicesList: null
             };
              break;
           }
-         case getServiciiConst.GET_SERVICII_SUCCESS:{
+         case Constants.GET_SERVICES_SUCCESS:
+         {   
              state={
                  ...state,
                  inPrgress:false,
-                listaServicii:action.payload
+                servicesList:action.payload
              };
              break;
          }
-         case getServiciiConst.GET_SERVICII_FAILURE:{
+         case Constants.GET_SERVICES_FAILURE:
+         {   
              state={
                  ...state,
                  inPrgress:false,
