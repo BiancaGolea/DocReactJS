@@ -42,8 +42,8 @@ class AppointmentsForm extends Component {
   handleClose = () => {
     this.setState({ signUpSuccess: false });
     this.props.history.push({
-      pathname: "/medic",
-      state: { detail: this.props.location.state.idRezervare }
+      pathname: "/doctor",
+      state: { detail: this.props.location.state.idBooking }
     });
   };
   handleChange = event => {

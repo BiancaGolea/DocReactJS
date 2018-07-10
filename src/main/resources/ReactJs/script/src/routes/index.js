@@ -18,15 +18,15 @@ const Routes = () => (
   <Switch>
     <Route exact path='/' component={Welcome} />
     <Route exact path='/login' component={Login} />
-    <Route exact path='/medici' component={Doctors} />
-    <Route exact path='/cabinete' component={Offices} />
+    <Route exact path='/doctors' component={Doctors} />
+    <Route exact path='/offices' component={Offices} />
     <Route exact path='/signUp' component={SignUp} />
-    <Route exact path='/recmedici' component={SignUpDoctors} />
-    <Route exact path='/programari' component={Appointments} />
-    <Route exact path='/medic' component={DoctorProfile} />
-    <Route exact path='/cabinet' component={OfficeProfile} />
-    <Route exact path='/servicii' component={Services} />
-    <Route exact path='/recenzie' component={Review} />
+    <Route exact path='/registrationDoctor' component={SignUpDoctors} />
+    <Route exact path='/appointments' component={Appointments} />
+    <Route exact path='/doctor' component={DoctorProfile} />
+    <Route exact path='/office' component={OfficeProfile} />
+    <Route exact path='/services' component={Services} />
+    <Route exact path='/review' component={Review} />
     <Route exact path='/workpanel' component={WorkPanel} />
 
 

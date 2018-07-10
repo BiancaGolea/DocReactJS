@@ -14,7 +14,7 @@ class Appointments extends Component {
             <div className="divAppointments">
                 <Header />
                 <h1 className="pageAppointmentsTitle"> Appointments</h1>
-                <AppointmentsForm token={this.props.authInfo.token} idDoctor={this.props.location.state.idRezervare}/>
+                <AppointmentsForm token={this.props.authInfo.token} idDoctor={this.props.location.state.idBooking}/>
             </div>
 
         );

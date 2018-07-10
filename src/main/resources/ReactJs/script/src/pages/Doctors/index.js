@@ -23,7 +23,7 @@ class Doctors extends Component {
       return (
         <div className="divMainDoctors">
           <Header />
-          <div className="divListDoctors">{this.renderListaMedici()}</div>
+          <div className="divListDoctors">{this.renderListDoctors()}</div>
         </div>
       );
     } else {
@@ -37,10 +37,10 @@ class Doctors extends Component {
     }
   }
 
-  renderListaMedici() {
-    let listaCard = [];
+  renderListDoctors() {
+    let listCard = [];
     for (let i = 0; i < this.props.listOfDoctors.listOfDoctors.length; i++) {
-      listaCard.push(
+      listCard.push(
         <DoctorCard
         key={i}
           rating={
@@ -48,15 +48,15 @@ class Doctors extends Component {
               ? 3
               :(this.props.listOfDoctors.listOfDoctors[i].medieRecenzie/2)
           }
-          numeMedic={this.props.listOfDoctors.listOfDoctors[i].nume}
-          prenumeMedic={this.props.listOfDoctors.listOfDoctors[i].prenume}
-          nrTel={this.props.listOfDoctors.listOfDoctors[i].numereTel}
-          adreseMedic={this.props.listOfDoctors.listOfDoctors[i].adrese}
+          doctorName={this.props.listOfDoctors.listOfDoctors[i].nume}
+          doctorLastname={this.props.listOfDoctors.listOfDoctors[i].prenume}
+          doctorPhone={this.props.listOfDoctors.listOfDoctors[i].numereTel}
+          doctorAddress={this.props.listOfDoctors.listOfDoctors[i].adrese}
           idDoctor={this.props.listOfDoctors.listOfDoctors[i].id}
         />
       );
     }
-    return listaCard;
+    return listCard;
   }
 
   async loadData() {

@@ -24,7 +24,7 @@ class Offices extends Component {
             <div className="divMainOffices">
                  <Header/> 
                  <div className="divListOffices">
-                 {this.renderCabinete()}
+                 {this.renderOffices()}
                 </div>
             </div>
 
@@ -38,25 +38,25 @@ class Offices extends Component {
     }
       }
 
-      renderCabinete(){
-          let listaCard=[];
+      renderOffices(){
+          let listCard=[];
           for(let i=0; i<this.props.officesList.officesList.length;i++){
-              listaCard.push(
+              listCard.push(
               <OfficeCard
               key={i}
-              idCabinet={this.props.officesList.officesList[i].idCab}
+              idOffice={this.props.officesList.officesList[i].idCab}
               rating={
                 isNaN(this.props.officesList.officesList[i].medieRecenzie)
                   ? 3
                   :(this.props.officesList.officesList[i].medieRecenzie/2)
               }
-              denumireCabinet={this.props.officesList.officesList[i].denumire}
-              adresaCabinet={this.props.officesList.officesList[i].cabAdress}
-              tipCabinet={this.props.officesList.officesList[i].tip}
+              nameOffice={this.props.officesList.officesList[i].denumire}
+              addressOffice={this.props.officesList.officesList[i].cabAdress}
+              typeOffice={this.props.officesList.officesList[i].tip}
               />
             );
           }
-          return listaCard;
+          return listCard;
       } 
 
       async loadData() {

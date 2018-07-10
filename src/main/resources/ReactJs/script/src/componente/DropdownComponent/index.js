@@ -14,26 +14,26 @@ class Dropdown extends Component {
     return <div className="headerDiv">{this.dropDown()}</div>;
   }
 
- async onClick(specializare) {
-    await this.props.setSpecialization(specializare);
+ async onClick(specialization) {
+    await this.props.setSpecialization(specialization);
     
     if(this.props.specializationRedux.selectedSpecialization!==null){
-      this.props.history.push('/medici');
+      this.props.history.push('/doctors');
     }
   }
 
   dropDown() {
-    let listaSpec = [];
-    let nrSpec = this.props.specializationRedux.specializationList.length;
-    for (let i = 0; i < nrSpec; i++) {
-      let specializare=this.props.specializationRedux.specializationList[i].denumireSpecializare;
-      listaSpec.push(
+    let listOfSpecializations = [];
+    let numSpecialization = this.props.specializationRedux.specializationList.length;
+    for (let i = 0; i < numSpecialization; i++) {
+      let specialization=this.props.specializationRedux.specializationList[i].denumireSpecializare;
+      listOfSpecializations.push(
         <div key={i}>
-              <p onClick={()=>this.onClick(this.props.specializationRedux.specializationList[i].denumireSpecializare)}>{specializare.charAt(0).toUpperCase()+specializare.slice(1)}</p>
+              <p onClick={()=>this.onClick(this.props.specializationRedux.specializationList[i].denumireSpecializare)}>{specialization.charAt(0).toUpperCase()+specialization.slice(1)}</p>
         </div>
       );
     }
-    return listaSpec;
+    return listOfSpecializations;
   }
 }
 function mapStateToProps(state) {
@@ -43,7 +43,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ setSpecialization:(specializare)=>setSpecialization(specializare)},dispatch);
+  return bindActionCreators({ setSpecialization:(specialization)=>setSpecialization(specialization)},dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Dropdown));

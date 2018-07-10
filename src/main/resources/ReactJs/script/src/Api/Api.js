@@ -13,6 +13,6 @@ const getOfficesUrl="http://localhost:8080/cabinet/getAllCabinete";
 const getAppointmentsUrl="http://localhost:8080/programare/getAllProgramari/";
 const getOfficeProfile="http://localhost:8080/cabinet/getProfilCabinet/";
 const addProgramare="http://localhost:8080/programare/add";
-const addRecenzie="http://localhost:8080/recenzie/add";
+const addReview="http://localhost:8080/recenzie/add";
 
-export default {loginUrl,signUpUrl,getSpecializationsUrl,getDoctorsBySpecializationUrl,getDoctorProfile,getDoctorReviewUrl,getServicesUrl,getOfficesUrl,getAppointmentsUrl,getOfficeProfile, addProgramare, addRecenzie,getScheduleUrl}
+export default {loginUrl,signUpUrl,getSpecializationsUrl,getDoctorsBySpecializationUrl,getDoctorProfile,getDoctorReviewUrl,getServicesUrl,getOfficesUrl,getAppointmentsUrl,getOfficeProfile, addProgramare, addReview,getScheduleUrl}

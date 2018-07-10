@@ -96,7 +96,7 @@ class OfficeProfile extends Component {
                 <p>Name: {this.props.officeProfileReducer.officeInfo.denumire} </p>
                 <p>Address: {this.props.officeProfileReducer.officeInfo.adresa} </p>
                 <p>Type:{this.props.officeProfileReducer.officeInfo.tip} </p>
-                <div>Doctors: {this.renderListaMedici()} </div>
+                <div>Doctors: {this.renderListDoctors()} </div>
               </div>
           </div>
         </div>
@@ -104,13 +104,13 @@ class OfficeProfile extends Component {
     );
   }
 }
-renderListaMedici(){
-  let listaMed=[];
+renderListDoctors(){
+  let listDoctors=[];
   for(let i=0; i<this.props.officeProfileReducer.officeInfo.listaMedici.length; i++){
-    listaMed.push(<p key={i}>{this.props.officeProfileReducer.officeInfo.listaMedici[i]}</p>)
+    listDoctors.push(<p key={i}>{this.props.officeProfileReducer.officeInfo.listaMedici[i]}</p>)
   }
 
-  return listaMed;
+  return listDoctors;
   
 }
 }

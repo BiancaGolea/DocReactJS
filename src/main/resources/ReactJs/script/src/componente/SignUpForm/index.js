@@ -29,10 +29,10 @@ class SignUpForm extends Component {
       password: null,
       email: null,
       confpassword: null,
-      passErrorMsg: "Camp invalid",
-      confpassErrMsg: "Camp invalid",
-      emailErrMsg: "Camp invalid",
-      userErrMsg: "Introduceti numele de utilizator",
+      passErrorMsg: "Invalid field",
+      confpassErrMsg: "Invalid field",
+      emailErrMsg: "Invalid field",
+      userErrMsg: "Insert username",
       signUpError: false,
       signUpSuccess: false,
       inProgress: false
@@ -83,7 +83,7 @@ class SignUpForm extends Component {
             <div className="textWarningDiv">
               <label> Username </label>
               {this.state.isUsernameError && (
-                <ValidationMessage mesaj={this.state.userErrMsg} />
+                <ValidationMessage message={this.state.userErrMsg} />
               )}
             </div>
             <input
@@ -103,7 +103,7 @@ class SignUpForm extends Component {
             <div className="textWarningDiv">
               <label> E-mail</label>
               {this.state.isEmailError && (
-                <ValidationMessage mesaj={this.state.emailErrMsg} />
+                <ValidationMessage message={this.state.emailErrMsg} />
               )}
             </div>
             <input
@@ -123,7 +123,7 @@ class SignUpForm extends Component {
             <div className="textWarningDiv">
               <label> Password </label>
               {this.state.isPassError && (
-                <ValidationMessage mesaj={this.state.passErrorMsg} />
+                <ValidationMessage message={this.state.passErrorMsg} />
               )}
             </div>
             <input
@@ -143,7 +143,7 @@ class SignUpForm extends Component {
             <div className="textWarningDiv">
               <label> Confirm password </label>
               {this.state.isConfirmPassError && (
-                <ValidationMessage mesaj={this.state.confpassErrMsg} />
+                <ValidationMessage message={this.state.confpassErrMsg} />
               )}
             </div>
             <input
@@ -189,7 +189,7 @@ class SignUpForm extends Component {
     }
 
     if (this.state.password === null || this.state.password === "") {
-      this.setState({ isPassError: true, passErrorMsg: "Introduceti parola" });
+      this.setState({ isPassError: true, passErrorMsg: "Insert password" });
     }
 
     if (this.state.confpassword === null || this.state.confpassword === "") {
@@ -197,20 +197,20 @@ class SignUpForm extends Component {
     }
 
     if (!this.validateEmail(this.state.email)) {
-      this.setState({ isEmailError: true, emailErrMsg: "Email invalid" });
+      this.setState({ isEmailError: true, emailErrMsg: "Invalid Email" });
     }
 
     if (this.state.email === null || this.state.email === "") {
       this.setState({
         isEmailError: true,
-        emailErrMsg: "Introduceti adresa de email"
+        emailErrMsg: "Insert your email address"
       });
     }
 
     if (this.state.password !== this.state.confpassword) {
       this.setState({
         isConfirmPassError: true,
-        confpassErrMsg: "Verificati parola de confirmare!"
+        confpassErrMsg: "Please, verify the confirmation password!"
       });
     }
 

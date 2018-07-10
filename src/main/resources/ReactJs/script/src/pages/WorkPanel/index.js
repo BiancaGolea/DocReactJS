@@ -33,47 +33,47 @@ class WorkPanel extends Component {
         <h2 className="styleTitleWorkPannel">Welcome on your profile!</h2>
         <h3 className="TitleListAppointments">  Your appointments</h3>
         <div className="divCardWorkPannel">
-          {this.renderlistaProgramari()}
+          {this.renderAppointmentsList()}
           
         </div>
         <div className="divContentText">
-          <p className="textDescriptionWorkPanel"> "The power of infinite organization refers to
-           the power to organize an infinity of space-time events,
-            all at the same time."
+          <p className="textDescriptionWorkPanel"> "The power of infinite organization refers to 
+          the power to organize an infinity of space-time events, 
+          all at the same time."
            <br /> 
            Deepak Chopra
            <br/>
            <br/>
            
-           With this app, you can effectively monitor and manage each one
-            programming, so you'll know every time you wait for your office,
-            at what date and time, also having the contact details of the patient.
+           With this app, you can effectively monitor and manage each one 
+           programming, so you'll know every time you wait for your office, 
+           at what date and time, also having the contact details of the patient.
            </p>
           </div>
       </div>
     );
   }
-   renderlistaProgramari() {
-    let listaProgramare = [];
+   renderAppointmentsList() {
+    let appointmentsList = [];
     for (let i = 0; i < this.props.appointments.appointmentsList.length; i++) {
-      listaProgramare.push(
+      appointmentsList.push(
         <CardWorkPanel
-          idProgramare={this.props.appointments.appointmentsList[i].id_programare}
-          dataProgramare={this.props.appointments.appointmentsList[i].data}
+          idBooking={this.props.appointments.appointmentsList[i].id_programare}
+          dateOfBooking={this.props.appointments.appointmentsList[i].data}
           firstname={this.props.appointments.appointmentsList[i].nume}
           lastname={this.props.appointments.appointmentsList[i].prenume}
           mail={this.props.appointments.appointmentsList[i].email}
-          tel={this.props.appointments.appointmentsList[i].nrtel}
+          number={this.props.appointments.appointmentsList[i].nrtel}
         />
       );
     
   }
-    return listaProgramare;
+    return appointmentsList;
   
 }
 
 
-  async loadLista() {
+  async loadList() {
     await this.props.appointmentsiAction(
       this.props.authInfo.token,
       this.props.authInfo.idDoctor

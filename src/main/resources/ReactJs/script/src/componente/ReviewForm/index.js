@@ -15,33 +15,33 @@ import TextareaAutosize from "react-autosize-textarea";
 import NumericInput from "react-numeric-input";
 import red from "material-ui/colors/red";
 import Icon from 'material-ui/Icon';
-import addRecenzie from "../../Api/Api";
+import addReview from "../../Api/Api";
 
 
 class ReviewForm extends Component {
     constructor(props) {
     super(props);
     this.state = {
-      descriere:null,
-      notaServmed:1,
-      notaAparatura:1,
-      notaPret:1,
-      notaAspectcab:1,
-      notaLocatie:1,
+      description:null,
+      gradeDocServices:1,
+      gradeEquipment:1,
+      gradePrice:1,
+      gradeLookOffice:1,
+      gradeLocation:1,
       inProgress: false,
-      recenzieSuccess: false,
-      recenzieError:false,
+      reviewSuccess: false,
+      reviewError:false,
     };
     }
   
   render() {
-    console.log(this.state.recenzieSuccess)
+    console.log(this.state.reviewSuccess)
     return (
       
       <div className="divMainReviewForm">
-      {this.state.recenzieSuccess && (
+      {this.state.reviewSuccess && (
         <Dialog
-        open={this.state.recenzieSuccess}
+        open={this.state.reviewSuccess}
         transition={Transition}
         keepMounted
         onClose={this.handleClose}
@@ -61,9 +61,9 @@ class ReviewForm extends Component {
         </DialogActions>
       </Dialog>
       )}
-      {this.state.recenzieError && (
+      {this.state.reviewError && (
         <Dialog
-        open={this.state.recenzieError}
+        open={this.state.reviewError}
         transition={Transition}
         keepMounted
         onClose={this.handleClose}
@@ -84,24 +84,24 @@ class ReviewForm extends Component {
       </Dialog>
       )}
         <label className="divTextComment">
-          Lasa un comentariu:
+          Comment here:
           <div >
-            <TextareaAutosize className="styleDivComments"  rows={5}  placeholder="Lasa un comentariu"
+            <TextareaAutosize className="styleDivComments"  rows={5}  placeholder="Comment here"
             onChange={(text)=>this.setState({
-              descriere: text.target.value,
+              description: text.target.value,
             })
             }
              />
           </div>
         </label>
-        <p className="pTitleGradeRating">Note pentru:</p>
+        <p className="pTitleGradeRating">Grade for:</p>
 
         <label className="divGradeRating">
           Medical services:
           <div >
-            <NumericInput className=" " min={1} max={10} value={this.state.notaServmed} size={1}
+            <NumericInput className=" " min={1} max={10} value={this.state.gradeDocServices} size={1}
              onChange={(text)=>this.setState({
-              notaServmed: text,
+              gradeDocServices: text,
             })
             
           }
@@ -111,9 +111,9 @@ class ReviewForm extends Component {
         <label className="divGradeRating">
           Equipment:
           <div >
-            <NumericInput className=" " min={1} max={10} value={this.state.notaAparatura} size={1} 
+            <NumericInput className=" " min={1} max={10} value={this.state.gradeEquipment} size={1} 
            onChange={(text)=>this.setState({
-            notaAparatura: text,
+            gradeEquipment: text,
           })
           }
             />
@@ -121,11 +121,11 @@ class ReviewForm extends Component {
         </label>
 
         <label className="divGradeRating">
-         Services prices:
+         Service price:
           <div >
-            <NumericInput className=" " min={1} max={10} value={this.state.notaPret}  size={1} 
+            <NumericInput className=" " min={1} max={10} value={this.state.gradePrice}  size={1} 
           onChange={(text)=>this.setState({
-            notaPret: text,
+            gradePrice: text,
           })
           }
             />
@@ -135,9 +135,9 @@ class ReviewForm extends Component {
          <label className="divGradeRating">
           Office look:
           <div >
-            <NumericInput className=" " min={1} max={10} value={this.state.notaAspectcab}  size={1} 
+            <NumericInput className=" " min={1} max={10} value={this.state.gradeLookOffice}  size={1} 
          onChange={(text)=>this.setState({
-          notaAspectcab: text,
+          gradeLookOffice: text,
         })
         }
             />
@@ -147,9 +147,9 @@ class ReviewForm extends Component {
          <label className="divGradeRating">
           Office location:
           <div >
-            <NumericInput className=" " min={1} max={10} value={this.state.notaLocatie}  size={1} 
+            <NumericInput className=" " min={1} max={10} value={this.state.gradeLocation}  size={1} 
           onChange={(text)=>this.setState({
-            notaLocatie: text,
+            gradeLocation: text,
           })
           }
             />
@@ -162,7 +162,7 @@ class ReviewForm extends Component {
             variant="raised"
             disableripple="true"
             color="primary"
-            onClick={() => this._onCliclBtn()}
+            onClick={() => this._onClickBtn()}
             >
               Sent
               <Icon><img src={require("../../assets/click.png")} className="styleIcon" alt="load"/></Icon>
@@ -171,7 +171,7 @@ class ReviewForm extends Component {
       </div>
     );
   }
-  _onCliclBtn(){
+  _onClickBtn(){
     this.setState({
       inProgress: true
     });
@@ -190,7 +190,7 @@ class ReviewForm extends Component {
   async _callApi(){
     try {
       let today=new Date();
-      const resp= await fetch(addRecenzie.addRecenzie,{
+      const resp= await fetch(addReview.addReview,{
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -198,12 +198,12 @@ class ReviewForm extends Component {
           Authorization: this.props.token
         },
         body: JSON.stringify({
-          descriere:this.state.descriere,
-          notaAspectcab:this.state.notaAspectcab,
-          notaAparatura:this.state.notaAparatura,
-          notaPret:this.state.notaPret,
-          notaLocatie:this.state.notaLocatie,
-          notaServmed:this.state.notaServmed,
+          descriere:this.state.description,
+          notaAspectcab:this.state.gradeLookOffice,
+          notaAparatura:this.state.gradeEquipment,
+          notaPret:this.state.gradePrice,
+          notaLocatie:this.state.gradeLocation,
+          notaServmed:this.state.gradeDocServices,
           username:this.props.username,
           dataRecenzie:today.getTime(),
           medic:{ idMed:this.props.idMed
@@ -214,19 +214,19 @@ class ReviewForm extends Component {
         throw new Error("recenzie error");
       }
       this.setState({
-        recenzieSuccess: true
+        reviewSuccess: true
       });
       
     } catch (error) {
 
       console.log("Eroare --:" + error.message);
       this.setState({
-        recenzieError: true
+        reviewError: true
       });
     }
   }
   handleClose = () => {
-    this.setState({ recenzieSuccess: false, recenzieError:false});
+    this.setState({ reviewSuccess: false, reviewError:false});
     this.props.history.push({
       pathname: "/",
     })

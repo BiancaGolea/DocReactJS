@@ -10,12 +10,12 @@ import ReviewForm from "../../componente/ReviewForm/index";
 class Review extends Component {
 
      render() {
-      console.log(this.props.location.state.idRecenzie)
+      console.log(this.props.location.state.idReview)
         return (
             <div className="divReview">
                 <Header />
                
-               <ReviewForm token={this.props.authInfo.token} username={this.props.authInfo.username} idMed={this.props.location.state.idRecenzie}/>
+               <ReviewForm token={this.props.authInfo.token} username={this.props.authInfo.username} idMed={this.props.location.state.idReview}/>
             </div>
             
 

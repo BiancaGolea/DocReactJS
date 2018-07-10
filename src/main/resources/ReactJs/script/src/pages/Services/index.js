@@ -12,7 +12,7 @@ import Progress from "../../componente/Progress/index";
 
 class Services extends Component{
   async componentWillMount(){
-      await this.servDate();
+      await this.serviceDate();
   }
 
     render(){
@@ -26,26 +26,26 @@ class Services extends Component{
               <Header/>
               </div>
             <div className="divListServices">
-                {this.renderlistaServiciiMedicale()}
+                {this.renderlistMedicalServices()}
             </div>
             </div>
         );
     }
 
-renderlistaServiciiMedicale(){
-    let listraSpecializare=[];
+renderlistMedicalServices(){
+    let listServices=[];
     for(let i=0;i<this.props.doctorService.servicesList.length;i++){
-      listraSpecializare.push(
+      listServices.push(
       <ServiceCard 
       doctorService={this.props.doctorService.servicesList[i]}
       />
       );
     }
     
-    return listraSpecializare;
+    return listServices;
   }
 
-  async servDate(){
+  async serviceDate(){
     await this.props.servicesAction(
       this.props.authInfo.token,
       this.props.location.state.detail

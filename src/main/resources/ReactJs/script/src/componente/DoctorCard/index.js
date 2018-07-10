@@ -38,10 +38,10 @@ class DoctorCard extends Component {
         </div>
 
         <div className="divInformations">
-          <p>Name: {this.props.numeMedic} </p>
-          <p>LastName: {this.props.prenumeMedic} </p>
-          <div>Address: {this.renderAdrese()} </div>
-          <div>Number phone:{this.renderNrTel()} </div>
+          <p>Name: {this.props.doctorName} </p>
+          <p>LastName: {this.props.doctorLastname} </p>
+          <div>Address: {this.renderAddress()} </div>
+          <div>Number phone:{this.renderNrPhone()} </div>
         </div>
         <button onClick={()=>this.onClick2(this.props.idDoctor)} className="buttonPriceServices">
          See prices
@@ -55,33 +55,33 @@ class DoctorCard extends Component {
 
   onClick(id){
     this.props.history.push({
-      pathname: '/medic',
+      pathname: '/doctor',
       state: { detail: id }
     }) 
    }
 
    onClick2(id){
     this.props.history.push({
-      pathname: '/servicii',
+      pathname: '/services',
       state: { detail: id }
     }) 
    }
 
-renderNrTel(){
-  let listaNr=[];
-  let numere=this.props.nrTel.length;
-  for(let i=0;i<numere;i++){
-  listaNr.push(<p key={i*i+1}>{this.props.nrTel[i]}</p>)
+renderNrPhone(){
+  let listOfNumbers=[];
+  let numbers=this.props.doctorPhone.length;
+  for(let i=0;i<numbers;i++){
+  listOfNumbers.push(<p key={i*i+1}>{this.props.doctorPhone[i]}</p>)
   }
-  return listaNr;
+  return listOfNumbers;
 }
 
-renderAdrese(){
-  let listaAdrese=[];
-  for(let i=0;i<this.props.adreseMedic.length;i++){
-      listaAdrese.push(<p key={i}>{this.props.adreseMedic[i]}</p>)
+renderAddress(){
+  let listAddress=[];
+  for(let i=0;i<this.props.doctorAddress.length;i++){
+      listAddress.push(<p key={i}>{this.props.doctorAddress[i]}</p>)
   }
-  return listaAdrese;
+  return listAddress;
 }
 }
 

@@ -47,7 +47,7 @@ class DoctorProfile extends Component {
                   className="imageSmall"
                 />
 
-                <p className="ratingParagraph">Rating pret:</p>
+                <p className="ratingParagraph">Rating price:</p>
                 <Rating
                   placeholderRating={
                     this.props.doctorProfileReducer.doctorInfo.mediePret / 2
@@ -141,9 +141,9 @@ class DoctorProfile extends Component {
                   }{" "}
                 </p>
                 <p> Office: {this.props.doctorProfileReducer.doctorInfo.adresaCab} </p>
-                <div>Schedule: {this.renderOrar()} </div>
+                <div>Schedule: {this.renderSchedule()} </div>
                 <p> Email: {this.props.doctorProfileReducer.doctorInfo.email} </p>
-                <div> Number phone: {this.renderNrTel()}</div>
+                <div> Number phone: {this.renderNumberPhone()}</div>
                 <p> Facebook: {this.props.doctorProfileReducer.doctorInfo.facebook} </p>
               </div>
             </div>
@@ -152,7 +152,7 @@ class DoctorProfile extends Component {
                 onClick={() => this.onClick(this.props.location.state.detail)}
                 className="buttonBooking"
               >
-                Rezervare
+                Booking
               </button>
 
               <button
@@ -163,53 +163,53 @@ class DoctorProfile extends Component {
               </button>
             </div>
           </div>
-          {this.renderlistaRecenzii()}
+          {this.renderlistReview()}
         </div>
       );
     }
   }
-  renderNrTel() {
+  renderNumberPhone() {
     let list = [];
     for (let i = 0; i < this.props.doctorProfileReducer.doctorInfo.nrTel.length; i++) {
       list.push(<p key={i}> {this.props.doctorProfileReducer.doctorInfo.nrTel[i]}</p>);
     }
     return list;
   }
-  renderOrar(){
-    let orar=[];
+  renderSchedule(){
+    let schedule=[];
     for(let i=0;i<this.props.doctorProfileReducer.doctorInfo.program.length;i++){
       let data=this.props.doctorProfileReducer.doctorInfo.program[i];
       data=data.split(" ");
       let dataOrar=data[0]+"-"+data[2].slice(0, 5)+"--"+data[4].slice(0, 5);
-      orar.push(<p key={i*i+1}>{dataOrar}</p>)
+      schedule.push(<p key={i*i+1}>{dataOrar}</p>)
     }
-    return orar;
+    return schedule;
   }
   onClick(id) {
     this.props.history.push({
-      pathname: "/programari",
-      state: { idRezervare: id } 
+      pathname: "/appointments",
+      state: { idBooking: id } 
     });
     
   }
 
   onClick2(id){
     this.props.history.push({
-      pathname:"/recenzie",
-      state:{idRecenzie:id}
+      pathname:"/review",
+      state:{idReview:id}
       
     });
     
   }
-  renderlistaRecenzii() {
-    let listaRec = [];
+  renderlistReview() {
+    let listReview = [];
     for (let i = 0;i <this.props.doctorReview.doctorReviewList.length; i++) {
-      listaRec.push(
+      listReview.push(
       <ReviewCard
       key={i*i+1}
-       recenzieModel={this.props.doctorReview.doctorReviewList[i]} />);
+       reviewModel={this.props.doctorReview.doctorReviewList[i]} />);
     }
-    return listaRec;
+    return listReview;
   }
  
   

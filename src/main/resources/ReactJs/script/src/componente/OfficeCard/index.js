@@ -39,12 +39,12 @@ class OfficeCard extends Component {
           />
         </div>
         <div className="divInfoOfficeCard">
-          <p>Name: {this.props.denumireCabinet}</p>
-          <p>Address: {this.props.adresaCabinet} </p>
-          <p>Office type: {this.props.tipCabinet}</p>
+          <p>Name: {this.props.nameOffice}</p>
+          <p>Address: {this.props.addressOffice} </p>
+          <p>Office type: {this.props.typeOffice}</p>
         </div>
         <button
-          onClick={() => this.onClick(this.props.idCabinet)}
+          onClick={() => this.onClick(this.props.idOffice)}
           className="buttonDetails"
         >
           More details
@@ -55,7 +55,7 @@ class OfficeCard extends Component {
   onClick(id) {
     console.log(id+"------------")
     this.props.history.push({
-      pathname: "/cabinet",
+      pathname: "/office",
       state: { detail: id }
     });
   }

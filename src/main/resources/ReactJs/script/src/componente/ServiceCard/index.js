@@ -19,7 +19,7 @@ class ServiceCard extends Component{
     }
 }
 ServiceCard.propTypes={
-    serviciiModel:PropTypes.object
+    servicesModel:PropTypes.object
 }
 
 export default  (withRouter(ServiceCard))

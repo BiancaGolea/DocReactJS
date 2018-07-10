@@ -42,7 +42,7 @@ class TextFieldGroup extends Component {
           <div className="form-group">
             <div className="textWarningDiv">
               <label> Username  </label>
-              {this.state.isUsernameError && <ValidationMessage mesaj={"Username invalid"}/>}
+              {this.state.isUsernameError && <ValidationMessage message={"Invalid username"}/>}
             </div>
             <input
               type="username"
@@ -58,7 +58,7 @@ class TextFieldGroup extends Component {
           <div className="form-group">
           <div className="textWarningDiv">
             <label>Password</label>
-            {this.state.isPassError && <ValidationMessage mesaj={"Password invalid"}/>}
+            {this.state.isPassError && <ValidationMessage message={"Invalid password"}/>}
             </div>
             <input
               type="password"

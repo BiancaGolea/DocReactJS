@@ -48,7 +48,7 @@ class Header extends Component {
                 !this.props.isLoginPage &&
                 !this.props.isSignUp && (
                   <li>
-                    <Link to={"/recmedici"}>Registration as doctor</Link>
+                    <Link to={"/registrationDoctor"}>Registration as doctor</Link>
                   </li>
                 )}
 
@@ -66,7 +66,7 @@ class Header extends Component {
                 !this.props.isLoginPage &&
                 !this.props.isSignUp && (
                   <li>
-                    <Link to={"/cabinete"}>Offices</Link>
+                    <Link to={"/offices"}>Offices</Link>
                   </li>
                 )}
               {!this.props.isSignUp &&
