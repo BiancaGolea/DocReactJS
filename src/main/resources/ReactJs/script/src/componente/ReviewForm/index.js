@@ -160,7 +160,7 @@ class ReviewForm extends Component {
             style={{fontSize:15 }}
             size="large"
             variant="raised"
-            disableRipple
+            disableripple="true"
             color="primary"
             onClick={() => this._onCliclBtn()}
             >

@@ -89,6 +89,7 @@ class SignUpDoctorsForm extends Component {
   };
 
   _getDateMedic = doctorInfo => {
+    
     console.log(this._validation(doctorInfo)+" validare medic")
     let valid = this._validation(doctorInfo);
     if (valid) {
@@ -104,6 +105,7 @@ class SignUpDoctorsForm extends Component {
   };
 
   _validation(date) {
+    
     console.log(this.validateEmail(date.email)+" validare mail")
     console.log(this.validareTel(date.numarTelefon)+" validare telefon")
     if (
@@ -135,6 +137,7 @@ class SignUpDoctorsForm extends Component {
   }
 
   async _onPress(date) {
+    
     try {
       let listaNR = [];
       listaNR.push(this.state.doctorInfo.numarTelefon);
@@ -166,7 +169,7 @@ class SignUpDoctorsForm extends Component {
           ]
         })
       });
-
+      console.log(this._onPress(JSON.stringify(response)), "response")
       if (response.status !== 201) {
         throw new Error("Error");
       } else {
@@ -198,8 +201,8 @@ class SignUpDoctorsForm extends Component {
     return re.test(String(email).toLowerCase());
   }
   
-  validareTel(telefon) {
-    if (telefon.length !== 10 || isNaN(telefon)) {
+  validareTel(numarTelefon) {
+    if (numarTelefon.length !== 10 || isNaN(numarTelefon)) {
       return false;
     }
     return true;
