@@ -6,7 +6,7 @@ export const initialState={
     officesList: null,
 }
 
-export default function getCabinete(state = initialState, action){
+export default function officeReducer(state = initialState, action){
     switch (action.type){
         case Constants.GET_OFFICES_IN_PROGRESS:
         {

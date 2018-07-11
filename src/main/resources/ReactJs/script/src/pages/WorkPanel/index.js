@@ -6,11 +6,11 @@ import "./styles.css";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import CardWorkPanel from "../../componente/CardWorkPanel/index";
-import appointmentsiAction from "../../commun/ReduxActions/AppointmentsAction";
+import appointmentsAction from "../../commun/ReduxActions/AppointmentsAction";
 
 class WorkPanel extends Component {
    async componentDidMount(){
-   await this.props.appointmentsiAction(
+   await this.props.appointmentsAction(
       this.props.authInfo.token,
       this.props.authInfo.idDoctor
     );
@@ -74,7 +74,7 @@ class WorkPanel extends Component {
 
 
   async loadList() {
-    await this.props.appointmentsiAction(
+    await this.props.appointmentsAction(
       this.props.authInfo.token,
       this.props.authInfo.idDoctor
     );
@@ -91,7 +91,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      appointmentsiAction: (token, id) => appointmentsiAction(token, id)
+      appointmentsAction: (token, id) => appointmentsAction(token, id)
     },
     dispatch
   );

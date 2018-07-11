@@ -1,11 +1,11 @@
 import Constants from"../Constants";
 import Api from "../../Api/Api";
 
-export default function doctorsBySpecializationAction(token,spec){
+export default function doctorsBySpecializationAction(token,specialization){
     return async function(dispach){
         dispach({type:Constants.GET_DOCTORS_IN_PROGRESS});
         try {
-            const resp = await fetch(Api.getDoctorsBySpecializationUrl+spec, {
+            const resp = await fetch(Api.getDoctorsBySpecializationUrl+specialization, {
                 method: "GET",
                 headers: {
                     "Authorization":token,

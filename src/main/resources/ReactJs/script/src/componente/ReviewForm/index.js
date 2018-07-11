@@ -94,7 +94,7 @@ class ReviewForm extends Component {
              />
           </div>
         </label>
-        <p className="pTitleGradeRating">Grade for:</p>
+        <p className="pTitleGradeRating">Grades for:</p>
 
         <label className="divGradeRating">
           Medical services:

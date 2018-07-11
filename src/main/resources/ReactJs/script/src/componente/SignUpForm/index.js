@@ -149,7 +149,7 @@ class SignUpForm extends Component {
             <input
               type="password"
               className="form-control"
-              placeholder="Password"
+              placeholder="Confirm Password"
               onChange={text =>
                 this.setState({
                   confpassword: text.target.value,

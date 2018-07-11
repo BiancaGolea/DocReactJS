@@ -80,16 +80,16 @@ class AppointmentsForm extends Component {
             aria-describedby="alert-dialog-slide-description"
           >
             <DialogTitle id="alert-dialog-slide-title">
-              {"Felicitari!"}
+              {"Congratulations!"}
             </DialogTitle>
             <DialogContent>
               <DialogContentText id="alert-dialog-slide-description">
-                Programarea dumneavoastra s-a inregistrat! Va multumesc!
+                Your appointment has been registrated! Thank you!
               </DialogContentText>
             </DialogContent>
             <DialogActions>
               <Button onClick={this.handleClose} color="primary">
-                Continua
+                Continue
               </Button>
             </DialogActions>
           </Dialog>
@@ -129,16 +129,17 @@ class AppointmentsForm extends Component {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle id="alert-dialog-slide-title">
-          {"Ne pare rau!"}
+          {"Sorry!"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-           S-ar putea ca datele introduse anterior sa fie gresite! Va rugam completati din nou formularul. Va multumim!
+          It is possible the information 
+          The previously inserted data may be wrong! Please, complete the form again. Thank you!
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={this.handleClose} color="primary">
-            Continua
+            Continue
           </Button>
         </DialogActions>
       </Dialog>
@@ -159,7 +160,7 @@ class AppointmentsForm extends Component {
                 type="username"
                 className="form-control"
                 placeholder={
-                  this.state.isNameUserError ? "Mesaj de eroare" : ""
+                  this.state.isNameUserError ? "Error message" : ""
                 }
                 onChange={text =>
                   this.setState({
@@ -180,7 +181,7 @@ class AppointmentsForm extends Component {
                 type="name"
                 className="form-control"
                 placeholder={
-                  this.state.isLastnameUserError ? "Mesaj de eroare" : ""
+                  this.state.isLastnameUserError ? "Error message" : ""
                 }
                 onChange={text =>
                   this.setState({
@@ -222,7 +223,7 @@ class AppointmentsForm extends Component {
                 type="name"
                 value={this.state.phone}
                 className="form-control"
-                placeholder={this.state.isPhoneError ? "Mesaj de eroare" : ""}
+                placeholder={this.state.isPhoneError ? "Error message" : ""}
                 onChange={text =>
                   this.setState({
                     phone: text.target.value,
@@ -349,12 +350,12 @@ class AppointmentsForm extends Component {
    
       if (this._validation()) {
       
-        let conversieData =
+        let conversionData =
           this.state.date.length == 4 ? "0" + this.state.date : this.state.date;
         let dateFormat =
-          "2018-" + conversieData + "T" + this.state.hour + ":00Z";
+          "2018-" + conversionData + "T" + this.state.hour + ":00Z";
         let dataTimestamp = new Date(dateFormat);
-        let programare = {
+        let appointment = {
           data: dataTimestamp.getTime(),
           nume: this.state.name,
           prenume: this.state.lastname,
@@ -366,29 +367,29 @@ class AppointmentsForm extends Component {
           }
           
         };
-        this._callAPI(programare);
+        this._callAPI(appointment);
       } else{
-        this.setState({programareError:true})
+        this.setState({appointmentError:true})
       }
   }
 
-  async _callAPI(programObj) {
+  async _callAPI(scheduleObj) {
     
     this.setState({ inProgress: true });
     try {
-      const resp = await fetch(Api.addProgramare, {
+      const resp = await fetch(Api.addAppointment, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: this.props.token
         },
         body: JSON.stringify({
-          data: programObj.data,
-          nume: programObj.nume,
-          prenume: programObj.prenume,
-          email: programObj.email,
-          nrtel: programObj.nrtel,
-          medic: programObj.medic
+          data: scheduleObj.data,
+          nume: scheduleObj.nume,
+          prenume: scheduleObj.prenume,
+          email: scheduleObj.email,
+          nrtel: scheduleObj.nrtel,
+          medic: scheduleObj.medic
         })
       });
      
@@ -407,9 +408,13 @@ function Transition(props) {
 }
 
 function disableDates(data) {
-  let dataAzi = new Date();
+  let dataToday = new Date();
+  let timeCurrent=dataToday.getTime();
 
-  if (data.date.getDay() === 0) {
+   if (data.date.getDay() === 0 || data.date.getDay()=== 6 || data.date.getDate()===27 ||
+   data.date.getTime()<=timeCurrent
+    ) 
+  {
     return true;
   }
   return false;

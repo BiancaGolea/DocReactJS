@@ -78,7 +78,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      doctorsBySpecializationAction: (token, specializare) => doctorsBySpecializationAction(token, specializare)
+      doctorsBySpecializationAction: (token, specialization) => doctorsBySpecializationAction(token, specialization)
     },
     dispatch
   );

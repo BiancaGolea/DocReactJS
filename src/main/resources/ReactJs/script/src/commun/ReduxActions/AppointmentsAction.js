@@ -1,7 +1,7 @@
 import Constants from "../Constants";
 import Api from "../../Api/Api";
 
-export default function appointmentsiAction(token, id) {
+export default function appointmentsAction(token, id) {
   return async function(dispach) {
     dispach({ type: Constants.GET_APPOINTMENTS_IN_PROGRESS });
     try {

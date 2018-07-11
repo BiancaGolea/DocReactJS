@@ -46,11 +46,11 @@ class SignUpDoctorsForm extends Component {
             aria-describedby="alert-dialog-slide-description"
           >
             <DialogTitle id="alert-dialog-slide-title">
-              {"Felicitari!"}
+              {"Congratulations!"}
             </DialogTitle>
             <DialogContent>
               <DialogContentText id="alert-dialog-slide-description">
-                Your information has been registration! Thank you!
+                Your informations has been registration! Thank you!
               </DialogContentText>
             </DialogContent>
             <DialogActions>
