@@ -19,8 +19,8 @@ class SignUpDoctorsForm extends Component {
     super(props);
 
     this.state = {
-      showDateMedic: true,
-      showFormCabinet: false,
+      showDoctorInfo: true,
+      showFormOffice: false,
       Success: false,
       isError: false,
       doctorInfo: null,
@@ -67,17 +67,17 @@ class SignUpDoctorsForm extends Component {
         {this.state.isError && (
           <p> Please verify your personal dates again! </p>
         )}
-        {this.state.showDateMedic && (
-          <FormDoctorInfo date={this._getDateMedic.bind(this)} />
+        {this.state.showDoctorInfo && (
+          <FormDoctorInfo date={this._getDoctorInfo.bind(this)} />
         )}
-        {this.state.showFormCabinet && (
-          <OfficeForm date={this._getDateCabinet.bind(this)} />
+        {this.state.showFormOffice && (
+          <OfficeForm date={this._getOfficeInfo.bind(this)} />
         )}
       </div>
     );
   }
 
-  _getDateCabinet = officeInfo => {
+  _getOfficeInfo = officeInfo => {
     console.log(this._validation2(officeInfo)+" validare medic 2")
     let valid = this._validation2(officeInfo);
     if (valid) {
@@ -88,15 +88,15 @@ class SignUpDoctorsForm extends Component {
     this._onPress(officeInfo);
   };
 
-  _getDateMedic = doctorInfo => {
+  _getDoctorInfo = doctorInfo => {
     
     console.log(this._validation(doctorInfo)+" validare medic")
     let valid = this._validation(doctorInfo);
     if (valid) {
       this.setState({
         doctorInfo: doctorInfo,
-        showDateMedic: false,
-        showFormCabinet: true,
+        showDoctorInfo: false,
+        showFormOffice: true,
         isError: false
       });
     } else {
@@ -107,18 +107,18 @@ class SignUpDoctorsForm extends Component {
   _validation(date) {
     
     console.log(this.validateEmail(date.email)+" validare mail")
-    console.log(this.validareTel(date.numarTelefon)+" validare telefon")
+    console.log(this.validationPhone(date.phoneNumber)+" validare telefon")
     if (
-      date.nume === null ||
-      date.nume === "" ||
-      date.prenume === null ||
-      date.prenume === "" ||
+      date.name === null ||
+      date.name === "" ||
+      date.lastname === null ||
+      date.lastname === "" ||
       date.email === null ||
       date.email === "" ||
       !this.validateEmail(date.email) ||
-      date.numarTelefon === null ||
-      date.numarTelefon === "" ||
-      !this.validareTel(date.numarTelefon)
+      date.phoneNumber === null ||
+      date.phoneNumber === "" ||
+      !this.validationPhone(date.phoneNumber)
     ) {
       return false;
     }
@@ -126,10 +126,10 @@ class SignUpDoctorsForm extends Component {
   }
   _validation2(date) {
     if (
-      date.denumire === null ||
-      date.denumire === "" ||
-      date.adresaCab === null ||
-      date.adresaCab === ""
+      date.nameOffice === null ||
+      date.nameOffice === "" ||
+      date.addressOffice === null ||
+      date.addressOffice === ""
     ) {
       return false;
     }
@@ -139,13 +139,13 @@ class SignUpDoctorsForm extends Component {
   async _onPress(date) {
     
     try {
-      let listaNR = [];
-      listaNR.push(this.state.doctorInfo.numarTelefon);
+      let listNumber = [];
+      listNumber.push(this.state.doctorInfo.phoneNumber);
 
-      let listaSpec = [];
-      listaSpec.push(this.state.doctorInfo.specializare);
+      let listSpecialization = [];
+      listSpecialization.push(this.state.doctorInfo.specialization);
 
-      let listaCabinet = [];
+      let listOffice = [];
       let response = await fetch("http://localhost:8080/medic/add", {
         method: "POST",
         headers: {
@@ -153,18 +153,18 @@ class SignUpDoctorsForm extends Component {
           Authorization: this.props.token
         },
         body: JSON.stringify({
-          nume: this.state.doctorInfo.nume,
-          prenume: this.state.doctorInfo.prenume,
-          numereTel: listaNR,
+          nume: this.state.doctorInfo.name,
+          prenume: this.state.doctorInfo.lastname,
+          numereTel: listNumber,
           email: this.state.doctorInfo.email,
           facebook: this.state.doctorInfo.facebook,
-          specializare: listaSpec,
+          specializare: listSpecialization,
           applicationUser:this.props.username,
           cabinete: [
             {
-              cabAdress: date.adresaCab,
-              tip: date.tip,
-              denumire: date.denumire
+              cabAdress: date.addressOffice,
+              tip: date.typeOffice,
+              denumire: date.nameOffice
             }
           ]
         })
@@ -201,8 +201,8 @@ class SignUpDoctorsForm extends Component {
     return re.test(String(email).toLowerCase());
   }
   
-  validareTel(numarTelefon) {
-    if (numarTelefon.length !== 10 || isNaN(numarTelefon)) {
+  validationPhone(phoneNumber) {
+    if (phoneNumber.length !== 10 || isNaN(phoneNumber)) {
       return false;
     }
     return true;

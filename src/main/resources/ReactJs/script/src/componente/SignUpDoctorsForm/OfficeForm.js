@@ -9,11 +9,11 @@ class OfficeForm extends Component {
     super(props);
 
     this.state = {
-      isAdresaError: false,
-      isDenumireError: false,
-      denumire: null,
-      adresa: null,
-      tip: null
+      isAddressError: false,
+      isNameError: false,
+      name: null,
+      address: null,
+      type: null
     };
   }
   render() {
@@ -22,18 +22,18 @@ class OfficeForm extends Component {
         <form className=" formStyle">
           <label className="labelStyles">
            Office name:
-            <div className={this.state.isDenumireError ? "inputError" : ""}>
+            <div className={this.state.isNameError ? "inputError" : ""}>
               <input
                 class="form-control"
                 type="text"
                 name="name"
                 placeholder={
-                  this.state.isDenumireError ? "Mesaj de eroare" : ""
+                  this.state.isNameError ? "Error message" : ""
                 }
                 onChange={text =>
                   this.setState({
-                    denumire: text.target.value,
-                    isDenumireError: false
+                    name: text.target.value,
+                    isNameError: false
                   })
                 }
               />
@@ -42,16 +42,16 @@ class OfficeForm extends Component {
 
           <label className="labelStyles">
             Office address:
-            <div className={this.state.isAdresaError ? "inputError" : ""}>
+            <div className={this.state.isAddressError ? "inputError" : ""}>
               <input
                 class="form-control"
                 type="text"
                 name="prenume"
-                placeholder={this.state.isAdresaError ? "Mesaj de eroare" : ""}
+                placeholder={this.state.isAddressError ? "Error message" : ""}
                 onChange={text =>
                   this.setState({
-                    adresa: text.target.value,
-                    isAdresaError: false
+                    address: text.target.value,
+                    isAddressError: false
                   })
                 }
               />
@@ -66,7 +66,7 @@ class OfficeForm extends Component {
               className="specializariStyle"
               onChange={text =>
                 this.setState({
-                  tip: text.target.value
+                  type: text.target.value
                 })
               }
             >
@@ -88,9 +88,9 @@ class OfficeForm extends Component {
   }
   _onBtnPress() {
     let officeInfo = {
-      denumire: this.state.denumire,
-      adresaCab: this.state.adresa,
-      tip: this.state.tip
+      nameOffice: this.state.name,
+      addressOffice: this.state.address,
+      typeOffice: this.state.type
     };
     this.props.date(officeInfo);
   }

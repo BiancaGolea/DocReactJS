@@ -9,19 +9,19 @@ class FormDoctorInfo extends Component {
     super(props);
 
     this.state = {
-      isNumeError: false,
-      isPrenumeError: false,
-      isAdresaError: false,
+      isNameError: false,
+      isLastnameError: false,
+      isAddressError: false,
       isEmailError: false,
-      isNrtelError: false,
-      isSpecializare: false,
+      isPhoneError: false,
+      isSpecialization: false,
 
-      nume: null,
-      prenume: null,
-      adresaFb: null,
+      name: null,
+      lastname: null,
+      facebookAddress: null,
       email: null,
-      nr: null,
-      specializare: null,
+      phone: null,
+      specialization: null,
     };
   }
   render() {
@@ -30,16 +30,16 @@ class FormDoctorInfo extends Component {
         <form className=" formStyle">
           <label className="labelStyles">
             Name:
-            <div className={this.state.isNumeError ? "inputError" : ""}>
+            <div className={this.state.isNameError ? "inputError" : ""}>
               <input
                 class="form-control"
                 type="text"
                 name="name"
-                placeholder={this.state.isNumeError ? "Mesaj de eroare" : ""}
+                placeholder={this.state.isNameError ? "Error message" : ""}
                 onChange={text =>
                   this.setState({
-                    nume: text.target.value,
-                    isNumeError: false
+                    name: text.target.value,
+                    isNameError: false
                   })
                 }
               />
@@ -48,16 +48,16 @@ class FormDoctorInfo extends Component {
 
           <label className="labelStyles">
             LastName:
-            <div className={this.state.isPrenumeError ? "inputError" : ""}>
+            <div className={this.state.isLastnameError ? "inputError" : ""}>
               <input
                 class="form-control"
                 type="text"
-                name="prenume"
-                placeholder={this.state.isPrenumeError ? "Mesaj de eroare" : ""}
+                name="lastname"
+                placeholder={this.state.isLastnameError ? "Error message" : ""}
                 onChange={text =>
                   this.setState({
-                    prenume: text.target.value,
-                    isPrenumeError: false
+                    lastname: text.target.value,
+                    isLastnameError: false
                   })
                 }
               />
@@ -73,7 +73,7 @@ class FormDoctorInfo extends Component {
                 class="form-control"
                 type="e-mail"
                 name="email"
-                placeholder={this.state.isEmailError ? "Mesaj de eroare" : ""}
+                placeholder={this.state.isEmailError ? "Error message" : ""}
                 onChange={text =>
                   this.setState({
                     email: text.target.value,
@@ -88,12 +88,12 @@ class FormDoctorInfo extends Component {
             <div>
               <input
                 class="form-control"
-                type="e-mail"
-                name="email"
+                type="text"
+                name="facebook"
                 placeholder={"/facebook"}
                 onChange={text =>
                   this.setState({
-                    adresaFb: text.target.value
+                    facebookAddress: text.target.value
                   })
                 }
               />
@@ -101,16 +101,16 @@ class FormDoctorInfo extends Component {
           </label>
           <label className="labelStyles">
            Number phone:
-            <div className={this.state.isNrtelError ? "inputError" : ""}>
+            <div className={this.state.isPhoneError ? "inputError" : ""}>
               <input
                 class="form-control"
                 type="text"
-                name="telefon"
-                placeholder={this.state.isNrtelError ? "Mesaj de eroare" : ""}
+                name="phone"
+                placeholder={this.state.isPhoneError ? "Error message" : ""}
                 onChange={text =>
                   this.setState({
-                    nr: text.target.value,
-                    isNrtelError: false
+                    phone: text.target.value,
+                    isPhoneError: false
                   })
                 }
               />
@@ -124,8 +124,8 @@ class FormDoctorInfo extends Component {
               className="specializationsStyle"
               onChange={text =>
                 this.setState({
-                  specializare: text.target.value,
-                  isSpecializare: false
+                  specialization: text.target.value,
+                  isSpecialization: false
                 })
               }
             >
@@ -175,7 +175,7 @@ class FormDoctorInfo extends Component {
         <Button
           bsSize="lg"
           className="btnStyle"
-          onClick={() => this._getDateMedic()}
+          onClick={() => this._getDoctorInfo()}
         >
           Next
         </Button>
@@ -183,14 +183,14 @@ class FormDoctorInfo extends Component {
     );
   }
 
-  _getDateMedic = () => {
+  _getDoctorInfo = () => {
     let date = {
-      nume: this.state.nume,
-      prenume: this.state.prenume,
-      specializare: this.state.specializare,
+      name: this.state.name,
+      lastname: this.state.lastname,
+      specialization: this.state.specialization,
       email: this.state.email,
-      numarTelefon: this.state.nr,
-      facebook: this.state.adresaFb
+      phoneNumber: this.state.phone,
+      facebook: this.state.facebookAddress
     };
     this.props.date(date);
   };
