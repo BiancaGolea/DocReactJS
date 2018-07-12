@@ -7,6 +7,9 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import CardWorkPanel from "../../componente/CardWorkPanel/index";
 import appointmentsAction from "../../commun/ReduxActions/AppointmentsAction";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 
 class WorkPanel extends Component {
    async componentDidMount(){
@@ -17,7 +20,38 @@ class WorkPanel extends Component {
    
   }
 
+  constructor() {
+    super();
+    
+    this.state = {
+      showMenu: false,
+    };
+    
+    this.showMenu = this.showMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
+  }
+  
+  showMenu(event) {
+    event.preventDefault();
+    
+    this.setState({ showMenu: true }, () => {
+      document.addEventListener('click', this.closeMenu);
+    });
+  }
+  
+  closeMenu(event) {
+    
+    if (!this.dropdownMenu.contains(event.target)) {
+      
+      this.setState({ showMenu: false }, () => {
+        document.removeEventListener('click', this.closeMenu);
+      });  
+      
+    }
+  }
+  
   render() {
+  
   console.log("------------",this.props.appointments);
 
 
@@ -30,13 +64,55 @@ class WorkPanel extends Component {
     return (
       <div className="divBackgroundWorkPanel">
         <Header isLoginPage={true} />
+
+       
+      
         <h2 className="styleTitleWorkPannel">Welcome on your profile!</h2>
-        <h3 className="TitleListAppointments">  Your appointments</h3>
+      
+
+
+      
+
         <div className="divCardWorkPannel">
+        <h3 className="TitleListAppointments">  Your appointments</h3>
           {this.renderAppointmentsList()}
           
         </div>
-        <div className="divContentText">
+
+         <div className="divMainMenuWorkPanel">
+        {/* <Button  className="buttonMenuWorkPanel" onClick={this.showMenu}>
+
+        <img src={require("../../assets/menu.png")} className="imgMenu" />
+        </Button> */}
+        
+        <p className="buttonMenuWorkPanel" onClick={this.showMenu}>
+        <img src={require("../../assets/menu.png")} className="imgMenu" /></p>
+         
+
+        {
+          this.state.showMenu
+            ? (
+              <div
+                className="divMenuWorkPanel"
+                ref={(element) => {
+                  this.dropdownMenu = element;
+                }}
+              >
+                <Link className="stylesLink" to={"/"}> Set schedule </Link>
+                <Link className="stylesLink" to={""}> Menu item 2 </Link>
+                <Link className="stylesLink" to={""}> Menu item 3 </Link>
+              </div>
+            )
+            : (
+              null
+            )
+        }
+      </div>
+      
+      
+
+      
+       <div className="divContentText">
           <p className="textDescriptionWorkPanel"> "The power of infinite organization refers to 
           the power to organize an infinity of space-time events, 
           all at the same time."

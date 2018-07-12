@@ -169,7 +169,7 @@ class SignUpDoctorsForm extends Component {
           ]
         })
       });
-      console.log(this._onPress(JSON.stringify(response)), "response")
+      console.log(JSON.stringify(date), JSON.stringify(this.state.doctorInfo), "response")
       if (response.status !== 201) {
         throw new Error("Error");
       } else {

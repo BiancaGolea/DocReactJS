@@ -23,6 +23,7 @@ public class CabinetServices {
 	private MediciRepo mediciRepo;
 	
 	public CabinetModel addCabinet (CabinetModel newCabinet) {
+		System.out.println(newCabinet.getDenumire() + "   "  +newCabinet.getCabAdress());
 		List<CabinetModel> listaCabinete=cabinetRepo.findByDenumireAndCabAdress(newCabinet.getDenumire(), newCabinet.getCabAdress());
 		CabinetModel cabineteMedic=new CabinetModel();
 		if(listaCabinete.isEmpty()) {

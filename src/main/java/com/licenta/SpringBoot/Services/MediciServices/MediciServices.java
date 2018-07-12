@@ -32,6 +32,7 @@ public class MediciServices {
 	private CabinetRepo cabRepo;
 
 	public void addMedic(MediciModel medicModel) {
+		System.out.println(medicModel.toString());
 		MediciModel newMedic = medicModel;
 		List<String> specializariList = medicModel.getSpecializare();
 		Set<CabinetModel> cabineteList = medicModel.getCabinete();
