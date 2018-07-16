@@ -10,7 +10,7 @@ class ReviewCard extends Component{
    
     render(){
         
-        if(this.props.reviewModel.descriere!==null && this.props.reviewModel.descriere!==""){
+        if(this.props.reviewModel.descriere){
             let data=new Date(this.props.reviewModel.dataRecenzie);
             let formatedDate=data.getDate() +"-"+data.getMonth()+ "-"+data.getFullYear();
         return(

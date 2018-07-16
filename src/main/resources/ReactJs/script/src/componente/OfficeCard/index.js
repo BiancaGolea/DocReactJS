@@ -4,34 +4,41 @@ import "bootstrap/dist/css/bootstrap-theme.css";
 import "./styles.css";
 import Rating from "react-rating";
 import { withRouter } from "react-router-dom";
+import avatar from '../../assets/avatar.png';
+
+import stargrey from '../../assets/star-grey.png';
+import starred from '../../assets/star-red.png';
+import staryellow from '../../assets/star-yellow.png';
+
+
 
 class OfficeCard extends Component {
   render() {
     return (
       <div className="divCard">
         <div className="divImgOffice">
-          <img alt="img" src={require("../../assets/avatar.png")} className="imgStyle" />
+          <img alt="img" src={avatar} className="imgStyle" />
 
           <Rating
             placeholderRating={3.88}
             emptySymbol={
               <img
               alt="img"
-                src={require("../../assets/star-grey.png")}
+                src={stargrey}
                 className="icon"
               />
             }
             placeholderSymbol={
               <img
               alt="img"
-                src={require("../../assets/star-red.png")}
+                src={starred}
                 className="icon"
               />
             }
             fullSymbol={
               <img
               alt="img"
-                src={require("../../assets/star-yellow.png")}
+                src={staryellow}
                 className="icon"
               />
             }

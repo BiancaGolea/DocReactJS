@@ -30,9 +30,9 @@ class OfficeForm extends Component {
                 placeholder={
                   this.state.isNameError ? "Error message" : ""
                 }
-                onChange={text =>
+                onChange={event =>
                   this.setState({
-                    name: text.target.value,
+                    name: event.target.value,
                     isNameError: false
                   })
                 }
@@ -48,9 +48,9 @@ class OfficeForm extends Component {
                 type="text"
                 name="prenume"
                 placeholder={this.state.isAddressError ? "Error message" : ""}
-                onChange={text =>
+                onChange={event =>
                   this.setState({
-                    address: text.target.value,
+                    address: event.target.value,
                     isAddressError: false
                   })
                 }
@@ -64,9 +64,9 @@ class OfficeForm extends Component {
             Office type:
             <select
               className="specializariStyle"
-              onChange={text =>
+              onChange={event =>
                 this.setState({
-                  type: text.target.value
+                  type: event.target.value
                 })
               }
             >

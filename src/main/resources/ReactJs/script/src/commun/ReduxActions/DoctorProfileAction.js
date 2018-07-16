@@ -2,13 +2,15 @@ import Constants from "../Constants";
 import Api from "../../Api/Api";
 
 export default function doctorProfileAction(token, id) {
-  return async function(dispach) {
-    dispach({ type: Constants.GET_DOCTORPROFILE_IN_PROGRESS });
+  return async function (dispach) {
+    dispach({
+      type: Constants.GET_DOCTORPROFILE_IN_PROGRESS
+    });
     try {
-      const resp = await fetch(Api.getDoctorProfile + id, {
+      const resp = await fetch(Api.getDoctorProfileUrl + id, {
         method: "GET",
         headers: {
-          Authorization:token,
+          Authorization: token,
           "Content-Type": "application/json"
         }
       });
@@ -21,7 +23,10 @@ export default function doctorProfileAction(token, id) {
         payload: json
       });
     } catch (error) {
-      dispach({ type: Constants.GET_DOCTORPROFILE_FAILURE, payload: error });
+      dispach({
+        type: Constants.GET_DOCTORPROFILE_FAILURE,
+        payload: error
+      });
     }
   };
 }

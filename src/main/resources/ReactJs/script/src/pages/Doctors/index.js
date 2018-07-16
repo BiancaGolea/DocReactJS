@@ -10,9 +10,6 @@ import doctorsBySpecializationAction from "../../commun/ReduxActions/DoctorsBySp
 import Progress from "../../componente/Progress";
 
 class Doctors extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   async componentWillMount() {
     await this.loadData();
@@ -27,11 +24,11 @@ class Doctors extends Component {
         </div>
       );
     } else {
-      //Trebuie tratata situatia 
+      // Trebuie tratata situatia.
       return (
         <div>
           <Progress/>
-          {/* <img src={require("../../assets/Load.gif")} className="styleGif" /> */}
+         
         </div>
       );
     }

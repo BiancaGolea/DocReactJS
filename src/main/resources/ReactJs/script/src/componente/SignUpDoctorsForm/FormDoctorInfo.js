@@ -36,9 +36,9 @@ class FormDoctorInfo extends Component {
                 type="text"
                 name="name"
                 placeholder={this.state.isNameError ? "Error message" : ""}
-                onChange={text =>
+                onChange={event =>
                   this.setState({
-                    name: text.target.value,
+                    name: event.target.value,
                     isNameError: false
                   })
                 }
@@ -54,9 +54,9 @@ class FormDoctorInfo extends Component {
                 type="text"
                 name="lastname"
                 placeholder={this.state.isLastnameError ? "Error message" : ""}
-                onChange={text =>
+                onChange={event =>
                   this.setState({
-                    lastname: text.target.value,
+                    lastname: event.target.value,
                     isLastnameError: false
                   })
                 }
@@ -74,9 +74,9 @@ class FormDoctorInfo extends Component {
                 type="e-mail"
                 name="email"
                 placeholder={this.state.isEmailError ? "Error message" : ""}
-                onChange={text =>
+                onChange={event =>
                   this.setState({
-                    email: text.target.value,
+                    email: event.target.value,
                     isEmailError: false
                   })
                 }
@@ -91,9 +91,9 @@ class FormDoctorInfo extends Component {
                 type="text"
                 name="facebook"
                 placeholder={"/facebook"}
-                onChange={text =>
+                onChange={event =>
                   this.setState({
-                    facebookAddress: text.target.value
+                    facebookAddress: event.target.value
                   })
                 }
               />
@@ -107,9 +107,9 @@ class FormDoctorInfo extends Component {
                 type="text"
                 name="phone"
                 placeholder={this.state.isPhoneError ? "Error message" : ""}
-                onChange={text =>
+                onChange={event =>
                   this.setState({
-                    phone: text.target.value,
+                    phone: event.target.value,
                     isPhoneError: false
                   })
                 }
@@ -122,9 +122,9 @@ class FormDoctorInfo extends Component {
             Specialization:
             <select
               className="specializationsStyle"
-              onChange={text =>
+              onChange={event =>
                 this.setState({
-                  specialization: text.target.value,
+                  specialization: event.target.value,
                   isSpecialization: false
                 })
               }

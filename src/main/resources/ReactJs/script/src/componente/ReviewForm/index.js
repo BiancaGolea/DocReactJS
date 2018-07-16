@@ -15,7 +15,9 @@ import TextareaAutosize from "react-autosize-textarea";
 import NumericInput from "react-numeric-input";
 import red from "material-ui/colors/red";
 import Icon from 'material-ui/Icon';
-import addReview from "../../Api/Api";
+import addReviewUrl from "../../Api/Api";
+import click from '../../assets/click.png';
+
 
 
 class ReviewForm extends Component {
@@ -165,7 +167,7 @@ class ReviewForm extends Component {
             onClick={() => this._onClickBtn()}
             >
               Sent
-              <Icon><img src={require("../../assets/click.png")} className="styleIcon" alt="load"/></Icon>
+              <Icon><img src={click} className="styleIcon" alt="load"/></Icon>
             </Button>
             </div>
       </div>
@@ -190,7 +192,7 @@ class ReviewForm extends Component {
   async _callApi(){
     try {
       let today=new Date();
-      const resp= await fetch(addReview.addReview,{
+      const resp= await fetch(addReviewUrl.addReviewUrl,{
         method: "POST",
         headers: {
           Accept: "application/json",

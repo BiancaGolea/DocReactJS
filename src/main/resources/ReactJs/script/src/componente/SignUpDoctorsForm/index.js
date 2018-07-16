@@ -78,8 +78,8 @@ class SignUpDoctorsForm extends Component {
   }
 
   _getOfficeInfo = officeInfo => {
-    console.log(this._validation2(officeInfo)+" validare medic 2")
-    let valid = this._validation2(officeInfo);
+    console.log(this.validateDatesOfice(officeInfo)+" validare medic 2")
+    let valid = this.validateDatesOfice(officeInfo);
     if (valid) {
       this.setState({ officeInfo: officeInfo });
     } else {
@@ -90,8 +90,8 @@ class SignUpDoctorsForm extends Component {
 
   _getDoctorInfo = doctorInfo => {
     
-    console.log(this._validation(doctorInfo)+" validare medic")
-    let valid = this._validation(doctorInfo);
+    console.log(this.validateDates(doctorInfo)+" validare medic")
+    let valid = this.validateDates(doctorInfo);
     if (valid) {
       this.setState({
         doctorInfo: doctorInfo,
@@ -104,10 +104,10 @@ class SignUpDoctorsForm extends Component {
     }
   };
 
-  _validation(date) {
+  validateDates(date) {
     
     console.log(this.validateEmail(date.email)+" validare mail")
-    console.log(this.validationPhone(date.phoneNumber)+" validare telefon")
+    console.log(this.validatePhone(date.phoneNumber)+" validare telefon")
     if (
       date.name === null ||
       date.name === "" ||
@@ -118,13 +118,13 @@ class SignUpDoctorsForm extends Component {
       !this.validateEmail(date.email) ||
       date.phoneNumber === null ||
       date.phoneNumber === "" ||
-      !this.validationPhone(date.phoneNumber)
+      !this.validatePhone(date.phoneNumber)
     ) {
       return false;
     }
     return true;
   }
-  _validation2(date) {
+  validateDatesOfice(date) {
     if (
       date.nameOffice === null ||
       date.nameOffice === "" ||
@@ -201,7 +201,7 @@ class SignUpDoctorsForm extends Component {
     return re.test(String(email).toLowerCase());
   }
   
-  validationPhone(phoneNumber) {
+  validatePhone(phoneNumber) {
     if (phoneNumber.length !== 10 || isNaN(phoneNumber)) {
       return false;
     }

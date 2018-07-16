@@ -17,6 +17,9 @@ import Dialog, {
 } from "material-ui/Dialog";
 import Slide from "material-ui/transitions/Slide";
 import Progress from "../Progress";
+import download from '../../assets/download.png';
+import Load from '../../assets/Load.gif';
+
 
 class TextFieldGroup extends Component {
   constructor(props) {
@@ -48,9 +51,9 @@ class TextFieldGroup extends Component {
               type="username"
               className="form-control"
               placeholder="Username"
-              onChange={text =>
+              onChange={event =>
                 this.setState({
-                  username: text.target.value, isUsernameError:false
+                  username: event.target.value, isUsernameError:false
                 })
               }
             />
@@ -64,9 +67,9 @@ class TextFieldGroup extends Component {
               type="password"
               className="form-control"
               placeholder="Password"
-              onChange={text =>
+              onChange={event =>
                 this.setState({
-                  password: text.target.value, isPassError:false
+                  password: event.target.value, isPassError:false
                 })
               }
             />
@@ -83,21 +86,21 @@ class TextFieldGroup extends Component {
             >
               Log in
               <div className="divIcon">
-              <Icon><img src={require("../../assets/download.png")} className="styleIcon" alt="load"/></Icon>
+              <Icon><img src={download} className="styleIcon" alt="load"/></Icon>
               </div>
               </Button>
           </div>
           }
           {this.props.authInfo.inProgress &&
           <div>
-          <img src={require("../../assets/Load.gif")} className="styleGif" alt="load"/>
+          <img src={Load} className="styleGif" alt="load"/>
             </div>}
         </form>
       </div>
     );
   }
 
-  _validation() {
+  validateUserInfo() {
     if(this.state.username ===null || this.state.username===""){
       this.setState({isUsernameError:true}) 
       return false;
@@ -112,7 +115,7 @@ class TextFieldGroup extends Component {
 
 async _onLoginPress() {
     try {
-      if (!this._validation()) {
+      if (!this.validateUserInfo()) {
         throw new Error("Try again!");
       }
       await this.props.loginUser(this.state.username,this.state.password);

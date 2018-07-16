@@ -10,9 +10,6 @@ import officeAction from "../../commun/ReduxActions/OfficesAction";
 import Progress from "../../componente/Progress";
 
 class Offices extends Component {
-    constructor(props) {
-        super(props);
-      }
     
       async componentWillMount() {
         await this.loadData();

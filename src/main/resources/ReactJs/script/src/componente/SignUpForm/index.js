@@ -14,6 +14,9 @@ import Dialog, {
 import Slide from "material-ui/transitions/Slide";
 import {withRouter} from 'react-router-dom';
 import Icon from 'material-ui/Icon';
+import signup from '../../assets/signup.png';
+import gif from '../../assets/gif.gif';
+
 
 
 class SignUpForm extends Component {
@@ -90,9 +93,9 @@ class SignUpForm extends Component {
               type="username"
               className="form-control"
               placeholder="Username"
-              onChange={text =>
+              onChange={event =>
                 this.setState({
-                  username: text.target.value,
+                  username: event.target.value,
                   isUsernameError: false
                 })
               }
@@ -110,9 +113,9 @@ class SignUpForm extends Component {
               type="email"
               className="form-control"
               placeholder="E-mail"
-              onChange={text =>
+              onChange={event =>
                 this.setState({
-                  email: text.target.value,
+                  email: event.target.value,
                   isEmailError: false
                 })
               }
@@ -130,9 +133,9 @@ class SignUpForm extends Component {
               type="password"
               className="form-control"
               placeholder="Password"
-              onChange={text =>
+              onChange={event =>
                 this.setState({
-                  password: text.target.value,
+                  password: event.target.value,
                   isPassError: false
                 })
               }
@@ -150,9 +153,9 @@ class SignUpForm extends Component {
               type="password"
               className="form-control"
               placeholder="Confirm Password"
-              onChange={text =>
+              onChange={event =>
                 this.setState({
-                  confpassword: text.target.value,
+                  confpassword: event.target.value,
                   isConfirmPassError: false
                 })
               }
@@ -169,13 +172,13 @@ class SignUpForm extends Component {
             onClick={() => this._onLoginPress()}
             >
               Sign Up
-              <Icon><img src={require("../../assets/signup.png")} className="icon" alt="load"/></Icon>
+              <Icon><img src={signup} className="icon" alt="load"/></Icon>
             </Button>
             </div>
           )}
           {this.state.inProgress && (
             <div>
-               <img src={require("../../assets/gif.gif")} className="styleProgressSignUpForm" alt="load"/>
+               <img src={gif} className="styleProgressSignUpForm" alt="load"/>
             </div>
           )}
         </form>
@@ -183,7 +186,7 @@ class SignUpForm extends Component {
     );
   }
 
-  _validation() {
+  validateInfo() {
     if (this.state.username === null || this.state.username === "") {
       this.setState({ isUsernameError: true });
     }
@@ -235,7 +238,7 @@ class SignUpForm extends Component {
       inProgress: true
     });
     try {
-      if (!this._validation()) {
+      if (!this.validateInfo()) {
         throw new Error("Try again!");
       }
       this._callApi();

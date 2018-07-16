@@ -9,6 +9,10 @@ import { connect } from "react-redux";
 import officeProfileAction from "../../commun/ReduxActions/OfficeProfileAction";
 import Progress from "../../componente/Progress/index";
 import doctorsBySpecializationAction from "../../commun/ReduxActions/DoctorsBySpecializationAction";
+import avatar from '../../assets/avatar.png';
+import stargrey from '../../assets/star-grey.png';
+import starred from '../../assets/star-red.png';
+import staryellow from '../../assets/star-yellow.png';
 
 class OfficeProfile extends Component {
 
@@ -36,7 +40,7 @@ class OfficeProfile extends Component {
             <div className="ratingStyles">
               <img
               alt="img"
-                src={require("../../assets/avatar.png")}
+                src={avatar}
                 className="smallImg"
               />
               <p className="paragrphRating"> Rating office location</p>
@@ -45,21 +49,21 @@ class OfficeProfile extends Component {
                 emptySymbol={
                   <img
                   alt="img"
-                    src={require("../../assets/star-grey.png")}
+                    src={stargrey}
                     className="icon"
                   />
                 }
                 placeholderSymbol={
                   <img
                   alt="img"
-                    src={require("../../assets/star-red.png")}
+                    src={starred}
                     className="icon"
                   />
                 }
                 fullSymbol={
                   <img
                   alt="img"
-                    src={require("../../assets/star-yellow.png")}
+                    src={staryellow}
                     className="icon"
                   />
                 }
@@ -71,21 +75,21 @@ class OfficeProfile extends Component {
                 emptySymbol={
                   <img
                   alt="img"
-                    src={require("../../assets/star-grey.png")}
+                    src={stargrey}
                     className="icon"
                   />
                 }
                 placeholderSymbol={
                   <img
                   alt="img"
-                    src={require("../../assets/star-red.png")}
+                    src={starred}
                     className="icon"
                   />
                 }
                 fullSymbol={
                   <img
                   alt="img"
-                    src={require("../../assets/star-yellow.png")}
+                    src={staryellow}
                     className="icon"
                   />
                 }

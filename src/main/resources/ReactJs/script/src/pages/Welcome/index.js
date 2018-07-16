@@ -9,6 +9,23 @@ import setStatus from "../../commun/ReduxActions/SetStatusAction";
 import { bindActionCreators } from "redux";
 import Coverflow from "react-coverflow";
 import Description from "../../componente/Description";
+import doc1 from '../../assets/doc1.jpg';
+import doc2 from '../../assets/doc2.jpg';
+import med1 from '../../assets/med1.jpg';
+import doc4 from '../../assets/doc4.jpg';
+import doc5 from '../../assets/doc5.jpg';
+import doc6 from '../../assets/doc6.jpg';
+import doc7 from '../../assets/doc7.jpg';
+import feedbk from '../../assets/feedbk.jpg';
+import doc3 from '../../assets/doc3.jpg';
+import med2 from '../../assets/med2.jpg';
+import med3 from '../../assets/med3.jpg';
+import med5 from '../../assets/med5.jpg';
+import med6 from '../../assets/med6.jpg';
+import med7 from '../../assets/med7.jpg';
+import med8 from '../../assets/med8.jpg';
+
+
 
 
 class Welcome extends Component {
@@ -39,83 +56,83 @@ class Welcome extends Component {
               tabIndex="0"
             >
               <img
-                src={require("../../assets/doc1.jpg")}
+                src={doc1}
                 alt="title or description"
                 style={{ display: "block", width: "150%" }}
               />
             </div>
             <img
-              src={require("../../assets/doc2.jpg")}
+              src={doc2}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
             <img
-              src={require("../../assets/med1.jpg")}
+              src={med1}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
             <img
-              src={require("../../assets/doc4.jpg")}
+              src={doc4}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
             <img
-              src={require("../../assets/doc5.jpg")}
+              src={doc5}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
             <img
-              src={require("../../assets/doc6.jpg")}
+              src={doc6}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
              <img
-              src={require("../../assets/doc7.jpg")}
+              src={doc7}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
              <img
-              src={require("../../assets/feedbk.jpg")}
+              src={feedbk}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
              <img
-              src={require("../../assets/doc3.jpg")}
+              src={doc3}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
              <img
-              src={require("../../assets/med2.jpg")}
+              src={med2}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
              <img
-              src={require("../../assets/med3.jpg")}
+              src={med3}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
              <img
-              src={require("../../assets/doc3.jpg")}
+              src={doc3}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
              <img
-              src={require("../../assets/med5.jpg")}
+              src={med5}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
              <img
-              src={require("../../assets/med6.jpg")}
+              src={med6}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
              <img
-              src={require("../../assets/med7.jpg")}
+              src={med7}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
             <img
-              src={require("../../assets/med8.jpg")}
+              src={med8}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />

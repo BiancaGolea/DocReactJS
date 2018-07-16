@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap-theme.css";
 import "./styles.css";
 import Dropdown from "../DropdownComponent/index";
 import { Link } from "react-router-dom";
+import logo from '../../assets/logo.jpg';
+
 
 class Header extends Component {
   constructor(props) {
@@ -21,7 +23,7 @@ class Header extends Component {
       <div className="headerContainerDiv">
         <nav class="navbar navbar-inverse">
           <img
-            src={require("../../assets/logo.jpg")}
+            src={logo}
             className="logoStyle"
             alt="logo"
           />

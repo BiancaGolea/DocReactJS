@@ -16,25 +16,31 @@ export default function doctorsBySpecializationReducer(state = initialState, act
           error: null,
           listOfDoctors: null
         };
-         break;
+        break;
+        return state;
       }
-     case Constants.GET_DOCTORS_SUCCESS:{
-         state={
-             ...state,
-             inPrgress:false,
-            listOfDoctors:action.payload
-         };
-         break;
-     }
-     case Constants.GET_DOCTORS_FAILURE:{
-         state={
-             ...state,
-             inPrgress:false,
-            error:action.payload
-         };
-         break;
-     }
-     default: break;
+    case Constants.GET_DOCTORS_SUCCESS:
+      {
+        state = {
+          ...state,
+          inPrgress: false,
+          listOfDoctors: action.payload
+        };
+        break;
+        return state;
+      }
+    case Constants.GET_DOCTORS_FAILURE:
+      {
+        state = {
+          ...state,
+          inPrgress: false,
+          error: action.payload
+        };
+        break;
+        return state;
+      }
+    default:
+      break;
   }
   return state;
 

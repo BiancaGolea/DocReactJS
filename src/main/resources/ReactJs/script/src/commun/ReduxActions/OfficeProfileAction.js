@@ -2,10 +2,12 @@ import Constants from "../Constants";
 import Api from "../../Api/Api";
 
 export default function officeProfileAction(id, token) {
-  return async function(dispach) {
-    dispach({ type: Constants.GET_OFFICEPROFILE_IN_PROGRESS });
+  return async function (dispach) {
+    dispach({
+      type: Constants.GET_OFFICEPROFILE_IN_PROGRESS
+    });
     try {
-      const resp = await fetch(Api.getOfficeProfile + id, {
+      const resp = await fetch(Api.getOfficeProfileUrl + id, {
         method: "GET",
         headers: {
           Authorization: token,

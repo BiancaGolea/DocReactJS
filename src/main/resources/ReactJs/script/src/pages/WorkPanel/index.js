@@ -9,127 +9,92 @@ import CardWorkPanel from "../../componente/CardWorkPanel/index";
 import appointmentsAction from "../../commun/ReduxActions/AppointmentsAction";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import { stack as Menu } from 'react-burger-menu';
+import menu from '../../assets/menu.png';
 
 class WorkPanel extends Component {
-   async componentDidMount(){
-   await this.props.appointmentsAction(
+  constructor(props) {
+    super(props)
+    this.state = {
+      menuOpen: false
+    }
+  }
+  showSettings (event) {
+    event.preventDefault();
+  }
+
+  async componentDidMount() {
+    await this.props.appointmentsAction(
       this.props.authInfo.token,
       this.props.authInfo.idDoctor
     );
-   
+
   }
 
-  constructor() {
-    super();
-    
-    this.state = {
-      showMenu: false,
-    };
-    
-    this.showMenu = this.showMenu.bind(this);
-    this.closeMenu = this.closeMenu.bind(this);
-  }
-  
-  showMenu(event) {
-    event.preventDefault();
-    
-    this.setState({ showMenu: true }, () => {
-      document.addEventListener('click', this.closeMenu);
-    });
-  }
-  
-  closeMenu(event) {
-    
-    if (!this.dropdownMenu.contains(event.target)) {
-      
-      this.setState({ showMenu: false }, () => {
-        document.removeEventListener('click', this.closeMenu);
-      });  
-      
-    }
-  }
-  
   render() {
-  
-  console.log("------------",this.props.appointments);
-
-
     if (
-      this.props.appointments.inProgress ||  !this.props.appointments.appointmentsList) {
-      return <div className="divBackgroundWorkPanel">
-      <p className="alertParagraphWorkPannel"> It working ...</p></div>;
-    }
+      this.props.appointments.inProgress || !this.props.appointments.appointmentsList) {
+      return (
+        <div className="divBackgroundWorkPanel" id="outer-container">
+          <p className="alertParagraphWorkPannel"> It working ...</p>
+         
+        </div>
+      );}
 
     return (
-      <div className="divBackgroundWorkPanel">
+      <div className="divBackgroundWorkPanel" id="outer-container">
         <Header isLoginPage={true} />
 
-       
-      
         <h2 className="styleTitleWorkPannel">Welcome on your profile!</h2>
-      
-
 
       
-
-        <div className="divCardWorkPannel">
-        <h3 className="TitleListAppointments">  Your appointments</h3>
-          {this.renderAppointmentsList()}
+       <div id="page-wrap"  onClick={()=> this.closeMenu()}>
+       <p>   </p>
           
+         <Menu 
+         outerContainerId={ "page-wrap" }
+        className="MenuBurger"
+           burgerBarClassName ={"my-class"}
+           bodyClassName={ "my-class" }
+           pageWrapId ={"page-wrap"}
+           outerContainerId={"outer-container"}
+           isOpen={this.state.menuOpen}
+           width={125}
+           onStateChange={(state) => this.handleStateChange(state)}
+         >  
+           <a onClick={() => this.closeMenu()}>Home</a>
+           <a onClick={() => this.closeMenu()}>About</a>
+           <a onClick={() => this.closeMenu()}>Contact</a>
+           <a onClick={() => this.closeMenu()}>Settings</a>
+         </Menu>
+    
+ <main id="page-wrap" disableCloseOnEsc className="divMainMenuWorkPanel">
+   
+ </main>
+ </div>
+        <div className="divCardWorkPannel">
+          <h3 className="TitleListAppointments">  Your appointments</h3>
+          {this.renderAppointmentsList()}
+
         </div>
-
-         <div className="divMainMenuWorkPanel">
-        {/* <Button  className="buttonMenuWorkPanel" onClick={this.showMenu}>
-
-        <img src={require("../../assets/menu.png")} className="imgMenu" />
-        </Button> */}
-        
-        <p className="buttonMenuWorkPanel" onClick={this.showMenu}>
-        <img src={require("../../assets/menu.png")} className="imgMenu" /></p>
-         
-
-        {
-          this.state.showMenu
-            ? (
-              <div
-                className="divMenuWorkPanel"
-                ref={(element) => {
-                  this.dropdownMenu = element;
-                }}
-              >
-                <Link className="stylesLink" to={"/"}> Set schedule </Link>
-                <Link className="stylesLink" to={""}> Menu item 2 </Link>
-                <Link className="stylesLink" to={""}> Menu item 3 </Link>
-              </div>
-            )
-            : (
-              null
-            )
-        }
-      </div>
-      
-      
-
-      
-       <div className="divContentText">
-          <p className="textDescriptionWorkPanel"> "The power of infinite organization refers to 
-          the power to organize an infinity of space-time events, 
+        <div className="divContentText">
+          <p className="textDescriptionWorkPanel"> "The power of infinite organization refers to
+          the power to organize an infinity of space-time events,
           all at the same time."
-           <br /> 
-           Deepak Chopra
-           <br/>
-           <br/>
-           
-           With this app, you can effectively monitor and manage each one 
-           programming, so you'll know every time you wait for your office, 
-           at what date and time, also having the contact details of the patient.
+           <br />
+            Deepak Chopra
+           <br />
+            <br />
+
+            With this app, you can effectively monitor and manage each one
+            programming, so you'll know every time you wait for your office,
+            at what date and time, also having the contact details of the patient.
            </p>
-          </div>
+        </div>
       </div>
     );
   }
-   renderAppointmentsList() {
+  renderAppointmentsList() {
     let appointmentsList = [];
     for (let i = 0; i < this.props.appointments.appointmentsList.length; i++) {
       appointmentsList.push(
@@ -142,11 +107,11 @@ class WorkPanel extends Component {
           number={this.props.appointments.appointmentsList[i].nrtel}
         />
       );
-    
-  }
+
+    }
     return appointmentsList;
-  
-}
+
+  }
 
 
   async loadList() {
@@ -154,6 +119,18 @@ class WorkPanel extends Component {
       this.props.authInfo.token,
       this.props.authInfo.idDoctor
     );
+  }
+
+  handleStateChange(state) {
+    this.setState({ menuOpen: state.isOpen })
+  }
+
+  closeMenu() {
+    this.setState({ menuOpen: false })
+  }
+
+  toggleMenu() {
+    this.setState({ menuOpen: !this.state.menuOpen })
   }
 }
 

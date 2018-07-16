@@ -18,6 +18,10 @@ import Menu, { MenuItem } from "material-ui/Menu";
 import Icon from "material-ui/Icon";
 import Progress from "../../componente/Progress/index";
 import Api from "../../Api/Api";
+import click from '../../assets/click.png';
+import signup from '../../assets//signup.png';
+
+
 
 const options = ["10:00", "10:30", "11:00", "11:30", "12:00"];
 
@@ -162,9 +166,9 @@ class AppointmentsForm extends Component {
                 placeholder={
                   this.state.isNameUserError ? "Error message" : ""
                 }
-                onChange={text =>
+                onChange={event =>
                   this.setState({
-                    name: text.target.value,
+                    name: event.target.value,
                     isNameUserError: false
                   })
                 }
@@ -183,9 +187,9 @@ class AppointmentsForm extends Component {
                 placeholder={
                   this.state.isLastnameUserError ? "Error message" : ""
                 }
-                onChange={text =>
+                onChange={event =>
                   this.setState({
-                    lastname: text.target.value,
+                    lastname: event.target.value,
                     isLastnameUserError: false
                   })
                 }
@@ -206,9 +210,9 @@ class AppointmentsForm extends Component {
                     ? "Invalid email"
                     : "ex: adresamail@email.com"
                 }
-                onChange={text => {
+                onChange={event => {
                   this.setState({
-                    email: text.target.value,
+                    email: event.target.value,
                     isEmailError: false
                   });
                 }}
@@ -224,9 +228,9 @@ class AppointmentsForm extends Component {
                 value={this.state.phone}
                 className="form-control"
                 placeholder={this.state.isPhoneError ? "Error message" : ""}
-                onChange={text =>
+                onChange={event =>
                   this.setState({
-                    phone: text.target.value,
+                    phone: event.target.value,
                     isPhoneError: false
                   })
                 }
@@ -248,7 +252,7 @@ class AppointmentsForm extends Component {
                   <div>
                     {!this.state.hour && (
                       <img
-                        src={require("../../assets/click.png")}
+                        src={click}
                         className="divImgAppointments"
                         alt="logo"
                       />
@@ -299,7 +303,7 @@ class AppointmentsForm extends Component {
               Save
               <Icon>
                 <img
-                  src={require("../../assets/signup.png")}
+                  src={signup}
                   className="divImgAppointments"
                   alt="load"
                 />
@@ -311,7 +315,7 @@ class AppointmentsForm extends Component {
     );
   }
 
-  _validation() {
+  _validateStates() {
    
   
     if (
@@ -348,7 +352,7 @@ class AppointmentsForm extends Component {
 
   _onSavePress() {
    
-      if (this._validation()) {
+      if (this._validateStates()) {
       
         let conversionData =
           this.state.date.length == 4 ? "0" + this.state.date : this.state.date;
@@ -377,7 +381,7 @@ class AppointmentsForm extends Component {
     
     this.setState({ inProgress: true });
     try {
-      const resp = await fetch(Api.addAppointment, {
+      const resp = await fetch(Api.addAppointmentUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
