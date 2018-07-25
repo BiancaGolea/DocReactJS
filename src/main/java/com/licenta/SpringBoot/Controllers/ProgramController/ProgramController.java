@@ -1,5 +1,7 @@
 package com.licenta.SpringBoot.Controllers.ProgramController;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +23,12 @@ public class ProgramController {
 	
 	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(value="/add", method=RequestMethod.POST)
-	public ResponseEntity<Void> addProgram(@RequestBody ProgramModel newProgram) {
+	public ResponseEntity<Void> addProgram(@RequestBody List<ProgramModel> newProgram) {
 		System.out.println("addProgram:"+ newProgram.toString());
 		try {
-		orar.addProgram(newProgram);
+			for(ProgramModel program : newProgram) {
+		orar.addProgram(program);
+			}
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 		}catch(Exception e) {
 			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);

@@ -6,9 +6,9 @@
 }
 .divCardDoctorProfile{
     width: 80%;
-    height: 60%;
+    height: 70%;
     border-radius: 4%;
-    background-color: rgba(71, 30, 95, 0.377);
+    background-color: rgba(72, 116, 101, 0.76);
     margin-left: 10%;
     margin-top: 1%;
     margin-right: 10%;
@@ -31,7 +31,7 @@
     margin-left: 5%;
     margin-top: 2.5%;
     width: 60%;
-    background-color: rgba(27, 3, 41, 0.575);
+    background-color: rgba(17, 70, 52, 0.719);
     size: 5%;
     color:white;
     padding: 3%;

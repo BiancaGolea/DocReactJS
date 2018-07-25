@@ -9,110 +9,161 @@ import CardWorkPanel from "../../componente/CardWorkPanel/index";
 import appointmentsAction from "../../commun/ReduxActions/AppointmentsAction";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { stack as Menu } from 'react-burger-menu';
-import menu from '../../assets/menu.png';
+import { stack as Menu } from "react-burger-menu";
+import signup from "../../assets/signup.png";
+import menu from "../../assets/menu.png";
+import ServicesForm from "./ServicesForm";
+import Appointments from "./Appointments";
+import SetSchedule from "./SetSchedule";
+
+var styles = {
+  bmBurgerButton: {
+    position: "fixed",
+    width: "36px",
+    height: "30px",
+    left: "40px",
+    top: "110px"
+  },
+  bmBurgerBars: {
+    background: "#373a47"
+  },
+  bmCrossButton: {
+    height: "30px",
+    width: "30px"
+  },
+  bmCross: {
+    background: "#bdc3c7"
+  },
+  bmMenu: {
+    background: "#373a47",
+    padding: "2.4em 1.5em 0",
+    fontSize: "1.15em"
+  },
+  bmMorphShape: {
+    fill: "#373a47"
+  },
+  bmItemList: {
+    color: "#b8b7ad",
+    padding: "0.9em"
+  },
+  bmItem: {
+    display: "inline-block"
+  },
+  bmOverlay: {
+    background: "rgba(0, 0, 0, 0.4)"
+  }
+};
 
 class WorkPanel extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      menuOpen: false
-    }
+      menuOpen: false,
+      showAppoimtments: true,
+      showServiceForm: false,
+      hover: false
+    };
   }
-  showSettings (event) {
-    event.preventDefault();
-  }
-
   async componentDidMount() {
     await this.props.appointmentsAction(
       this.props.authInfo.token,
       this.props.authInfo.idDoctor
     );
-
   }
 
   render() {
     if (
-      this.props.appointments.inProgress || !this.props.appointments.appointmentsList) {
+      this.props.appointments.inProgress ||
+      !this.props.appointments.appointmentsList
+    ) {
       return (
-        <div className="divBackgroundWorkPanel" id="outer-container">
+        <div className="divBackgroundWorkPanel">
+          <SetSchedule />
           <p className="alertParagraphWorkPannel"> It working ...</p>
-         
         </div>
-      );}
+      );
+    }
 
     return (
       <div className="divBackgroundWorkPanel" id="outer-container">
-        <Header isLoginPage={true} />
-
-        <h2 className="styleTitleWorkPannel">Welcome on your profile!</h2>
-
-      
-       <div id="page-wrap"  onClick={()=> this.closeMenu()}>
-       <p>   </p>
-          
-         <Menu 
-         outerContainerId={ "page-wrap" }
-        className="MenuBurger"
-           burgerBarClassName ={"my-class"}
-           bodyClassName={ "my-class" }
-           pageWrapId ={"page-wrap"}
-           outerContainerId={"outer-container"}
-           isOpen={this.state.menuOpen}
-           width={125}
-           onStateChange={(state) => this.handleStateChange(state)}
-         >  
-           <a onClick={() => this.closeMenu()}>Home</a>
-           <a onClick={() => this.closeMenu()}>About</a>
-           <a onClick={() => this.closeMenu()}>Contact</a>
-           <a onClick={() => this.closeMenu()}>Settings</a>
-         </Menu>
-    
- <main id="page-wrap" disableCloseOnEsc className="divMainMenuWorkPanel">
-   
- </main>
- </div>
-        <div className="divCardWorkPannel">
-          <h3 className="TitleListAppointments">  Your appointments</h3>
-          {this.renderAppointmentsList()}
-
+        <div>
+          <Header isLoginPage={true} className="headerWorkPanel" />
+          <h2 className="styleTitleWorkPannel">Welcome on your profile!</h2>
         </div>
-        <div className="divContentText">
-          <p className="textDescriptionWorkPanel"> "The power of infinite organization refers to
-          the power to organize an infinity of space-time events,
-          all at the same time."
-           <br />
-            Deepak Chopra
-           <br />
-            <br />
 
-            With this app, you can effectively monitor and manage each one
-            programming, so you'll know every time you wait for your office,
-            at what date and time, also having the contact details of the patient.
-           </p>
+        <div onClick={() => this.closeMenu()} className="divMenuBurger">
+          <Menu
+            styles={styles}
+            className="MenuBurger"
+            burgerBarClassName={"my-class"}
+            isOpen={this.state.menuOpen}
+            width={230}
+            onStateChange={state => this.handleStateChange(state)}
+            disableOverlayClick
+          >
+            <a id="back" onClick={() => this.closeMenu()}>
+              {" "}
+              Back to Welcome
+              {<img src={signup} className="imgMenu" />}
+            </a>
+            <a
+              id="appointments"
+              onClick={() => this.showAppoimtmentsFromMenu()}
+            >
+              View appointments
+            </a>
+            <a id="setSchedule" onClick={() => this.showSetScheduleFromMenu()}>
+              Set schedule
+            </a>
+            <a id="addServices" onClick={() => this.showServiceFromMenu()}>
+              Add services
+            </a>
+          </Menu>
         </div>
+        <div>
+          {!this.state.menuOpen && (
+            <main
+              disableCloseOnEsc
+              onClick={this.props.onClick}
+              burgerButtonClassName={"my-class"}
+              id="page-wrap"
+            />
+          )}
+        </div>
+        {this.state.showAppoimtments && (
+          <Appointments appointments={this.props.appointments} />
+        )}
+        {this.state.showServiceForm && <ServicesForm />}
+        {this.state.showSetScheduleForm && <SetSchedule />}
       </div>
     );
   }
-  renderAppointmentsList() {
-    let appointmentsList = [];
-    for (let i = 0; i < this.props.appointments.appointmentsList.length; i++) {
-      appointmentsList.push(
-        <CardWorkPanel
-          idBooking={this.props.appointments.appointmentsList[i].id_programare}
-          dateOfBooking={this.props.appointments.appointmentsList[i].data}
-          firstname={this.props.appointments.appointmentsList[i].nume}
-          lastname={this.props.appointments.appointmentsList[i].prenume}
-          mail={this.props.appointments.appointmentsList[i].email}
-          number={this.props.appointments.appointmentsList[i].nrtel}
-        />
-      );
 
-    }
-    return appointmentsList;
-
+  showServiceFromMenu() {
+    this.setState({
+      showAppoimtments: false,
+      showSetScheduleForm: false,
+      showServiceForm: true,
+      menuOpen: false
+    });
   }
 
+  showAppoimtmentsFromMenu() {
+    this.setState({
+      showAppoimtments: true,
+      showSetScheduleForm: false,
+      showServiceForm: false,
+      menuOpen: false
+    });
+  }
+  showSetScheduleFromMenu() {
+    this.setState({
+      showAppoimtments: false,
+      showServiceForm: false,
+      showSetScheduleForm: true,
+      menuOpen: false
+    });
+  }
 
   async loadList() {
     await this.props.appointmentsAction(
@@ -122,15 +173,15 @@ class WorkPanel extends Component {
   }
 
   handleStateChange(state) {
-    this.setState({ menuOpen: state.isOpen })
+    this.setState({ menuOpen: state.isOpen });
   }
 
   closeMenu() {
-    this.setState({ menuOpen: false })
+    this.setState({ menuOpen: false });
   }
 
   toggleMenu() {
-    this.setState({ menuOpen: !this.state.menuOpen })
+    this.setState({ menuOpen: !this.state.menuOpen });
   }
 }
 

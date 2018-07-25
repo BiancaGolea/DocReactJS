@@ -11,7 +11,6 @@ import ReviewCard from "../../componente/ReviewCard/index";
 import ServiceCard from "../../componente/ServiceCard/index";
 import doctorReviewAction from "../../commun/ReduxActions/DoctorReviewAction";
 import Progress from "../../componente/Progress/index";
-
 import avatar from '../../assets/avatar.png';
 import stargrey from '../../assets/star-grey.png';
 import starred from '../../assets/star-red.png';
@@ -187,8 +186,8 @@ class DoctorProfile extends Component {
     for(let i=0;i<this.props.doctorProfileReducer.doctorInfo.program.length;i++){
       let data=this.props.doctorProfileReducer.doctorInfo.program[i];
       data=data.split(" ");
-      let dataOrar=data[0]+"-"+data[2].slice(0, 5)+"--"+data[4].slice(0, 5);
-      schedule.push(<p key={i*i+1}>{dataOrar}</p>)
+      let dataSchedule=data[0]+"-"+data[2].slice(0, 5)+"--"+data[4].slice(0, 5);
+      schedule.push(<p key={i}>{dataSchedule}</p>)
     }
     return schedule;
   }

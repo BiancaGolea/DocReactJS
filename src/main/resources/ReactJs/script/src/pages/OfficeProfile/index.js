@@ -34,8 +34,7 @@ class OfficeProfile extends Component {
         <div>
           <Header isWelcomePage={true} />
         </div>
-        <div className="bigDiv">
-          <p className="titleOfficeProfile"> </p>
+          <p className="titleOfficeProfile">{this.props.officeProfileReducer.officeInfo.denumire} </p>
           <div className="divCardOfficeProfile">
             <div className="ratingStyles">
               <img
@@ -103,7 +102,7 @@ class OfficeProfile extends Component {
                 <div>Doctors: {this.renderListDoctors()} </div>
               </div>
           </div>
-        </div>
+       
       </div>
     );
   }

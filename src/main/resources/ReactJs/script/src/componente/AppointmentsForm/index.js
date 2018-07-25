@@ -367,7 +367,6 @@ class AppointmentsForm extends Component {
           nrtel: this.state.phone,
           medic: {
             idMed: this.props.idDoctor
-            
           }
           
         };
@@ -416,7 +415,7 @@ function disableDates(data) {
   let timeCurrent=dataToday.getTime();
 
    if (data.date.getDay() === 0 || data.date.getDay()=== 6 || data.date.getDate()===27 ||
-   data.date.getTime()<=timeCurrent
+   data.date.getTime()<timeCurrent
     ) 
   {
     return true;

@@ -16,6 +16,7 @@ const getAppointmentsUrl = "http://localhost:8080/programare/getAllProgramari/";
 const getOfficeProfileUrl = "http://localhost:8080/cabinet/getProfilCabinet/";
 const addAppointmentUrl = "http://localhost:8080/programare/add";
 const addReviewUrl = "http://localhost:8080/recenzie/add";
+const addServicesUrl="http://localhost:8080/servicii/add";
 
 export default {
     loginUrl,
@@ -30,5 +31,6 @@ export default {
     getOfficeProfileUrl,
     addAppointmentUrl,
     addReviewUrl,
-    getScheduleUrl
+    getScheduleUrl,
+    addServicesUrl
 }

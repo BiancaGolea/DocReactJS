@@ -86,11 +86,11 @@ class ReviewForm extends Component {
       </Dialog>
       )}
         <label className="divTextComment">
-          Comment here:
+         You want to say something?
           <div >
             <TextareaAutosize className="styleDivComments"  rows={5}  placeholder="Comment here"
-            onChange={(text)=>this.setState({
-              description: text.target.value,
+            onChange={(event)=>this.setState({
+              description: event.target.value,
             })
             }
              />
@@ -102,8 +102,8 @@ class ReviewForm extends Component {
           Medical services:
           <div >
             <NumericInput className=" " min={1} max={10} value={this.state.gradeDocServices} size={1}
-             onChange={(text)=>this.setState({
-              gradeDocServices: text,
+             onChange={(event)=>this.setState({
+              gradeDocServices: event,
             })
             
           }
@@ -114,8 +114,8 @@ class ReviewForm extends Component {
           Equipment:
           <div >
             <NumericInput className=" " min={1} max={10} value={this.state.gradeEquipment} size={1} 
-           onChange={(text)=>this.setState({
-            gradeEquipment: text,
+           onChange={(event)=>this.setState({
+            gradeEquipment: event,
           })
           }
             />
@@ -126,8 +126,8 @@ class ReviewForm extends Component {
          Service price:
           <div >
             <NumericInput className=" " min={1} max={10} value={this.state.gradePrice}  size={1} 
-          onChange={(text)=>this.setState({
-            gradePrice: text,
+          onChange={(event)=>this.setState({
+            gradePrice: event,
           })
           }
             />
@@ -138,8 +138,8 @@ class ReviewForm extends Component {
           Office look:
           <div >
             <NumericInput className=" " min={1} max={10} value={this.state.gradeLookOffice}  size={1} 
-         onChange={(text)=>this.setState({
-          gradeLookOffice: text,
+         onChange={(event)=>this.setState({
+          gradeLookOffice: event,
         })
         }
             />
@@ -150,8 +150,8 @@ class ReviewForm extends Component {
           Office location:
           <div >
             <NumericInput className=" " min={1} max={10} value={this.state.gradeLocation}  size={1} 
-          onChange={(text)=>this.setState({
-            gradeLocation: text,
+          onChange={(event)=>this.setState({
+            gradeLocation: event,
           })
           }
             />
@@ -166,7 +166,7 @@ class ReviewForm extends Component {
             color="primary"
             onClick={() => this._onClickBtn()}
             >
-              Sent
+              Send
               <Icon><img src={click} className="styleIcon" alt="load"/></Icon>
             </Button>
             </div>

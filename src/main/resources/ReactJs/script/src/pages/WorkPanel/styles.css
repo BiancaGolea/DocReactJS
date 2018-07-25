@@ -8,26 +8,28 @@
     margin: 0%;
 }
 .divCardWorkPannel{
+    
     float: left;
     width: 40%;
     height: 40%;
     margin-left: 10%;
-    margin-top: 4%;
-    padding-top: 0.1%;
+   
     
 }
 .TitleListAppointments{
+   
     font-family: fantasy;
-    margin-top: 5%;
     margin-left: 15%;
+    width: 20%;
 }
 .styleTitleWorkPannel{
+    color: black;
     font-family: fantasy;
-    margin-top: 4%;
     margin-left: 35%;
     float: left;
 }
 .divContentText{
+    
     width: 40%;
     height: 90%;
     margin-left: 53%;
@@ -55,7 +57,7 @@
 }
 .divMenuWorkPanel{
     border-radius: 2%;
-    background-color:	rgba(222, 184, 135, 0.219);
+    background-color:	rgba(222, 184, 135, 0.671);
     margin-left: 32%;
     width: 30%;
     padding-left: 5%;
@@ -63,18 +65,12 @@
     float: left;
     
 }
-.divMainMenuWorkPanel{
-background-image: url("../../assets/menu.png");
-background-size: 100%;
-width: 10%;
-height: 15vh;
-}
-
 
 .imgMenu{
-    background-color: aqua;
-  margin-left: 1%;
-  position: relative;
+ width: 15px;
+ height: 15px;
+ float: left;
+ 
 }
 .stylesLink{
     color: black;
@@ -91,12 +87,38 @@ height: 15vh;
     height: 100%;
 }
 .MenuBurger{
-    background-color: rgb(7, 7, 7);
-    
+   background-color: rgba(27, 25, 34, 0.212);
+   width: 80%;
+   height: 70%;
+    padding-top: 2.5%;
+    padding-left: 1%;
 }
 .divImageMenu{
-    background-color: antiquewhite;
+   
     width: 5%;
     height: 5%;
     margin-left: 5%;
+}
+.divMainAppointments{
+    width: 90%;
+    height: 100vh;
+}
+.headerWorkPanel{
+    position: fixed;
+}
+.divMenuBurger{
+}
+.stylesSpan{
+    background-color: brown;
+}
+.my-class{
+    background-color: rgb(77, 18, 131);
+}
+.stylesCheckbox{
+    size: 30%;
+}
+.stylesInputSchedule{
+    width: 10%;
+    height: 5%;
+    border-radius: 5%;
 }
