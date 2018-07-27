@@ -7,17 +7,12 @@ import signUpUrl from "../../Api/Api";
 import { CircularProgress } from "material-ui/Progress";
 import red from "material-ui/colors/red";
 import Button from "material-ui/Button";
-import Dialog, {
-  DialogActions,
-  DialogTitle
-} from "material-ui/Dialog";
+import Dialog, { DialogActions, DialogTitle } from "material-ui/Dialog";
 import Slide from "material-ui/transitions/Slide";
-import {withRouter} from 'react-router-dom';
-import Icon from 'material-ui/Icon';
-import signup from '../../assets/signup.png';
-import gif from '../../assets/gif.gif';
-
-
+import { withRouter } from "react-router-dom";
+import Icon from "material-ui/Icon";
+import signup from "../../assets/signup.png";
+import gif from "../../assets/gif.gif";
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -42,16 +37,15 @@ class SignUpForm extends Component {
     };
   }
 
-
   handleClose = () => {
     this.setState({ signUpSuccess: false });
-    this.props.history.push('/');
+    this.props.history.push("/");
   };
 
   render() {
     if (this.state.signUpSuccess) {
       return (
-        <div >
+        <div>
           <Dialog
             open={this.state.signUpSuccess}
             transition={Transition}
@@ -67,7 +61,11 @@ class SignUpForm extends Component {
               {"You are registration as a user. Thank you!!"}
             </DialogTitle>
             <DialogActions>
-              <Button  className="divDialog" onClick={this.handleClose} color="primary">
+              <Button
+                className="divDialog"
+                onClick={this.handleClose}
+                color="primary"
+              >
                 Continue
               </Button>
             </DialogActions>
@@ -162,23 +160,25 @@ class SignUpForm extends Component {
             />
           </div>
           {!this.state.inProgress && (
-            <div  className="SignUpBtnStyle">
-            <Button
-            style={{fontSize:15 }}
-            size="large"
-            variant="raised"
-            disableRipple
-            color="primary"
-            onClick={() => this._onLoginPress()}
-            >
-              Sign Up
-              <Icon><img src={signup} className="icon" alt="load"/></Icon>
-            </Button>
+            <div className="SignUpBtnStyle">
+              <Button
+                style={{ fontSize: 15 }}
+                size="large"
+                variant="raised"
+                disableRipple
+                color="primary"
+                onClick={() => this._onLoginPress()}
+              >
+                Sign Up
+                <Icon>
+                  <img src={signup} className="icon" alt="load" />
+                </Icon>
+              </Button>
             </div>
           )}
           {this.state.inProgress && (
             <div>
-               <img src={gif} className="styleProgressSignUpForm" alt="load"/>
+              <img src={gif} className="styleProgressSignUpForm" alt="load" />
             </div>
           )}
         </form>

@@ -4,16 +4,14 @@ import "bootstrap/dist/css/bootstrap-theme.css";
 import "./styles.css";
 import Dropdown from "../DropdownComponent/index";
 import { Link } from "react-router-dom";
-import logo from '../../assets/logo.jpg';
-
+import logo from "../../assets/logo.jpg";
 
 class Header extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      drop: false,
-      
+      drop: false
     };
   }
 
@@ -22,35 +20,31 @@ class Header extends Component {
     return (
       <div className="headerContainerDiv">
         <nav class="navbar navbar-inverse">
-          <img
-            src={logo}
-            className="logoStyle"
-            alt="logo"
-          />
-      
+          <img src={logo} className="logoStyle" alt="logo" />
+
           <div class="container-fluid">
-          
             <ul class="nav navbar-nav navbar-right">
               <li>
                 <Link to={"/"}>Welcome Page</Link>
               </li>
-                  
-                 { this.props.isDoctor && !this.props.isWelcomePage &&
-                !this.props.isLoginPage &&
-                !this.props.isSignUp && 
-                (
-                  <li>
-                    
-                    <Link to={"/workpanel"}>My profile</Link>
-                  </li>
-                )}
 
-                 { !this.props.isDoctor &&
+              {this.props.isDoctor &&
                 !this.props.isWelcomePage &&
                 !this.props.isLoginPage &&
                 !this.props.isSignUp && (
                   <li>
-                    <Link to={"/registrationDoctor"}>Registration as doctor</Link>
+                    <Link to={"/workpanel"}>My profile</Link>
+                  </li>
+                )}
+
+              {!this.props.isDoctor &&
+                !this.props.isWelcomePage &&
+                !this.props.isLoginPage &&
+                !this.props.isSignUp && (
+                  <li>
+                    <Link to={"/registrationDoctor"}>
+                      Registration as doctor
+                    </Link>
                   </li>
                 )}
 
@@ -87,9 +81,6 @@ class Header extends Component {
                     </Link>
                   </li>
                 )}
-
-             
-                
             </ul>
           </div>
         </nav>

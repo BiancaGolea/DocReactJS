@@ -1,17 +1,15 @@
-.headerContainerDiv{
-    background-color:#000007;
-    width: 100%;
+.headerContainerDiv {
+  background-color: #000007;
+  width: 100%;
 }
 
-.logoStyle{
-    margin-left: 8%;
-        width: 10%;
-        height:90%;
-    position: absolute;
-
+.logoStyle {
+  margin-left: 8%;
+  width: 10%;
+  height: 90%;
+  position: absolute;
 }
-.divList{
-    margin-top: 40%;
-    color: white
+.divList {
+  margin-top: 40%;
+  color: white;
 }
-

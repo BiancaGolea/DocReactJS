@@ -1,16 +1,14 @@
-.divBackgroundServices{
-    background-image: url("../../assets/fundal.jpg");
-    width: 100%;
-    height: 100vh;
-    background-size: 100%;
-    overflow-x: hidden;
-    
+.divBackgroundServices {
+  background-image: url("../../assets/fundal.jpg");
+  width: 100%;
+  height: 100vh;
+  background-size: 100%;
+  overflow-x: hidden;
 }
-.divHeaderServices{
-    position: fixed;
-    width: 100%;
-    
+.divHeaderServices {
+  position: fixed;
+  width: 100%;
 }
-.divListServices{
-   margin-top: 10%; 
+.divListServices {
+  margin-top: 10%;
 }

@@ -2,7 +2,7 @@ import Constants from "../Constants";
 import Api from "../../Api/Api";
 
 export default function appointmentsAction(token, id) {
-  return async function (dispach) {
+  return async function(dispach) {
     dispach({
       type: Constants.GET_APPOINTMENTS_IN_PROGRESS
     });
@@ -23,7 +23,6 @@ export default function appointmentsAction(token, id) {
         type: Constants.GET_APPOINTMENTS_SUCCESS,
         payload: json
       });
-
     } catch (error) {
       dispach({
         type: Constants.GET_APPOINTMENTS_FAILURE,

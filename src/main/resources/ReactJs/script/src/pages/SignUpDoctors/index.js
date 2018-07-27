@@ -6,13 +6,8 @@ import SignUpDoctorsForm from "../../componente/SignUpDoctorsForm/index";
 import "./styles.css";
 import { connect } from "react-redux";
 
-
-
 class SignUpDoctors extends Component {
-
-
   render() {
- 
     return (
       <div className="divSignUpDoctors">
         <Header isLoginPage={true} />
@@ -20,13 +15,13 @@ class SignUpDoctors extends Component {
           {" "}
           Registration as a doctor on our platform!
         </h1>
-        <SignUpDoctorsForm token={this.props.authInfo.token} username={this.props.authInfo.username}/>
+        <SignUpDoctorsForm
+          token={this.props.authInfo.token}
+          username={this.props.authInfo.username}
+        />
       </div>
     );
   }
-
-
-  
 }
 
 function mapStateToProps(state) {

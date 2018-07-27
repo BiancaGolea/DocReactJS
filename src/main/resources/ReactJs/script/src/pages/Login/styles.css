@@ -1,18 +1,16 @@
-
-.divLogin{
-    background-image: url("../../assets/fundal.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100vh;
+.divLogin {
+  background-image: url("../../assets/fundal.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
 }
 
-.pageLoginTitle{
-    color: rgb(203, 190, 212);
-    margin: auto;
-    padding-top: 8%;
-    margin-left: 47%;
-    margin-bottom: 5px; 
-    font-family: italic;
-
+.pageLoginTitle {
+  color: rgb(203, 190, 212);
+  margin: auto;
+  padding-top: 8%;
+  margin-left: 47%;
+  margin-bottom: 5px;
+  font-family: italic;
 }

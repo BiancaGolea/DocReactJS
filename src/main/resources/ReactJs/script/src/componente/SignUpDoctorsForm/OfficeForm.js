@@ -21,15 +21,13 @@ class OfficeForm extends Component {
       <div>
         <form className=" formStyle">
           <label className="labelStyles">
-           Office name:
+            Office name:
             <div className={this.state.isNameError ? "inputError" : ""}>
               <input
                 class="form-control"
                 type="text"
                 name="name"
-                placeholder={
-                  this.state.isNameError ? "Error message" : ""
-                }
+                placeholder={this.state.isNameError ? "Error message" : ""}
                 onChange={event =>
                   this.setState({
                     name: event.target.value,

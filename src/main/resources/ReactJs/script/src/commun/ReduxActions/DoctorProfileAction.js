@@ -2,7 +2,7 @@ import Constants from "../Constants";
 import Api from "../../Api/Api";
 
 export default function doctorProfileAction(token, id) {
-  return async function (dispach) {
+  return async function(dispach) {
     dispach({
       type: Constants.GET_DOCTORPROFILE_IN_PROGRESS
     });

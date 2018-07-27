@@ -1,25 +1,24 @@
-.divCardReview{
-    background-color: rgba(77, 102, 94, 0.685);
-    width:60%;
-    height: 35%;
-    margin: auto;
-    margin-bottom: 2%;
-    border-radius: 4%;
-      
+.divCardReview {
+  background-color: rgba(77, 102, 94, 0.685);
+  width: 60%;
+  height: 35%;
+  margin: auto;
+  margin-bottom: 2%;
+  border-radius: 4%;
 }
 
-.infoReviewCard{
-    font-size: 120%;
-    font-weight: bold;
-    margin-left: 5%;
-    display: inline-block;
-    margin-top: 4%;
+.infoReviewCard {
+  font-size: 120%;
+  font-weight: bold;
+  margin-left: 5%;
+  display: inline-block;
+  margin-top: 4%;
 }
-.descriptionReview{
-    background-color: rgba(113, 160, 144, 0.89);
-    width: 60%;
-    height: 60%;
-    border-radius: 5%;
-    margin-left:10%; 
-    display: inline-block;
+.descriptionReview {
+  background-color: rgba(113, 160, 144, 0.89);
+  width: 60%;
+  height: 60%;
+  border-radius: 5%;
+  margin-left: 10%;
+  display: inline-block;
 }

@@ -46,15 +46,16 @@ class DaySchedule extends Component {
         <label className="stylesLabels">from</label>
         <input
           className="stylesInputSchedule"
+          defaultValue={0}
           type="number"
           name="hour"
           min={0}
           max={23}
-          value={this.state.hours.start}
-          onChange={value => {
-            console.log(value.target);
-            this.props.callback(this.hours);
-          }}
+          // value={this.state.hours.start}
+          // onChange={value => {
+          //   console.log(value.target);
+          //   this.props.callback(this.hours);
+          // }}
         />
         &nbsp;
         <label className="stylesLabels">to</label>
@@ -65,6 +66,11 @@ class DaySchedule extends Component {
           name="hour"
           min={0}
           max={23}
+          // value={this.state.hours.finish}
+          // onChange={value => {
+          //   console.log(value.target);
+          //   this.props.callback(this.hours);
+          // }}
         />
       </div>
     );

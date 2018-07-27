@@ -9,24 +9,21 @@ import setStatus from "../../commun/ReduxActions/SetStatusAction";
 import { bindActionCreators } from "redux";
 import Coverflow from "react-coverflow";
 import Description from "../../componente/Description";
-import doc1 from '../../assets/doc1.jpg';
-import doc2 from '../../assets/doc2.jpg';
-import med1 from '../../assets/med1.jpg';
-import doc4 from '../../assets/doc4.jpg';
-import doc5 from '../../assets/doc5.jpg';
-import doc6 from '../../assets/doc6.jpg';
-import doc7 from '../../assets/doc7.jpg';
-import feedbk from '../../assets/feedbk.jpg';
-import doc3 from '../../assets/doc3.jpg';
-import med2 from '../../assets/med2.jpg';
-import med3 from '../../assets/med3.jpg';
-import med5 from '../../assets/med5.jpg';
-import med6 from '../../assets/med6.jpg';
-import med7 from '../../assets/med7.jpg';
-import med8 from '../../assets/med8.jpg';
-
-
-
+import doc1 from "../../assets/doc1.jpg";
+import doc2 from "../../assets/doc2.jpg";
+import med1 from "../../assets/med1.jpg";
+import doc4 from "../../assets/doc4.jpg";
+import doc5 from "../../assets/doc5.jpg";
+import doc6 from "../../assets/doc6.jpg";
+import doc7 from "../../assets/doc7.jpg";
+import feedbk from "../../assets/feedbk.jpg";
+import doc3 from "../../assets/doc3.jpg";
+import med2 from "../../assets/med2.jpg";
+import med3 from "../../assets/med3.jpg";
+import med5 from "../../assets/med5.jpg";
+import med6 from "../../assets/med6.jpg";
+import med7 from "../../assets/med7.jpg";
+import med8 from "../../assets/med8.jpg";
 
 class Welcome extends Component {
   async componentWillMount() {
@@ -34,12 +31,12 @@ class Welcome extends Component {
   }
 
   render() {
-    console.log(this.props.authInfo, "authInfo")
+    console.log(this.props.authInfo, "authInfo");
     return (
       <div className="divContainerWelcomePage">
         <div className="hederWelcomePage">
           <Header
-          isDoctor={this.props.authInfo.isDoctor}
+            isDoctor={this.props.authInfo.isDoctor}
             isWelcomePage={this.props.authInfo.token == null ? true : false}
           />
         </div>
@@ -51,10 +48,7 @@ class Welcome extends Component {
             navigation={false}
             enableHeading={false}
           >
-            <div
-              role="menuitem"
-              tabIndex="0"
-            >
+            <div role="menuitem" tabIndex="0">
               <img
                 src={doc1}
                 alt="title or description"
@@ -86,47 +80,47 @@ class Welcome extends Component {
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
-             <img
+            <img
               src={doc7}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
-             <img
+            <img
               src={feedbk}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
-             <img
+            <img
               src={doc3}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
-             <img
+            <img
               src={med2}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
-             <img
+            <img
               src={med3}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
-             <img
+            <img
               src={doc3}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
-             <img
+            <img
               src={med5}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
-             <img
+            <img
               src={med6}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
             />
-             <img
+            <img
               src={med7}
               alt="title or description"
               data-action="http://andyyou.github.io/react-coverflow/"
@@ -137,20 +131,21 @@ class Welcome extends Component {
               data-action="http://andyyou.github.io/react-coverflow/"
             />
           </Coverflow>
-          <Description/>
+          <Description />
         </div>
-       
+
         <div className="divWelcomePage" />
-        
       </div>
     );
   }
 
   async loadData() {
     await this.props.specializationsAction(this.props.authInfo.token);
-    await this.props.setStatus(this.props.authInfo.token,this.props.authInfo.username);
+    await this.props.setStatus(
+      this.props.authInfo.token,
+      this.props.authInfo.username
+    );
   }
-  
 }
 function mapStateToProps(state) {
   return {
@@ -161,8 +156,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { specializationsAction: token => specializationsAction(token) ,
-      setStatus:(token,username)=>setStatus(token,username)}, 
+    {
+      specializationsAction: token => specializationsAction(token),
+      setStatus: (token, username) => setStatus(token, username)
+    },
     dispatch
   );
 }

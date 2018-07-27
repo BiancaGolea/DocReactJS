@@ -1,40 +1,35 @@
-.divContent{
-    background-color:rgba(72, 116, 101, 0.822);
-    width:100%;
-    height:100vh;
-    margin-left: 15%;
-    margin-right: 2%;
-    border-radius: 20%;
-    
+.divContent {
+  background-color: rgba(72, 116, 101, 0.822);
+  width: 100%;
+  height: 100vh;
+  margin-left: 15%;
+  margin-right: 2%;
+  border-radius: 20%;
 }
 
-.btnStyle{
+.btnStyle {
   margin-left: 40%;
   margin-top: 2%;
   background-color: rgba(7, 63, 44, 0.658);
-
 }
 
-.labelStyles{
-    padding-top: 2%;
-    margin-right: 2%;
-
+.labelStyles {
+  padding-top: 2%;
+  margin-right: 2%;
 }
-.labelStyles2{
-    padding-top: 2%;
-    margin-right: 5%;
+.labelStyles2 {
+  padding-top: 2%;
+  margin-right: 5%;
 }
-.formStyle{
-   padding: 7%;
+.formStyle {
+  padding: 7%;
 }
-.specializationsStyle{
-    width: 80%;
-    height: 20%;
+.specializationsStyle {
+  width: 80%;
+  height: 20%;
 }
-.inputError{
-    border-style: solid;
-    border-color: rgb(180, 15, 15);
-    border-radius: 8%;
+.inputError {
+  border-style: solid;
+  border-color: rgb(180, 15, 15);
+  border-radius: 8%;
 }
-
-

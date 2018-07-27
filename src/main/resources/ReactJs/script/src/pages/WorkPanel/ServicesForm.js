@@ -18,6 +18,8 @@ import WorkPanel from "../../pages/WorkPanel/index";
 import Load from "../../assets/Load.gif";
 import Welcome from "../Welcome/index";
 import Gif from "../../assets/gif.gif";
+import Icon from "material-ui/Icon";
+import Upload from "../../assets/upload.jpg";
 
 class ServicesForm extends Component {
   constructor(props) {
@@ -25,8 +27,8 @@ class ServicesForm extends Component {
     this.state = {
       addServicesSuccess: false,
       addServicesError: false,
-      nameService: null,
-      priceServices: null
+      nameService: "",
+      priceServices: ""
     };
   }
 
@@ -79,7 +81,7 @@ class ServicesForm extends Component {
               {"Oops!"}
             </DialogTitle>
             <DialogTitle className="divDialog" id="alert-dialog-slide-title">
-              {"Your service has not been registered. Try again please!"}
+              {"Fields might be empty. Please, insert your service!"}
             </DialogTitle>
             <DialogActions>
               <Button
@@ -95,9 +97,11 @@ class ServicesForm extends Component {
         <div>
           <div className="divTextareaServiceForm">
             <TextareaAutosize
+              id="test"
               className=""
               rows={1}
               placeholder="Service name"
+              value={this.state.nameService}
               onChange={event =>
                 this.setState({
                   nameService: event.target.value
@@ -108,9 +112,11 @@ class ServicesForm extends Component {
 
           <div className="divTextareaServiceForm">
             <TextareaAutosize
+              id="test"
               className=""
               rows={1}
               placeholder="Service price"
+              value={this.state.priceServices}
               onChange={event =>
                 this.setState({
                   priceServices: event.target.value
@@ -126,6 +132,17 @@ class ServicesForm extends Component {
               onClick={() => this.postServiceDate()}
             >
               Save
+              {!this.state.inProgress && (
+                <Icon>
+                  <img src={Upload} className="iconStyles" alt="upload" />
+                </Icon>
+              )}
+              {this.state.inProgress && (
+                <Icon>
+                  {" "}
+                  <img src={Load} className="styleGiff" alt="load" />{" "}
+                </Icon>
+              )}
             </Button>
           </div>
         </div>
@@ -140,6 +157,7 @@ class ServicesForm extends Component {
       this.state.priceServices === null ||
       this.state.priceServices === ""
     ) {
+      this.setState({ addServicesError: true });
       return false;
     }
     return true;
@@ -147,9 +165,11 @@ class ServicesForm extends Component {
 
   postServiceDate() {
     this.setState({
-      inProgress: true
+      inProgress: true,
+      nameService: "",
+      priceServices: ""
     });
-    console.log("in progresssss");
+
     if (this.validateServicesDate()) {
       try {
         let info = {

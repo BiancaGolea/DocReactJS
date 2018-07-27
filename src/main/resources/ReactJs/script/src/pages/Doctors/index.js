@@ -10,7 +10,6 @@ import doctorsBySpecializationAction from "../../commun/ReduxActions/DoctorsBySp
 import Progress from "../../componente/Progress";
 
 class Doctors extends Component {
-
   async componentWillMount() {
     await this.loadData();
   }
@@ -27,8 +26,7 @@ class Doctors extends Component {
       // Trebuie tratata situatia.
       return (
         <div>
-          <Progress/>
-         
+          <Progress />
         </div>
       );
     }
@@ -39,11 +37,11 @@ class Doctors extends Component {
     for (let i = 0; i < this.props.listOfDoctors.listOfDoctors.length; i++) {
       listCard.push(
         <DoctorCard
-        key={i}
+          key={i}
           rating={
             isNaN(this.props.listOfDoctors.listOfDoctors[i].medieRecenzie)
               ? 3
-              :(this.props.listOfDoctors.listOfDoctors[i].medieRecenzie/2)
+              : this.props.listOfDoctors.listOfDoctors[i].medieRecenzie / 2
           }
           doctorName={this.props.listOfDoctors.listOfDoctors[i].nume}
           doctorLastname={this.props.listOfDoctors.listOfDoctors[i].prenume}
@@ -68,17 +66,21 @@ function mapStateToProps(state) {
   return {
     authInfo: state.authReducer,
     specializationsReducer: state.specializationsReducer,
-    listOfDoctors: state.listOfDoctorsBySpecialization,
+    listOfDoctors: state.listOfDoctorsBySpecialization
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      doctorsBySpecializationAction: (token, specialization) => doctorsBySpecializationAction(token, specialization)
+      doctorsBySpecializationAction: (token, specialization) =>
+        doctorsBySpecializationAction(token, specialization)
     },
     dispatch
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Doctors);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Doctors);

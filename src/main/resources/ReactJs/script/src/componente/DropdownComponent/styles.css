@@ -1,12 +1,12 @@
-.headerDiv{
-   position: absolute;
+.headerDiv {
+  position: absolute;
   overflow: visible;
   color: rgb(196, 188, 179);
   overflow: auto;
   width: 100px;
   height: 110px;
-  background-color:#252525e3;
+  background-color: #252525e3;
 }
-.textlistDactors{
+.textlistDactors {
   color: bisque;
 }

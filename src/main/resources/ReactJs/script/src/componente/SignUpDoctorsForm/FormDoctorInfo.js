@@ -21,7 +21,7 @@ class FormDoctorInfo extends Component {
       facebookAddress: null,
       email: null,
       phone: null,
-      specialization: null,
+      specialization: null
     };
   }
   render() {
@@ -84,7 +84,7 @@ class FormDoctorInfo extends Component {
             </div>
           </label>
           <label className="labelStyles">
-           Facebook:
+            Facebook:
             <div>
               <input
                 class="form-control"
@@ -100,7 +100,7 @@ class FormDoctorInfo extends Component {
             </div>
           </label>
           <label className="labelStyles">
-           Number phone:
+            Number phone:
             <div className={this.state.isPhoneError ? "inputError" : ""}>
               <input
                 class="form-control"
@@ -146,29 +146,28 @@ class FormDoctorInfo extends Component {
               <option>Epidemiology</option>
               <option>Gastroenterology‎</option>
 
-                <option>Hematology </option>
+              <option>Hematology </option>
               <option>Nefrology‎ </option>
               <option>Neonatology‎ </option>
               <option>Neurosurgery</option>
-              <option>Neurology‎  </option>
+              <option>Neurology‎ </option>
               <option>Pediatric neurology‎</option>
               <option>Obstetrics - Gynecology‎</option>
-              <option>Oftalmology  </option>
+              <option>Oftalmology </option>
               <option>Oncology</option>
               <option>Pediatric orthopedics</option>
-              
+
               <option>Orthopedics and traumatology‎ </option>
-              <option>Otorinolaringology‎  </option>
+              <option>Otorinolaringology‎ </option>
               <option>Patologiy </option>
               <option>Pediatrics‎ </option>
-              <option>Pneumology‎   </option>
+              <option>Pneumology‎ </option>
 
-              
-              <option>Psihiatriy  </option>
+              <option>Psihiatriy </option>
               <option>Pediatrics‎ Pneumology‎ </option>
-              <option>Reumatology‎  </option>
+              <option>Reumatology‎ </option>
               <option>Stomatology‎</option>
-              <option>Urology  </option>
+              <option>Urology </option>
             </select>
           </label>
         </form>

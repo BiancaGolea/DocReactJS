@@ -1,16 +1,16 @@
-.divMainServices{
-    background-color: rgba(72, 116, 101, 0.842);
-    width:40%;
-    height: 25vh;
-    margin: auto;
-    margin-bottom: 2%;
-    border-radius: 4%;
-    padding-top: 2%;
+.divMainServices {
+  background-color: rgba(72, 116, 101, 0.842);
+  width: 40%;
+  height: 25vh;
+  margin: auto;
+  margin-bottom: 2%;
+  border-radius: 4%;
+  padding-top: 2%;
 }
-.divInfoServices{
-    float: left;
-    font-size: 120%;
-    font-weight: bold;
-    margin-right: 45%;
-    margin-left: 35%;
+.divInfoServices {
+  float: left;
+  font-size: 120%;
+  font-weight: bold;
+  margin-right: 45%;
+  margin-left: 35%;
 }

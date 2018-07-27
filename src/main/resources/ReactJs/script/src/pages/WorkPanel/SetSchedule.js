@@ -136,8 +136,8 @@ class SetSchedule extends Component {
                   <button className="btn btn-default" type="submit">
                     Save
                   </button>
+                  {this.renderListDays()}
                 </form>
-                {this.renderListDays()}
               </div>
             </div>
           </div>

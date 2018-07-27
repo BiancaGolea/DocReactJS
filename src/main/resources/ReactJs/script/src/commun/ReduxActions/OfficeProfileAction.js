@@ -2,7 +2,7 @@ import Constants from "../Constants";
 import Api from "../../Api/Api";
 
 export default function officeProfileAction(id, token) {
-  return async function (dispach) {
+  return async function(dispach) {
     dispach({
       type: Constants.GET_OFFICEPROFILE_IN_PROGRESS
     });

@@ -1,10 +1,9 @@
 import Constants from "../Constants";
 
 export default function setStatus(token, username) {
-  return async function (dispatch) {
+  return async function(dispatch) {
     try {
-      const url =
-        "http://localhost:8080/" + username + "/checkRole";
+      const url = "http://localhost:8080/" + username + "/checkRole";
       const resp = await fetch(url, {
         method: "GET",
         headers: {
@@ -19,11 +18,10 @@ export default function setStatus(token, username) {
         dispatch({
           type: Constants.SET_ID_DOCTOR,
           payload: json
-        })
+        });
         dispatch({
           type: Constants.SET_STATUS
         });
-
       }
     } catch (error) {
       console.log(error);

@@ -1,13 +1,13 @@
-.divListOffices{
-    width: 90%;
-    height: 100vh;
-    margin: auto;
-   margin-top: 6%;
+.divListOffices {
+  width: 90%;
+  height: 100vh;
+  margin: auto;
+  margin-top: 6%;
 }
-.divMainOffices{
-    background-image:  url("../../assets/fundal.jpg");
-    background-size: 100%;
-    width: 100%;
-    height: 100vh;
-    overflow:scroll;
+.divMainOffices {
+  background-image: url("../../assets/fundal.jpg");
+  background-size: 100%;
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
 }

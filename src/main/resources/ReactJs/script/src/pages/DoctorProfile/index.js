@@ -11,18 +11,16 @@ import ReviewCard from "../../componente/ReviewCard/index";
 import ServiceCard from "../../componente/ServiceCard/index";
 import doctorReviewAction from "../../commun/ReduxActions/DoctorReviewAction";
 import Progress from "../../componente/Progress/index";
-import avatar from '../../assets/avatar.png';
-import stargrey from '../../assets/star-grey.png';
-import starred from '../../assets/star-red.png';
-import staryellow from '../../assets/star-yellow.png';
-
-
+import avatar from "../../assets/avatar.png";
+import stargrey from "../../assets/star-grey.png";
+import starred from "../../assets/star-red.png";
+import staryellow from "../../assets/star-yellow.png";
 
 class DoctorProfile extends Component {
   async componentWillMount() {
     await this.props.doctorProfileAction(
       this.props.authInfo.token,
-      this.props.location.state.detail,
+      this.props.location.state.detail
     );
     await this.props.doctorReviewAction(
       this.props.authInfo.token,
@@ -31,10 +29,12 @@ class DoctorProfile extends Component {
   }
 
   render() {
-    if (this.props.doctorProfileReducer.doctorInfo === null || this.props.doctorReview.doctorReviewList===null) {
-      return <Progress/>;
+    if (
+      this.props.doctorProfileReducer.doctorInfo === null ||
+      this.props.doctorReview.doctorReviewList === null
+    ) {
+      return <Progress />;
     } else {
-     
       return (
         <div className="divDoctorProfile">
           <div>
@@ -47,11 +47,7 @@ class DoctorProfile extends Component {
             </p>
             <div className="divCardDoctorProfile">
               <div className="styleRating">
-                <img
-                alt="img"
-                  src={avatar}
-                  className="imageSmall"
-                />
+                <img alt="img" src={avatar} className="imageSmall" />
 
                 <p className="ratingParagraph">Rating price:</p>
                 <Rating
@@ -59,81 +55,47 @@ class DoctorProfile extends Component {
                     this.props.doctorProfileReducer.doctorInfo.mediePret / 2
                   }
                   emptySymbol={
-                    <img
-                    alt="img"
-                      src={stargrey}
-                      className="icon"
-                    />
+                    <img alt="img" src={stargrey} className="icon" />
                   }
                   placeholderSymbol={
-                    <img
-                    alt="img"
-                      src={starred}
-                      className="icon"
-                    />
+                    <img alt="img" src={starred} className="icon" />
                   }
                   fullSymbol={
-                    <img
-                    alt="img"
-                      src={staryellow}
-                      className="icon"
-                    />
+                    <img alt="img" src={staryellow} className="icon" />
                   }
                   readonly={true}
                 />
                 <p className="ratingParagraph">Rating medical services:</p>
                 <Rating
                   placeholderRating={
-                    this.props.doctorProfileReducer.doctorInfo.medieServMedicale / 2
+                    this.props.doctorProfileReducer.doctorInfo
+                      .medieServMedicale / 2
                   }
                   emptySymbol={
-                    <img
-                    alt="img"
-                      src={stargrey}
-                      className="icon"
-                    />
+                    <img alt="img" src={stargrey} className="icon" />
                   }
                   placeholderSymbol={
-                    <img
-                    alt="img"
-                      src={starred}
-                      className="icon"
-                    />
+                    <img alt="img" src={starred} className="icon" />
                   }
                   fullSymbol={
-                    <img
-                    alt="img"
-                      src={staryellow}
-                      className="icon"
-                    />
+                    <img alt="img" src={staryellow} className="icon" />
                   }
                   readonly={true}
                 />
                 <p className="ratingParagraph">Rating equipment:</p>
                 <Rating
                   placeholderRating={
-                    this.props.doctorProfileReducer.doctorInfo.medieAparatura / 2
+                    this.props.doctorProfileReducer.doctorInfo.medieAparatura /
+                    2
                   }
                   emptySymbol={
-                    <img
-                    alt="img"
-                      src={stargrey}
-                      className="icon"
-                    />
+                    <img alt="img" src={stargrey} className="icon" />
                   }
                   placeholderSymbol={
-                    <img
-                    alt="img"
-                      src={starred}
-                      className="icon"
-                    />
+                    <img alt="img" src={starred} className="icon" />
                   }
                   fullSymbol={
-                    <img
-                    alt="img"
-                      src={staryellow}
-                      className="icon"
-                    />
+                    <img alt="img" src={staryellow} className="icon" />
                   }
                   readonly={true}
                 />
@@ -142,15 +104,26 @@ class DoctorProfile extends Component {
               <div className="styleBorderDiv">
                 <p>
                   {" "}
-                  Specialization: {
-                    this.props.doctorProfileReducer.doctorInfo.specializare
+                  Specialization:{" "}
+                  {this.props.doctorProfileReducer.doctorInfo.specializare}{" "}
+                </p>
+                <p>
+                  {" "}
+                  Office: {
+                    this.props.doctorProfileReducer.doctorInfo.adresaCab
                   }{" "}
                 </p>
-                <p> Office: {this.props.doctorProfileReducer.doctorInfo.adresaCab} </p>
                 <div>Schedule: {this.renderSchedule()} </div>
-                <p> Email: {this.props.doctorProfileReducer.doctorInfo.email} </p>
+                <p>
+                  {" "}
+                  Email: {this.props.doctorProfileReducer.doctorInfo.email}{" "}
+                </p>
                 <div> Number phone: {this.renderNumberPhone()}</div>
-                <p> Facebook: {this.props.doctorProfileReducer.doctorInfo.facebook} </p>
+                <p>
+                  {" "}
+                  Facebook:{" "}
+                  {this.props.doctorProfileReducer.doctorInfo.facebook}{" "}
+                </p>
               </div>
             </div>
             <div className="divBtn">
@@ -165,7 +138,7 @@ class DoctorProfile extends Component {
                 onClick={() => this.onClick2(this.props.location.state.detail)}
                 className="buttonReviewDocProfile"
               >
-               Add Review
+                Add Review
               </button>
             </div>
           </div>
@@ -176,55 +149,63 @@ class DoctorProfile extends Component {
   }
   renderNumberPhone() {
     let list = [];
-    for (let i = 0; i < this.props.doctorProfileReducer.doctorInfo.nrTel.length; i++) {
-      list.push(<p key={i}> {this.props.doctorProfileReducer.doctorInfo.nrTel[i]}</p>);
+    for (
+      let i = 0;
+      i < this.props.doctorProfileReducer.doctorInfo.nrTel.length;
+      i++
+    ) {
+      list.push(
+        <p key={i}> {this.props.doctorProfileReducer.doctorInfo.nrTel[i]}</p>
+      );
     }
     return list;
   }
-  renderSchedule(){
-    let schedule=[];
-    for(let i=0;i<this.props.doctorProfileReducer.doctorInfo.program.length;i++){
-      let data=this.props.doctorProfileReducer.doctorInfo.program[i];
-      data=data.split(" ");
-      let dataSchedule=data[0]+"-"+data[2].slice(0, 5)+"--"+data[4].slice(0, 5);
-      schedule.push(<p key={i}>{dataSchedule}</p>)
+  renderSchedule() {
+    let schedule = [];
+    for (
+      let i = 0;
+      i < this.props.doctorProfileReducer.doctorInfo.program.length;
+      i++
+    ) {
+      let data = this.props.doctorProfileReducer.doctorInfo.program[i];
+      data = data.split(" ");
+      let dataSchedule =
+        data[0] + "-" + data[2].slice(0, 5) + "--" + data[4].slice(0, 5);
+      schedule.push(<p key={i}>{dataSchedule}</p>);
     }
     return schedule;
   }
   onClick(id) {
     this.props.history.push({
       pathname: "/appointments",
-      state: { idBooking: id } 
+      state: { idBooking: id }
     });
-    
   }
 
-  onClick2(id){
+  onClick2(id) {
     this.props.history.push({
-      pathname:"/review",
-      state:{idReview:id}
-      
+      pathname: "/review",
+      state: { idReview: id }
     });
-    
   }
   renderlistReview() {
     let listReview = [];
-    for (let i = 0;i <this.props.doctorReview.doctorReviewList.length; i++) {
+    for (let i = 0; i < this.props.doctorReview.doctorReviewList.length; i++) {
       listReview.push(
-      <ReviewCard
-      key={i*i+1}
-       reviewModel={this.props.doctorReview.doctorReviewList[i]} />);
+        <ReviewCard
+          key={i * i + 1}
+          reviewModel={this.props.doctorReview.doctorReviewList[i]}
+        />
+      );
     }
     return listReview;
   }
- 
-  
 }
 function mapStateToProps(state) {
   return {
     authInfo: state.authReducer,
     doctorProfileReducer: state.doctorProfileReducer,
-    doctorReview:state.doctorReview,
+    doctorReview: state.doctorReview
   };
 }
 
@@ -232,9 +213,13 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       doctorProfileAction: (token, id) => doctorProfileAction(token, id),
-      doctorReviewAction: (token,id)=>  doctorReviewAction(token,id)},
+      doctorReviewAction: (token, id) => doctorReviewAction(token, id)
+    },
     dispatch
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DoctorProfile);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DoctorProfile);

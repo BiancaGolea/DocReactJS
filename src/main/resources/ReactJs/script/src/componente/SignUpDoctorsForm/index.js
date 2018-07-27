@@ -78,7 +78,7 @@ class SignUpDoctorsForm extends Component {
   }
 
   _getOfficeInfo = officeInfo => {
-    console.log(this.validateDatesOfice(officeInfo)+" validare medic 2")
+    console.log(this.validateDatesOfice(officeInfo) + " validare medic 2");
     let valid = this.validateDatesOfice(officeInfo);
     if (valid) {
       this.setState({ officeInfo: officeInfo });
@@ -89,8 +89,7 @@ class SignUpDoctorsForm extends Component {
   };
 
   _getDoctorInfo = doctorInfo => {
-    
-    console.log(this.validateDates(doctorInfo)+" validare medic")
+    console.log(this.validateDates(doctorInfo) + " validare medic");
     let valid = this.validateDates(doctorInfo);
     if (valid) {
       this.setState({
@@ -105,9 +104,8 @@ class SignUpDoctorsForm extends Component {
   };
 
   validateDates(date) {
-    
-    console.log(this.validateEmail(date.email)+" validare mail")
-    console.log(this.validatePhone(date.phoneNumber)+" validare telefon")
+    console.log(this.validateEmail(date.email) + " validare mail");
+    console.log(this.validatePhone(date.phoneNumber) + " validare telefon");
     if (
       date.name === null ||
       date.name === "" ||
@@ -137,7 +135,6 @@ class SignUpDoctorsForm extends Component {
   }
 
   async _onPress(date) {
-    
     try {
       let listNumber = [];
       listNumber.push(this.state.doctorInfo.phoneNumber);
@@ -159,7 +156,7 @@ class SignUpDoctorsForm extends Component {
           email: this.state.doctorInfo.email,
           facebook: this.state.doctorInfo.facebook,
           specializare: listSpecialization,
-          applicationUser:this.props.username,
+          applicationUser: this.props.username,
           cabinete: [
             {
               cabAdress: date.addressOffice,
@@ -169,7 +166,11 @@ class SignUpDoctorsForm extends Component {
           ]
         })
       });
-      console.log(JSON.stringify(date), JSON.stringify(this.state.doctorInfo), "response")
+      console.log(
+        JSON.stringify(date),
+        JSON.stringify(this.state.doctorInfo),
+        "response"
+      );
       if (response.status !== 201) {
         throw new Error("Error");
       } else {
@@ -193,14 +194,13 @@ class SignUpDoctorsForm extends Component {
     } catch (error) {
       console.log(error);
     }
-   
   }
 
   validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
-  
+
   validatePhone(phoneNumber) {
     if (phoneNumber.length !== 10 || isNaN(phoneNumber)) {
       return false;

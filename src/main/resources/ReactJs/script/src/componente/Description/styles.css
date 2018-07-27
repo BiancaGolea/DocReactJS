@@ -1,17 +1,16 @@
-.divMainText{
-    width: 80%;
-    height: 100%;
-    margin-top: 20%;
-    margin-left: 12%;
+.divMainText {
+  width: 80%;
+  height: 100%;
+  margin-top: 20%;
+  margin-left: 12%;
 }
-.textDescription{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: large;
-    color: blanchedalmond;
+.textDescription {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: large;
+  color: blanchedalmond;
 }
-.textTitleDescription{
-    
-    font-size: large;
-    color: blanchedalmond;
-    font: bold;
+.textTitleDescription {
+  font-size: large;
+  color: blanchedalmond;
+  font: bold;
 }

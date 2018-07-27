@@ -4,13 +4,11 @@ import "bootstrap/dist/css/bootstrap-theme.css";
 import "./styles.css";
 import Rating from "react-rating";
 import { withRouter } from "react-router-dom";
-import avatar from '../../assets/avatar.png';
+import avatar from "../../assets/avatar.png";
 
-import stargrey from '../../assets/star-grey.png';
-import starred from '../../assets/star-red.png';
-import staryellow from '../../assets/star-yellow.png';
-
-
+import stargrey from "../../assets/star-grey.png";
+import starred from "../../assets/star-red.png";
+import staryellow from "../../assets/star-yellow.png";
 
 class OfficeCard extends Component {
   render() {
@@ -21,27 +19,9 @@ class OfficeCard extends Component {
 
           <Rating
             placeholderRating={3.88}
-            emptySymbol={
-              <img
-              alt="img"
-                src={stargrey}
-                className="icon"
-              />
-            }
-            placeholderSymbol={
-              <img
-              alt="img"
-                src={starred}
-                className="icon"
-              />
-            }
-            fullSymbol={
-              <img
-              alt="img"
-                src={staryellow}
-                className="icon"
-              />
-            }
+            emptySymbol={<img alt="img" src={stargrey} className="icon" />}
+            placeholderSymbol={<img alt="img" src={starred} className="icon" />}
+            fullSymbol={<img alt="img" src={staryellow} className="icon" />}
             readonly={true}
           />
         </div>
@@ -60,7 +40,7 @@ class OfficeCard extends Component {
     );
   }
   onClick(id) {
-    console.log(id+"------------")
+    console.log(id + "------------");
     this.props.history.push({
       pathname: "/office",
       state: { detail: id }
@@ -68,4 +48,4 @@ class OfficeCard extends Component {
   }
 }
 
-export default (withRouter(OfficeCard));
+export default withRouter(OfficeCard);

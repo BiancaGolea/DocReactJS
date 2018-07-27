@@ -2,7 +2,7 @@ import Constants from "../Constants";
 import Api from "../../Api/Api";
 
 export default function specializationsAction(token) {
-  return async function (dispach) {
+  return async function(dispach) {
     dispach({
       type: Constants.GET_SPECIALIZATIONS_IN_PROGRESS
     });
@@ -12,7 +12,7 @@ export default function specializationsAction(token) {
         headers: {
           Authorization: token,
           "Content-Type": "application/json"
-        },
+        }
       });
       const json = await resp.json();
       if (json == null || resp.status !== 200) {

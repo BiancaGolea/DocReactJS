@@ -1,37 +1,35 @@
-.divMainReviewForm{
-    margin-left: 15%;
-    background-color: rgba(72, 116, 101, 0.842);
-    height: 70vh;
-    margin-right: 15%;
-    border-radius: 5%;
-    padding: 2%;
-    margin-top: 4.5%;
+.divMainReviewForm {
+  margin-left: 15%;
+  background-color: rgba(72, 116, 101, 0.842);
+  height: 70vh;
+  margin-right: 15%;
+  border-radius: 5%;
+  padding: 2%;
+  margin-top: 4.5%;
 }
-.divTextComment{
-    width: 100%;
-    padding: 3%;
-    margin-left: 15%;
-
+.divTextComment {
+  width: 100%;
+  padding: 3%;
+  margin-left: 15%;
 }
-.divGradeRating{
-width: 20%;
-
+.divGradeRating {
+  width: 20%;
 }
-.pTitleGradeRating{
-    font-weight: bold;
+.pTitleGradeRating {
+  font-weight: bold;
 }
-.styleDivComments{
-    width: 60%;
-    margin-right: 20%;
+.styleDivComments {
+  width: 60%;
+  margin-right: 20%;
 }
-.divStyleButton{
-        margin-left: 40%;
-    width: 12%;
-    height: 8%;
-    margin-top: 5%;
+.divStyleButton {
+  margin-left: 40%;
+  width: 12%;
+  height: 8%;
+  margin-top: 5%;
 }
-.styleIcon{
-    width: 50%;
-    height: 50%;
-    margin-left: 4%;
+.styleIcon {
+  width: 50%;
+  height: 50%;
+  margin-left: 4%;
 }

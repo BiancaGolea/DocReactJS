@@ -14,166 +14,206 @@ import Slide from "material-ui/transitions/Slide";
 import TextareaAutosize from "react-autosize-textarea";
 import NumericInput from "react-numeric-input";
 import red from "material-ui/colors/red";
-import Icon from 'material-ui/Icon';
+import Icon from "material-ui/Icon";
 import addReviewUrl from "../../Api/Api";
-import click from '../../assets/click.png';
-
-
+import click from "../../assets/click.png";
 
 class ReviewForm extends Component {
-    constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
-      description:null,
-      gradeDocServices:1,
-      gradeEquipment:1,
-      gradePrice:1,
-      gradeLookOffice:1,
-      gradeLocation:1,
+      description: null,
+      gradeDocServices: 1,
+      gradeEquipment: 1,
+      gradePrice: 1,
+      gradeLookOffice: 1,
+      gradeLocation: 1,
       inProgress: false,
       reviewSuccess: false,
-      reviewError:false,
+      reviewError: false
     };
-    }
-  
+  }
+
   render() {
-    console.log(this.state.reviewSuccess)
+    console.log(this.state.reviewSuccess);
     return (
-      
       <div className="divMainReviewForm">
-      {this.state.reviewSuccess && (
-        <Dialog
-        open={this.state.reviewSuccess}
-        transition={Transition}
-        keepMounted
-        onClose={this.handleClose}
-        aria-labelledby="alert-dialog-slide-title"
-        aria-describedby="alert-dialog-slide-description"
-      >
-        <DialogTitle className="divDialog" id="alert-dialog-slide-title">
-          {"Thank you!"}
-        </DialogTitle>
-        <DialogTitle className="divDialog" id="alert-dialog-slide-title">
-          {"Your review has been registered!"}
-        </DialogTitle>
-        <DialogActions>
-          <Button  className="divDialog" onClick={this.handleClose} color="primary">
-            OK
-          </Button>
-        </DialogActions>
-      </Dialog>
-      )}
-      {this.state.reviewError && (
-        <Dialog
-        open={this.state.reviewError}
-        transition={Transition}
-        keepMounted
-        onClose={this.handleClose}
-        aria-labelledby="alert-dialog-slide-title"
-        aria-describedby="alert-dialog-slide-description"
-      >
-        <DialogTitle className="divDialog" id="alert-dialog-slide-title">
-          {"Sorry!"}
-        </DialogTitle>
-        <DialogTitle className="divDialog" id="alert-dialog-slide-title">
-          {"Your review has not been registered. Try again!"}
-        </DialogTitle>
-        <DialogActions>
-          <Button  className="divDialog" onClick={this.handleClose} color="primary">
-            OK
-          </Button>
-        </DialogActions>
-      </Dialog>
-      )}
+        {this.state.reviewSuccess && (
+          <Dialog
+            open={this.state.reviewSuccess}
+            transition={Transition}
+            keepMounted
+            onClose={this.handleClose}
+            aria-labelledby="alert-dialog-slide-title"
+            aria-describedby="alert-dialog-slide-description"
+          >
+            <DialogTitle className="divDialog" id="alert-dialog-slide-title">
+              {"Thank you!"}
+            </DialogTitle>
+            <DialogTitle className="divDialog" id="alert-dialog-slide-title">
+              {"Your review has been registered!"}
+            </DialogTitle>
+            <DialogActions>
+              <Button
+                className="divDialog"
+                onClick={this.handleClose}
+                color="primary"
+              >
+                OK
+              </Button>
+            </DialogActions>
+          </Dialog>
+        )}
+        {this.state.reviewError && (
+          <Dialog
+            open={this.state.reviewError}
+            transition={Transition}
+            keepMounted
+            onClose={this.handleClose}
+            aria-labelledby="alert-dialog-slide-title"
+            aria-describedby="alert-dialog-slide-description"
+          >
+            <DialogTitle className="divDialog" id="alert-dialog-slide-title">
+              {"Sorry!"}
+            </DialogTitle>
+            <DialogTitle className="divDialog" id="alert-dialog-slide-title">
+              {"Your review has not been registered. Try again!"}
+            </DialogTitle>
+            <DialogActions>
+              <Button
+                className="divDialog"
+                onClick={this.handleClose}
+                color="primary"
+              >
+                OK
+              </Button>
+            </DialogActions>
+          </Dialog>
+        )}
         <label className="divTextComment">
-         You want to say something?
-          <div >
-            <TextareaAutosize className="styleDivComments"  rows={5}  placeholder="Comment here"
-            onChange={(event)=>this.setState({
-              description: event.target.value,
-            })
-            }
-             />
+          You want to say something?
+          <div>
+            <TextareaAutosize
+              className="styleDivComments"
+              rows={5}
+              placeholder="Comment here"
+              onChange={event =>
+                this.setState({
+                  description: event.target.value
+                })
+              }
+            />
           </div>
         </label>
         <p className="pTitleGradeRating">Grades for:</p>
 
         <label className="divGradeRating">
           Medical services:
-          <div >
-            <NumericInput className=" " min={1} max={10} value={this.state.gradeDocServices} size={1}
-             onChange={(event)=>this.setState({
-              gradeDocServices: event,
-            })
-            
-          }
+          <div>
+            <NumericInput
+              className=" "
+              min={1}
+              max={10}
+              value={this.state.gradeDocServices}
+              size={1}
+              onChange={event =>
+                this.setState({
+                  gradeDocServices: event
+                })
+              }
             />
           </div>
         </label>
         <label className="divGradeRating">
           Equipment:
-          <div >
-            <NumericInput className=" " min={1} max={10} value={this.state.gradeEquipment} size={1} 
-           onChange={(event)=>this.setState({
-            gradeEquipment: event,
-          })
-          }
+          <div>
+            <NumericInput
+              className=" "
+              min={1}
+              max={10}
+              value={this.state.gradeEquipment}
+              size={1}
+              onChange={event =>
+                this.setState({
+                  gradeEquipment: event
+                })
+              }
             />
           </div>
         </label>
 
         <label className="divGradeRating">
-         Service price:
-          <div >
-            <NumericInput className=" " min={1} max={10} value={this.state.gradePrice}  size={1} 
-          onChange={(event)=>this.setState({
-            gradePrice: event,
-          })
-          }
+          Service price:
+          <div>
+            <NumericInput
+              className=" "
+              min={1}
+              max={10}
+              value={this.state.gradePrice}
+              size={1}
+              onChange={event =>
+                this.setState({
+                  gradePrice: event
+                })
+              }
             />
           </div>
         </label>
 
-         <label className="divGradeRating">
+        <label className="divGradeRating">
           Office look:
-          <div >
-            <NumericInput className=" " min={1} max={10} value={this.state.gradeLookOffice}  size={1} 
-         onChange={(event)=>this.setState({
-          gradeLookOffice: event,
-        })
-        }
+          <div>
+            <NumericInput
+              className=" "
+              min={1}
+              max={10}
+              value={this.state.gradeLookOffice}
+              size={1}
+              onChange={event =>
+                this.setState({
+                  gradeLookOffice: event
+                })
+              }
             />
           </div>
         </label>
 
-         <label className="divGradeRating">
+        <label className="divGradeRating">
           Office location:
-          <div >
-            <NumericInput className=" " min={1} max={10} value={this.state.gradeLocation}  size={1} 
-          onChange={(event)=>this.setState({
-            gradeLocation: event,
-          })
-          }
+          <div>
+            <NumericInput
+              className=" "
+              min={1}
+              max={10}
+              value={this.state.gradeLocation}
+              size={1}
+              onChange={event =>
+                this.setState({
+                  gradeLocation: event
+                })
+              }
             />
           </div>
         </label>
         <div className="divStyleButton">
-        <Button
-            style={{fontSize:15 }}
+          <Button
+            style={{ fontSize: 15 }}
             size="large"
             variant="raised"
             disableripple="true"
             color="primary"
             onClick={() => this._onClickBtn()}
-            >
-              Send
-              <Icon><img src={click} className="styleIcon" alt="load"/></Icon>
-            </Button>
-            </div>
+          >
+            Send
+            <Icon>
+              <img src={click} className="styleIcon" alt="load" />
+            </Icon>
+          </Button>
+        </div>
       </div>
     );
   }
-  _onClickBtn(){
+  _onClickBtn() {
     this.setState({
       inProgress: true
     });
@@ -189,38 +229,37 @@ class ReviewForm extends Component {
       });
     }
   }
-  async _callApi(){
+  async _callApi() {
     try {
-      let today=new Date();
-      const resp= await fetch(addReviewUrl.addReviewUrl,{
+      let today = new Date();
+      const resp = await fetch(addReviewUrl.addReviewUrl, {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json", 
+          "Content-Type": "application/json",
           Authorization: this.props.token
         },
         body: JSON.stringify({
-          descriere:this.state.description,
-          notaAspectcab:this.state.gradeLookOffice,
-          notaAparatura:this.state.gradeEquipment,
-          notaPret:this.state.gradePrice,
-          notaLocatie:this.state.gradeLocation,
-          notaServmed:this.state.gradeDocServices,
-          username:this.props.username,
-          dataRecenzie:today.getTime(),
-          medic:{ idMed:this.props.idMed
+          descriere: this.state.description,
+          notaAspectcab: this.state.gradeLookOffice,
+          notaAparatura: this.state.gradeEquipment,
+          notaPret: this.state.gradePrice,
+          notaLocatie: this.state.gradeLocation,
+          notaServmed: this.state.gradeDocServices,
+          username: this.props.username,
+          dataRecenzie: today.getTime(),
+          medic: {
+            idMed: this.props.idMed
           }
         })
-      })
+      });
       if (resp.status !== 201) {
         throw new Error("recenzie error");
       }
       this.setState({
         reviewSuccess: true
       });
-      
     } catch (error) {
-
       console.log("Eroare --:" + error.message);
       this.setState({
         reviewError: true
@@ -228,10 +267,10 @@ class ReviewForm extends Component {
     }
   }
   handleClose = () => {
-    this.setState({ reviewSuccess: false, reviewError:false});
+    this.setState({ reviewSuccess: false, reviewError: false });
     this.props.history.push({
-      pathname: "/",
-    })
+      pathname: "/"
+    });
   };
 }
 function Transition(props) {

@@ -18,10 +18,8 @@ import Menu, { MenuItem } from "material-ui/Menu";
 import Icon from "material-ui/Icon";
 import Progress from "../../componente/Progress/index";
 import Api from "../../Api/Api";
-import click from '../../assets/click.png';
-import signup from '../../assets//signup.png';
-
-
+import click from "../../assets/click.png";
+import signup from "../../assets//signup.png";
 
 const options = ["10:00", "10:30", "11:00", "11:30", "12:00"];
 
@@ -66,7 +64,6 @@ class AppointmentsForm extends Component {
   };
 
   render() {
-   
     const { anchorEl } = this.state;
     if (this.state.inProgress) {
       return <Progress />;
@@ -102,17 +99,16 @@ class AppointmentsForm extends Component {
     }
     if (this.state.date === null) {
       return (
-        
         <div className="calendar">
           <Calendar
-          //  tileDisabled={(date) => date.getDay() === 1}
+            //  tileDisabled={(date) => date.getDay() === 1}
             onClickDay={date => {
               console.log(date.getDate() + "-" + (date.getMonth() + 1));
               this.setState({
                 date: date.getMonth() + 1 + "-" + date.getDate()
               });
             }}
-             tileDisabled={date => disableDates(date)}
+            tileDisabled={date => disableDates(date)}
             onChange={() => console.log("Calendar")}
             value={this.state.date}
           />
@@ -120,41 +116,36 @@ class AppointmentsForm extends Component {
       );
     }
 
-
-    if(this.state.appointmentError){
-      return(
+    if (this.state.appointmentError) {
+      return (
         <div>
-        <Dialog
-        open={this.state.appointmentError}
-        transition={Transition}
-        keepMounted
-        onClose={this.handleClose}
-        aria-labelledby="alert-dialog-slide-title"
-        aria-describedby="alert-dialog-slide-description"
-      >
-        <DialogTitle id="alert-dialog-slide-title">
-          {"Sorry!"}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-          It is possible the information 
-          The previously inserted data may be wrong! Please, complete the form again. Thank you!
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={this.handleClose} color="primary">
-            Continue
-          </Button>
-        </DialogActions>
-      </Dialog>
+          <Dialog
+            open={this.state.appointmentError}
+            transition={Transition}
+            keepMounted
+            onClose={this.handleClose}
+            aria-labelledby="alert-dialog-slide-title"
+            aria-describedby="alert-dialog-slide-description"
+          >
+            <DialogTitle id="alert-dialog-slide-title">{"Sorry!"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-slide-description">
+                It is possible the information The previously inserted data may
+                be wrong! Please, complete the form again. Thank you!
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.handleClose} color="primary">
+                Continue
+              </Button>
+            </DialogActions>
+          </Dialog>
         </div>
-
       );
     }
 
     return (
       <div className="divContent">
-
         <form className=" formStyle">
           <label className="labelStyles">
             {" "}
@@ -163,9 +154,7 @@ class AppointmentsForm extends Component {
               <input
                 type="username"
                 className="form-control"
-                placeholder={
-                  this.state.isNameUserError ? "Error message" : ""
-                }
+                placeholder={this.state.isNameUserError ? "Error message" : ""}
                 onChange={event =>
                   this.setState({
                     name: event.target.value,
@@ -178,9 +167,7 @@ class AppointmentsForm extends Component {
           <label className="labelStyles">
             {" "}
             LastName
-            <div
-              className={this.state.isLastnameUserError ? "inputError" : ""}
-            >
+            <div className={this.state.isLastnameUserError ? "inputError" : ""}>
               <input
                 type="name"
                 className="form-control"
@@ -201,7 +188,7 @@ class AppointmentsForm extends Component {
             E-mail
             <div className={this.state.isEmailError ? "inputError" : ""}>
               <input
-              id="test"
+                id="test"
                 type="email"
                 value={this.state.email}
                 className="form-control"
@@ -302,11 +289,7 @@ class AppointmentsForm extends Component {
             >
               Save
               <Icon>
-                <img
-                  src={signup}
-                  className="divImgAppointments"
-                  alt="load"
-                />
+                <img src={signup} className="divImgAppointments" alt="load" />
               </Icon>
             </Button>
           </div>
@@ -316,68 +299,64 @@ class AppointmentsForm extends Component {
   }
 
   _validateStates() {
-   
-  
     if (
-    this.state.name === null || this.state.name === "" ||
-    this.state.lastname === null || this.state.lastname === "" ||
-    this.state.phone === null || this.state.phone === "" ||
-    !this.validatePhone(this.state.phone) ||  
-    this.state.email === null || this.state.email=== "" ||
-    !this.validateEmail(this.state.email) ||
-    this.state.hour === null || this.state.hour === "" || 
-    this.state.date === null || this.state.date === ""
-    
-
-  ) {
+      this.state.name === null ||
+      this.state.name === "" ||
+      this.state.lastname === null ||
+      this.state.lastname === "" ||
+      this.state.phone === null ||
+      this.state.phone === "" ||
+      !this.validatePhone(this.state.phone) ||
+      this.state.email === null ||
+      this.state.email === "" ||
+      !this.validateEmail(this.state.email) ||
+      this.state.hour === null ||
+      this.state.hour === "" ||
+      this.state.date === null ||
+      this.state.date === ""
+    ) {
       return false;
-  }
-      return true;
-    
+    }
+    return true;
   }
 
   validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  
+
     return re.test(String(email).toLowerCase());
   }
   validatePhone(phone) {
-    if (phone===null ||phone.length !== 10 || isNaN(phone)) {
+    if (phone === null || phone.length !== 10 || isNaN(phone)) {
       return false;
     }
-  
+
     return true;
   }
- 
 
   _onSavePress() {
-   
-      if (this._validateStates()) {
-      
-        let conversionData =
-          this.state.date.length == 4 ? "0" + this.state.date : this.state.date;
-        let dateFormat =
-          "2018-" + conversionData + "T" + this.state.hour + ":00Z";
-        let dataTimestamp = new Date(dateFormat);
-        let appointment = {
-          data: dataTimestamp.getTime(),
-          nume: this.state.name,
-          prenume: this.state.lastname,
-          email: this.state.email,
-          nrtel: this.state.phone,
-          medic: {
-            idMed: this.props.idDoctor
-          }
-          
-        };
-        this._callAPI(appointment);
-      } else{
-        this.setState({appointmentError:true})
-      }
+    if (this._validateStates()) {
+      let conversionData =
+        this.state.date.length == 4 ? "0" + this.state.date : this.state.date;
+      let dateFormat =
+        "2018-" + conversionData + "T" + this.state.hour + ":00Z";
+      let dataTimestamp = new Date(dateFormat);
+      let appointment = {
+        data: dataTimestamp.getTime(),
+        nume: this.state.name,
+        prenume: this.state.lastname,
+        email: this.state.email,
+        nrtel: this.state.phone,
+        medic: {
+          idMed: this.props.idDoctor
+        }
+      };
+      this._callAPI(appointment);
+    } else {
+      this.setState({ appointmentError: true });
+    }
   }
 
   async _callAPI(scheduleObj) {
-    
     this.setState({ inProgress: true });
     try {
       const resp = await fetch(Api.addAppointmentUrl, {
@@ -395,13 +374,13 @@ class AppointmentsForm extends Component {
           medic: scheduleObj.medic
         })
       });
-     
+
       if (resp.status !== 201) {
         throw new Error(JSON.stringify(resp));
       }
-      this.setState({ inProgress: false, appointmentSuccess:true });
+      this.setState({ inProgress: false, appointmentSuccess: true });
     } catch (error) {
-      this.setState({ appointmentError: true, inProgress:false});
+      this.setState({ appointmentError: true, inProgress: false });
     }
   }
 }
@@ -412,12 +391,14 @@ function Transition(props) {
 
 function disableDates(data) {
   let dataToday = new Date();
-  let timeCurrent=dataToday.getTime();
+  let timeCurrent = dataToday.getTime();
 
-   if (data.date.getDay() === 0 || data.date.getDay()=== 6 || data.date.getDate()===27 ||
-   data.date.getTime()<timeCurrent
-    ) 
-  {
+  if (
+    data.date.getDay() === 0 ||
+    data.date.getDay() === 6 ||
+    data.date.getDate() === 27 ||
+    data.date.getTime() < timeCurrent
+  ) {
     return true;
   }
   return false;
