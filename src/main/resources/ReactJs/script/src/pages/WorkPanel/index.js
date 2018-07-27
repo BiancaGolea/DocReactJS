@@ -22,10 +22,10 @@ var styles = {
     width: "36px",
     height: "30px",
     left: "40px",
-    top: "110px"
+    top: "10px"
   },
   bmBurgerBars: {
-    background: "#373a47"
+    background: "#d3d3ab"
   },
   bmCrossButton: {
     height: "30px",
@@ -78,7 +78,6 @@ class WorkPanel extends Component {
     ) {
       return (
         <div className="divBackgroundWorkPanel">
-          <SetSchedule />
           <p className="alertParagraphWorkPannel"> It working ...</p>
         </div>
       );
@@ -133,7 +132,15 @@ class WorkPanel extends Component {
         {this.state.showAppoimtments && (
           <Appointments appointments={this.props.appointments} />
         )}
-        {this.state.showServiceForm && <ServicesForm />}
+        <p className="styleTitleWorkPannel">Now you can set your schedule!</p>
+        {this.state.showServiceForm && (
+          <div className="divServiceForm">
+            <ServicesForm
+              token={this.props.authInfo.token}
+              idDoc={this.props.authInfo.idDoctor}
+            />
+          </div>
+        )}
         {this.state.showSetScheduleForm && <SetSchedule />}
       </div>
     );

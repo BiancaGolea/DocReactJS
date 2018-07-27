@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
 import { Button } from "react-bootstrap";
 import "./styles.css";
-import { withRouter } from "react-router-dom";
 import Dialog, {
   DialogActions,
   DialogContent,
@@ -16,58 +15,57 @@ import TimePicker from "./TimePickers";
 import Checkbox from "./CheckBox";
 import DaySchedule from "./DaySchedule";
 
-const items = ["Monday"];
-
+const items = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
 class SetSchedule extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      inputAdd: false,
+      inputDelete: false,
       addScheduleSuccess: false,
       addScheduleError: false,
       addDay: null,
-      scheduleHour: null
+      scheduleHour: null,
+      selectedInput: false
     };
   }
 
   componentWillMount = () => {
     this.selectedCheckboxes = new Set();
   };
-  toggleCheckbox = label => {
-    if (this.selectedCheckboxes.has(label)) {
-      this.selectedCheckboxes.delete(label);
+  toggleCheckbox = day => {
+    if (this.selectedCheckboxes.has(day)) {
+      this.selectedCheckboxes.delete(day);
+      this.setState({ inputDelete: true, inputAdd: false });
     } else {
-      this.selectedCheckboxes.add(label);
+      this.selectedCheckboxes.add(day);
+      this.setState({ inputAdd: true, inputDelete: false });
     }
   };
-  handleFormSubmit = formSubmitEvent => {
-    formSubmitEvent.preventDefault();
-
-    for (const checkbox of this.selectedCheckboxes) {
-      console.log(checkbox, "is selected.");
-    }
+  callback = hours => {
+    console.log(hours);
   };
 
-  createCheckbox = label => (
-    <Checkbox
-      label={label}
-      handleCheckboxChange={this.toggleCheckbox}
-      key={label}
-    />
-  );
+  handleFormSubmit() {
+    console.log("CALL API");
+  }
 
-  createCheckboxes = () => items.map(this.createCheckbox);
+  renderListDays() {
+    let listDays = [];
+    for (const day of this.selectedCheckboxes) {
+      listDays.push(<p>{day} "is selected"</p>);
+    }
+    return listDays;
+  }
+
   render() {
-    <div>
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12">
-            <form onSubmit={this.handleFormSubmit}>
-              {this.renderListDays()}
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>;
     return (
       <div>
         {this.state.addScheduleSuccess && (
@@ -122,41 +120,32 @@ class SetSchedule extends Component {
             </DialogActions>
           </Dialog>
         )}
+
         <div>
           <div className="container">
             <div className="row">
               <div className="col-sm-12">
                 <form onSubmit={this.handleFormSubmit}>
-                  {/* <DaySchedule /> */}
-                  {this.renderListDays()}
-
-                  {/* {this.createCheckboxes()}
-              from
-              <TimePicker/>
-              to
-              <TimePicker/>
-              <button className="btn btn-default" type="submit">Save</button> */}
+                  {items.map(item => (
+                    <DaySchedule
+                      handleCheckboxChange={this.toggleCheckbox}
+                      day={item}
+                      callback={this.callback}
+                    />
+                  ))}
+                  <button className="btn btn-default" type="submit">
+                    Save
+                  </button>
                 </form>
+                {this.renderListDays()}
               </div>
             </div>
           </div>
-
-          {/* <Button
-          bsSize="lg"
-          className="btnStyle"
-          // onClick={() => this.postServiceDate()}
-        >
-          Send
-        </Button> */}
         </div>
       </div>
     );
   }
 
-  renderListDays() {
-    let list = ["Monday", "Tuesday"].map(list => <DaySchedule day={list} />);
-    return list;
-  }
   handleClose = () => {
     this.setState({ addScheduleSuccess: false, addScheduleError: false });
     this.props.history.push({
@@ -169,4 +158,4 @@ function Transition(props) {
   return <Slide direction="up" {...props} />;
 }
 
-export default withRouter(SetSchedule);
+export default SetSchedule;
